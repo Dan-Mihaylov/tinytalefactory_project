@@ -1,2 +1,2 @@
 # tinytalefactory
-The idea is to create an AI generator for kids books, with images and a small story
+The idea is to create a generator for kids books that utilizes AI, with images and a small story
