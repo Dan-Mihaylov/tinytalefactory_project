@@ -1,5 +1,5 @@
 """
-ASGI config for tinytalefactory project.
+ASGI config for tinytalefactoryasd project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

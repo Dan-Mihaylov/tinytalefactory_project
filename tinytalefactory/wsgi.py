@@ -1,5 +1,5 @@
 """
-WSGI config for tinytalefactory project.
+WSGI config for tinytalefactoryasd project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
