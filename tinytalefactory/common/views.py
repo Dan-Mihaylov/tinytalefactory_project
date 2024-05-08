@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 
 
 def index(request):
+    return render(request)
 
-    return HttpResponse('<h1>It works!</h1>')
