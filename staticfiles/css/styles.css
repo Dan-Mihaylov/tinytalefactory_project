@@ -1,0 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+body {
+    background-color: #eee;
+    padding: 1em;
+    min-height: 100vh;
+    color: #333;
+}
+
+.hehe {
+    padding: 1em 4em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.1);
+    border: none;
+    background-color: #fff;
+}
+
+.hehe:hover {
+    background-color: #bbb;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.google-sign-in-container {
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.1);
+    padding: 2em;
+    text-align: center;
+    margin: 5em auto;
+}
+
+.google-sign-in-container p,
+.google-sign-in-container h1,
+.google-sign-in-container button {
+    margin: 1em;
+}
+
+.google-sign-in-container h1 {
+    font-size: 2.2em;
+    font-weight: 500;
+}
+
+.google-sign-in-container h1:after {
+    display: block;
+    margin: 0.5em auto;
+    content: "";
+    max-width: 100px;
+    border-bottom: 1px solid rgb(0,0,0,0.2);
+}
