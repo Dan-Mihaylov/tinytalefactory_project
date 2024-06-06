@@ -5,25 +5,30 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>
             {% block head_title %}
             {% endblock head_title %}
         </title>
         {% block extra_head %}
         {% endblock extra_head %}
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/allauth/allauth.css' %}">
     </head>
     <body>
         {% block body %}
             {% if messages %}
-                <div>
+                <div id="messages-container" class="messages-container">
                     <strong>{% trans "Messages:" %}</strong>
                     <ul>
                         {% for message in messages %}<li>{{ message }}</li>{% endfor %}
                     </ul>
+
+                    <button id="close-messages-button">
+                        x
+                    </button>
                 </div>
             {% endif %}
-            <div>
+            <div class="menu">
                 <strong>{% trans "Menu:" %}</strong>
                 <ul>
                     {% if user.is_authenticated %}
@@ -49,4 +54,23 @@
         {% block extra_body %}
         {% endblock extra_body %}
     </body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let closeButton = document.getElementById('close-messages-button');
+            if (closeButton) {
+                closeButton.addEventListener('click', function() {
+                    let messagesContainer = document.getElementById('messages-container');
+                    if (messagesContainer) {
+                        messagesContainer.style.transition = 'opacity 1s ease-out';
+                        messagesContainer.style.opacity = 0;
+                        setTimeout(function (){
+                           messagesContainer.style.display = 'none'; 
+                        }, 500);
+                    }
+                });
+            }
+        });        
+    </script>
+
 </html>

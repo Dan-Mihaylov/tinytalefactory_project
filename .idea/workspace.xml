@@ -5,109 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f369337c-924b-49b9-b59e-98b220604015" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/staticfiles/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/account_inactive.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/base_entrance.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/base_manage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/base_manage_email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/base_manage_password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/base_reauthenticate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/confirm_login_code.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/account_already_exists_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/account_already_exists_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/base_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/base_notification.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/email_changed_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/email_changed_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/email_confirm_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/email_confirm_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/email_confirmation_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/email_confirmation_signup_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/email_confirmation_signup_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/email_confirmation_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/email_deleted_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/email_deleted_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/login_code_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/login_code_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/password_changed_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/password_changed_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/password_reset_key_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/password_reset_key_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/password_reset_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/password_reset_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/password_set_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/password_set_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/unknown_account_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email/unknown_account_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email_change.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/email_confirm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/messages/cannot_delete_primary_email.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/messages/email_confirmation_failed.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/messages/email_confirmation_sent.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/messages/email_confirmed.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/messages/email_deleted.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/messages/logged_in.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/messages/logged_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/messages/login_code_sent.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/messages/password_changed.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/messages/password_set.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/messages/primary_email_set.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/messages/unverified_primary_email.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/password_change.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/password_reset.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/password_reset_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/password_reset_from_key.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/password_reset_from_key_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/password_set.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/reauthenticate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/request_login_code.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/signup_closed.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/snippets/already_logged_in.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/snippets/warn_no_email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/verification_sent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/verified_email_required.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/alert.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/badge.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/button.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/field.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/fields.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/h1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/h2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/hr.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/img.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/panel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/provider.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/provider_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/elements/table.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/layouts/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/layouts/entrance.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/allauth/layouts/manage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/authentication_error.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/base_entrance.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/base_manage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/connections.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/email/account_connected_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/email/account_connected_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/email/account_disconnected_message.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/email/account_disconnected_subject.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/login_cancelled.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/login_redirect.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/messages/account_connected.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/messages/account_connected_other.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/messages/account_connected_updated.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/messages/account_disconnected.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/snippets/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/snippets/login_extra.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/socialaccount/snippets/provider_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tinytalefactory/allauth/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tinytalefactory/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tinytalefactory/users/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tinytalefactory/users/adapter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/css/allauth/allauth.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/css/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/css/typography.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/images/background-image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tinytalefactory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tinytalefactory.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/provider.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/allauth/elements/provider.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/allauth/layouts/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/allauth/layouts/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/socialaccount/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/socialaccount/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/socialaccount/snippets/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/socialaccount/snippets/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tinytalefactory/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/common/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tinytalefactory/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tinytalefactory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/urls.py" afterDir="false" />
@@ -123,6 +40,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="Python Script" />
         <option value="HTML File" />
       </list>
@@ -144,29 +62,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.manage.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/danie/OneDrive/Documents/tinytalefactory/templates&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.manage.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "last_opened_file_path": "C:/Users/danie/OneDrive/Documents/tinytalefactory/staticfiles/images",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\staticfiles\images" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\Tinytalefactory" />
     </key>
   </component>
   <component name="RunManager" selected="Python.manage">
@@ -247,7 +171,10 @@
       <workItem from="1715270173467" duration="79000" />
       <workItem from="1717165080279" duration="7069000" />
       <workItem from="1717359413665" duration="638000" />
-      <workItem from="1717361037436" duration="596000" />
+      <workItem from="1717361037436" duration="2392000" />
+      <workItem from="1717533964123" duration="15930000" />
+      <workItem from="1717597910510" duration="3130000" />
+      <workItem from="1717676073045" duration="6322000" />
     </task>
     <servers />
   </component>

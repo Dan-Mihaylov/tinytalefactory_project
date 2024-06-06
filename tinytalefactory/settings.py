@@ -108,3 +108,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# allauth configurations
+ACCOUNT_ADAPTER = 'Tinytalefactory.users.adapter.RedirectToIndexAdapter'
+ACCOUNT_FORMS = {'login': 'Tinytalefactory.forms.CustomLoginForm'}

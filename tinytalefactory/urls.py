@@ -6,3 +6,4 @@ urlpatterns = [
     path('account/', include('allauth.urls')),
     path('', include('Tinytalefactory.common.urls')),
 ]
+
