@@ -1,10 +1,17 @@
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+
+from django.urls import reverse_lazy
+
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-@j@5i%ii(w64vc5&t11jh1p*-o-^i#ll^!^gf1d#nevzem25+-'
+SECRET_KEY = os.getenv('SECRET_KEY', 'DjangoSecretKey')
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG', False)
 
 ALLOWED_HOSTS = []
 
@@ -76,7 +83,6 @@ DATABASES = {
     }
 }
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -92,23 +98,41 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
-#
+
+# Static | Media files configurations
 STATIC_URL = 'staticfiles/'
 STATICFILES_DIRS = [BASE_DIR / 'staticfiles/']
-#
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_EMAIL')
+EMAIL_HOST = 'live.smtp.mailtrap.io'
+EMAIL_HOST_USER = 'api'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+
+# Login | Logout default configurations
+LOGIN_REDIRECT_URL = reverse_lazy('account_login')
+LOGIN_URL = reverse_lazy('account_login')
+LOGOUT_URL = reverse_lazy('account_logout')
+
+
 # allauth configurations
 ACCOUNT_ADAPTER = 'Tinytalefactory.users.adapter.RedirectToIndexAdapter'
-ACCOUNT_FORMS = {'login': 'Tinytalefactory.forms.CustomLoginForm'}
+ACCOUNT_FORMS = {
+    'login': 'Tinytalefactory.allauth.forms.CustomLoginForm',
+    'add_email': 'Tinytalefactory.allauth.forms.CustomAddEmailForm',
+    'set_password': 'Tinytalefactory.allauth.forms.CustomSetPasswordForm',
+    'change_password': 'Tinytalefactory.allauth.forms.CustomChangePasswordForm',
+    'reset_password': 'Tinytalefactory.allauth.forms.CustomResetPasswordForm',
+    'reset_password_from_key': 'Tinytalefactory.allauth.forms.CustomResetPasswordKeyForm',
+}

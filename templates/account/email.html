@@ -4,6 +4,8 @@
     {% trans "Email Addresses" %}
 {% endblock head_title %}
 {% block content %}
+    <div class="container">
+    <div class="left-nested-container">
     {% element h1 %}
         {% trans "Email Addresses" %}
     {% endelement %}
@@ -37,27 +39,31 @@
                     {% endwith %}
                 {% endfor %}
             {% endslot %}
-            {% slot actions %}
-                {% element button type="submit" name="action_primary" %}
-                    {% trans 'Make Primary' %}
-                {% endelement %}
-                {% element button tags="secondary" type="submit" name="action_send" %}
-                    {% trans 'Re-send Verification' %}
-                {% endelement %}
-                {% element button tags="danger,delete" type="submit" name="action_remove" %}
-                    {% trans 'Remove' %}
-                {% endelement %}
-            {% endslot %}
+                {% slot actions %}
+                    <div class="buttons-container">
+                    {% element button type="submit" name="action_primary" class="main-button" %}
+                        {% trans 'Make Primary' %}
+                    {% endelement %}
+                    {% element button tags="secondary" type="submit" name="action_send" class="main-button" %}
+                        {% trans 'Re-send Verification' %}
+                    {% endelement %}
+                    {% element button tags="danger,delete" type="submit" name="action_remove" class="danger-button" %}
+                        {% trans 'Remove' %}
+                    {% endelement %}
+                    </div>
+                {% endslot %}
+            
         {% endelement %}
     {% else %}
         {% include "account/snippets/warn_no_email.html" %}
     {% endif %}
+    </div>
     {% if can_add_email %}
-        {% element h2 %}
-            {% trans "Add Email Address" %}
-        {% endelement %}
+        <div class="right-nested-container">
+        <h2 class="add-email-header">Add Email Address</h2>
+        
         {% url 'account_email' as action_url %}
-        {% element form form=form method="post" action=action_url %}
+        {% element form form=form method="post" action=action_url class="add-email-form" %}
             {% slot body %}
                 {% csrf_token %}
                 {% element fields form=form %}
@@ -65,12 +71,14 @@
             {% endslot %}
             befac
             {% slot actions %}
-                {% element button name="action_add" type="submit" %}
+                {% element button name="action_add" type="submit" class="main-button" %}
                     {% trans "Add Email" %}
                 {% endelement %}
             {% endslot %}
         {% endelement %}
+        </div>
     {% endif %}
+    </div>
 {% endblock content %}
 {% block extra_body %}
     <script type="text/javascript">

@@ -4,6 +4,8 @@
     {% trans "Sign Out" %}
 {% endblock head_title %}
 {% block content %}
+    <div class="container">
+    <div class="nested-container-100-width">
     {% element h1 %}
         {% trans "Sign Out" %}
     {% endelement %}
@@ -15,9 +17,11 @@
             {{ redirect_field }}
         {% endslot %}
         {% slot actions %}
-            {% element button type="submit" %}
+            {% element button type="submit" class="main-button" %}
                 {% trans 'Sign Out' %}
             {% endelement %}
         {% endslot %}
     {% endelement %}
+    </div>
+    </div>
 {% endblock content %}
