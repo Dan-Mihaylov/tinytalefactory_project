@@ -51,10 +51,13 @@ body {
     display: flex;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 1em;
     border-radius: 0.3em;
     box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
     font-size: 1.2em;
+}
+
+.menu strong {
+    padding: 1em;
 }
 
 .menu ul {
@@ -65,17 +68,25 @@ body {
 
 .menu li {
     display: inline-block;
-    transition: border-bottom-color ease-in-out 0.3s;
-    border-bottom: 1px solid #fff;
 }
 
+.menu ul li a {
+    display: block;
+    padding: 1em;
+    color: #444;
+    transition: background-color ease-in-out 0.3s, color ease-in-out 0.3s;
+    min-width: 8em;
+    text-align: center;
+}
 
-.menu li:hover {
-    border-bottom: 1px solid darkorange;
+.menu ul li a:hover {
+    background-color: orange;
+    color: #fff;
 }
-.menu li:first-child {
-    margin: 0 2em;
-}
+
+/*.menu li:first-child {*/
+/*    margin: 0 2em;*/
+/*}*/
 
 a {
     text-decoration: none;
@@ -101,15 +112,19 @@ a:visited {
 
 }
 
-.left-login {
+.left-nested-container {
     display: flex;
     flex-direction: column;
     flex: 1 1 70%;
 }
 
-.left-login form p {
+.left-nested-container form p {
     text-align: left;
     padding: 0.5em;
+}
+
+.left-nested-container form[action="/account/3rdparty/"] p {
+    text-align: center;
 }
 
 .main-button {
@@ -129,33 +144,90 @@ a:visited {
     box-shadow: 0 0.1em 0.5em 0 rgb(0,0,0,0.3);
 }
 
-.left-login form p label {
+.danger-button {
+    margin: 1em 0;
+    padding: 1em 3em;
+    background-color: #fff;
+    border-radius: 0.3em;
+    border: none;
+    box-shadow: 0 0.1em 0.5em 0 rgb(0,0,0,0.1);
+    transition: background-color ease-in-out 0.3s, color ease-in-out 0.3s;
+}
+
+.danger-button:hover {
+    cursor: pointer;
+    background-color: firebrick;
+    color: #fff;
+    box-shadow: 0 0.1em 0.5em 0 rgb(0,0,0,0.3);
+}
+
+.buttons-container {
+    display: flex;
+    gap: 1em;
+    padding: 1em;
+}
+
+.left-nested-container form p label {
     width: 100%;
 }
 
+.left-nested-container form[action="/account/email/"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.right-nested-container form[action="/account/email/"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-.right-login {
+.right-nested-container form[action="/account/email/"] {
+    flex-grow: 1;
+    padding: 0;
+}
+
+.right-nested-container form[action="/account/email/"] p {
+    text-align: left;
+}
+
+.right-nested-container .form-control {
+    font-size: 1em;
+}
+
+.right-nested-container {
+    display: flex;
+    flex-direction: column;
     border-left: 1px solid rgb(0,0,0,0.1);
+    padding-left: 1rem;
 }
 
-.right-login li {
+.right-nested-container li {
     list-style-type: none;
+    margin-top: 3em;
 }
 
 
-.right-login a img {
+.right-nested-container a img {
     border-radius: 50%;
     box-shadow: 0 0 1em 0 rgb(0,0,0,0.1);
     transition: background-color ease-in-out 0.3s;
 }
 
-.right-login a img:hover {
+.right-nested-container a img:hover {
     background-color: lightblue;
 }
 
+.add-email-header {
+    font-size: 2.2rem;
+}
 
-.form-control {
+
+.form-control,
+input[name="password"] {
     padding: 0.5em;
     font-size: 1.2em;
     color: #444;
@@ -166,7 +238,8 @@ a:visited {
     box-shadow: 0 0 0.5em 0 rgb(80,80,80,0.1);
 }
 
-.form-control:focus-visible {
+.form-control:focus-visible,
+input[name="password"]:focus-visible {
     outline: 2px solid darkorange;
 }
 
@@ -179,18 +252,91 @@ a:visited {
     margin-left: 0.5em;
 }
 
-.google-sign-in-container {
+.nested-container-100-width {
     display: block;
     font-weight: lighter;
     width: 100%;
 }
 
-@media screen and (max-width: 600px) {
+.nested-container-60-width {
+    display: block;
+    font-weight: lighter;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.nested-container-60-width p,
+.nested-container-60-width li {
+    text-align: left;
+}
+
+.nested-container-60-width ul {
+    list-style-type: none;
+    color: #666;
+    padding: 0;
+}
+
+.nested-container-60-width .errorlist {
+    color: #f66;
+    margin-bottom: 1em;
+}
+
+.reset-password-link {
+    display: block;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 800px) {
     .container {
         flex-direction: column;
     }
 
-    .right-login {
+    .right-nested-container {
         border-left: none;
+    }
+
+    .right-nested-container form[action="/account/email/"] {
+        align-items: normal;
+    }
+
+    .right-nested-container .form-control {
+        font-size: 1.2em;
+    width: 100%
+    }
+
+    .right-nested-container h2::after {
+        display: block;
+        content: '';
+        background-color: #eee;
+        border-bottom: 1px solid #ddd;
+        margin: 2rem auto 1rem auto;
+        max-width: 8rem;
+    }
+
+    .left-nested-container h1::after {
+        display: block;
+        content: '';
+        background-color: #eee;
+        border-bottom: 1px solid #ddd;
+        margin: 2rem auto 1rem auto;
+        max-width: 8rem;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .buttons-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .buttons-container button {
+        margin: 0;
+        width: 100%;
+    }
+
+    .nested-container-60-width {
+        width: 100%;
     }
 }
