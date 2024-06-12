@@ -6,12 +6,37 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Header 1</h1>
-    <h2>Header 2</h2>
-    <h3>Header 3</h3>
-    <h4>Header 4</h4>
-    <h5>Header 5</h5>
-    <h6>Header 6</h6>
+
+    <div class="site">
+    
+    <div class="content-header-container">
+        <h1>Some Cheeky Header</h1>
+        <p>Explanation about what you can do with this website I guess</p>
+    </div>
+    
+    <main>
+        <a class="card" href="#">
+            <div class="media">
+                <img src="{% static 'images/kids-playing-white-bg.jpg' %}" alt="img1">
+            </div>
+            <div class="text">
+            <h4>Recreating memorable moments</h4>
+            <p>Making those memories extra special with generative AI animated booklet</p>
+            </div>
+        </a>
+        
+        <a class="card" href="#">
+            <div class="media">
+                <img src="{% static 'images/kids-playing-white-bg (2).jpg' %}" alt="img1">
+            </div>
+            <div class="text">
+            <h4>Recreating memorable moments</h4>
+            <p>Making those memories extra special with generative AI animated booklet</p>
+            </div>
+        </a>
+    </main>
+    
+    </div>
     
     
 {% endblock %}

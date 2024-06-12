@@ -1,0 +1,31 @@
+{% load static %}
+
+<header>
+    
+    <h1>Tiny Tale Factory</h1>
+    
+    <nav class="navigation">
+        <ul>
+            <li><a href="#">Home</a></li>
+            {% if not user.is_authenticated %}
+                <li><a href="{% url 'account_login' %}">Login</a></li>
+            {% else %}
+                <li><a href="#">Account</a></li>
+                <li><a href="{% url 'account_logout' %}">Logout</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+
+{% if messages %}
+    <div id="messages-container" class="messages-container">
+        <strong>Mesages</strong>
+        <ul>
+            {% for message in messages %}<li>{{ message }}</li>{% endfor %}
+        </ul>
+
+        <button id="close-messages-button">
+            x
+        </button>
+    </div>
+{% endif %}

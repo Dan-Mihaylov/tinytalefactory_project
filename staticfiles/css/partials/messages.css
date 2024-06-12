@@ -1,0 +1,33 @@
+.messages-container {
+    background-color: #fff;
+    max-width: 900px;
+    margin: 1em auto;
+    border-radius: 0.3em;
+    padding: 1em;
+    position: relative;
+    overflow: hidden;
+    color: #666;
+}
+
+.messages-container ul {
+    padding-bottom: 0;
+}
+
+.messages-container button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0.5em 0.8em;
+    border: none;
+    cursor: pointer;
+    background-color: orange;
+    color: #fff;
+    border-radius: 0 0.3em 0 0.3em;
+    box-shadow: -2px 0 0.3em 0 rgb(0,0,0,0.2);
+    transition: background-color ease-in 0.3s, color ease-in 0.3s;
+}
+
+.messages-container button:hover {
+    background-color: darkorange;
+    color: #333;
+}

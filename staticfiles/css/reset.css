@@ -5,13 +5,8 @@
 }
 
 body {
-    background-color: #eee;
+    background-color: #f2f2f2;
     padding: 1em;
     min-height: 100vh;
-    color: #333;
-}
-
-.site {
-    height: 100%;
-    background-color: #fff;
+    color: #444;
 }

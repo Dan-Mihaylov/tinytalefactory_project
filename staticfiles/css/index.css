@@ -1,0 +1,56 @@
+.site {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.content-header-container {
+    text-align: center;
+    padding: 2rem;
+    margin: 5em 0;
+}
+
+.content-header-container p {
+    font-size: 1.2em;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: space-between;
+}
+
+.card {
+    max-width: 460px;
+    overflow: hidden;
+    border-radius: 0.2em;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: inherit;
+    background-color: #fff;
+    transition: box-shadow ease-in 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.3);
+}
+
+.card .media {
+    max-height: 300px;
+}
+
+.card .media img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.text {
+    padding: 1em 2em;
+    text-align: center;
+}
+
+.text p {
+    color: #666
+}
