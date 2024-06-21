@@ -22,6 +22,7 @@ main {
 
 .card {
     max-width: 460px;
+    flex: 1 1 50%;
     overflow: hidden;
     border-radius: 0.2em;
     border: 1px solid #ddd;
@@ -29,6 +30,7 @@ main {
     color: inherit;
     background-color: #fff;
     transition: box-shadow ease-in 0.3s;
+    margin-bottom: 3em;
 }
 
 .card:hover {
@@ -53,4 +55,10 @@ main {
 
 .text p {
     color: #666
+}
+
+@media screen and (max-width: 980px) {
+    main {
+        justify-content: center;
+    }
 }

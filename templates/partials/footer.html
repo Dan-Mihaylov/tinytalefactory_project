@@ -1,0 +1,32 @@
+{% load static %}
+
+<footer>
+    
+    <div class="footer-content-container">
+        <div class="left-side">
+            <h4>Jump into a world of creativity and excitement, by creating a personalized kids book with us</h4>
+            <img src="{% static 'images/rabit-jump-02.gif' %}" alt="bounce">
+        </div>
+        
+        <div class="right-side">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Samples</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    {% if not user.is_authenticated %}
+                        <li><a href="{% url 'account_login' %}">Login</a></li>
+                        <li><a href="{% url 'account_signup' %}">Sign up</a></li>
+                    {% else %}
+                        <li><a href="#">Account</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            
+        </div>
+        
+        <p class="footer-copyright-p"><i class="fa-regular fa-copyright"></i> tinytailfactory.com</p>
+    </div>
+    
+</footer>

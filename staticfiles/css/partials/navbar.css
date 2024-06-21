@@ -1,4 +1,5 @@
 header {
+    position: relative;
     display: flex;
     justify-content: space-between;
     background-color: #fff;
@@ -8,6 +9,25 @@ header {
 
 header h1 {
     font-size: 2rem;
+    z-index: 2;
+}
+
+header img {
+    max-height: 2em;
+    position: absolute;
+    bottom: 0;
+    animation: 15s linear 0s infinite running boy-run;
+    z-index: 1;
+}
+
+@keyframes boy-run {
+  from {
+    transform: translateX(-3em);
+  }
+  to {
+    /* returns the sun to its default position */
+    transform: translateX(100vw);
+  }
 }
 
 .navigation {
@@ -15,6 +35,7 @@ header h1 {
     justify-content: center;
     align-items: center;
     padding: 0;
+    z-index: 2;
 }
 
 .navigation ul {

@@ -4,6 +4,9 @@
     {% trans "Signup" %}
 {% endblock head_title %}
 {% block content %}
+    
+    <div class="container">
+        <div class="left-nested-container">    
     {% element h1 %}
         {% trans "Sign Up" %}
     {% endelement %}
@@ -24,13 +27,17 @@
                 {{ redirect_field }}
             {% endslot %}
             {% slot actions %}
-                {% element button tags="prominent,signup" type="submit" %}
+                {% element button tags="prominent,signup" type="submit" class="main-button" %}
                     {% trans "Sign Up" %}
                 {% endelement %}
             {% endslot %}
         {% endelement %}
     {% endif %}
+        </div>
+    <div class="right-nested-container">
     {% if SOCIALACCOUNT_ENABLED %}
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
     {% endif %}
+    </div>
+    </div>
 {% endblock content %}

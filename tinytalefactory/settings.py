@@ -135,4 +135,5 @@ ACCOUNT_FORMS = {
     'change_password': 'Tinytalefactory.allauth.forms.CustomChangePasswordForm',
     'reset_password': 'Tinytalefactory.allauth.forms.CustomResetPasswordForm',
     'reset_password_from_key': 'Tinytalefactory.allauth.forms.CustomResetPasswordKeyForm',
+    'signup': 'Tinytalefactory.allauth.forms.CustomSignUpForm',
 }

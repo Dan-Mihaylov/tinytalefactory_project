@@ -325,6 +325,21 @@ input[name="password"]:focus-visible {
 
 }
 
+.left-nested-container form[action='/account/signup/'] li {
+    list-style-type: none;
+    text-align: left;
+    color: #666;
+    padding-left: 0.5em;
+}
+
+.left-nested-container form[action='/account/signup/'] ul {
+    padding-left: 0;
+}
+
+.left-nested-container form[action='/account/signup/'] .errorlist li {
+    color: #f66;
+}
+
 @media (max-width: 600px) {
     .buttons-container {
         flex-direction: column;
