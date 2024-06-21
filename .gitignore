@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+.env
+*.env
+
+# Idea
+.idea
+.idea/workspace.xml
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+
+# Django stuff:
+*.log
+*.pot
+
