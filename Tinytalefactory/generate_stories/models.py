@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.text import slugify
 
+from Tinytalefactory.common.models import AuditMixin
+
 
 user_model = get_user_model()
 
@@ -42,7 +44,7 @@ class Token(models.Model):
 
 
 # TODO: Create an AuditModelMixin (Created at, Edited at) and inherit.
-class Story(models.Model):
+class Story(AuditMixin, models.Model):
 
     user = models.ForeignKey(
         user_model,
@@ -68,10 +70,14 @@ class Story(models.Model):
     )
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
 
-        if not self.slug:
-            self.slug = slugify(f'{self.title}{self.id}')
+        if not self.pk or not self.slug:
+            result = super().save(*args, **kwargs)
+            self.slug = slugify(f'{self.title}-{self.pk}')
+            self.__class__.objects.filter(pk=self.pk).update(slug=self.slug)
+        else:
+            return super().save(*args, **kwargs)
+        return result
 
     def __str__(self):
         return self.slug

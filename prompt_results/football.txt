@@ -1,0 +1,3 @@
+User: what is football in 10 words?
+System: Football is a team sport played with a ball and goal.
+Tokens Used: 45

@@ -19,7 +19,7 @@ class Conversation:
         self.messages = [
             {
                 'role': 'system',
-                'content': 'You are a helpful assistant answering questions to the best of your anility.'
+                'content': 'You are a helpful assistant answering questions to the best of your ability.'
             }
         ]
         self.tokens_used = 0

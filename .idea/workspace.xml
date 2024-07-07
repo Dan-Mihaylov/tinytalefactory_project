@@ -5,18 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f369337c-924b-49b9-b59e-98b220604015" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/migrations/0002_rename_tokens_token_alter_story_user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_image_generation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_json_correct.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tinytalefactory/common/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/generate_stories/getting-started.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-convo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/prompt_results/first-convo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/migrations/0002_rename_tokens_token_alter_story_user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tinytalefactory/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tinytalefactory/common/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/common/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tinytalefactory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +32,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -53,32 +53,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.manage.executor": "Run",
-    "Python.test_image_generation.executor": "Run",
-    "Python.test_json_correct.executor": "Run",
-    "Python.tests.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "last_opened_file_path": "C:/Users/danie/OneDrive/Documents/tinytalefactory/staticfiles/images",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Markdown",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.manage.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_image_generation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_json_correct.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/danie/OneDrive/Documents/tinytalefactory/staticfiles/images&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Markdown&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\staticfiles\images" />
@@ -254,7 +254,9 @@
       <workItem from="1718976756671" duration="6032000" />
       <workItem from="1719049185196" duration="81000" />
       <workItem from="1720181288449" duration="10018000" />
-      <workItem from="1720195189495" duration="3972000" />
+      <workItem from="1720195189495" duration="6303000" />
+      <workItem from="1720222883660" duration="4187000" />
+      <workItem from="1720228358694" duration="442000" />
     </task>
     <servers />
   </component>
@@ -264,7 +266,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tinytalefactory$tests.coverage" NAME="tests Coverage Results" MODIFIED="1720184273521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1717771845573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tinytalefactory$test_json_correct.coverage" NAME="test_json_correct Coverage Results" MODIFIED="1720218283781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tinytalefactory$test_json_correct.coverage" NAME="test_json_correct Coverage Results" MODIFIED="1720223656901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_image_generation.coverage" NAME="test_image_generation Coverage Results" MODIFIED="1720185304486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
