@@ -7,8 +7,6 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Tinytalefactory.settings')
 django.setup()
 
 
-
-
 client = OpenAI()
 
 

@@ -5,19 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f369337c-924b-49b9-b59e-98b220604015" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tinytalefactory/common/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/generate_stories/getting-started.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tinytalefactory/ai_tools/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tinytalefactory/ai_tools/text-generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/migrations/0002_rename_tokens_token_alter_story_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tinytalefactory/common/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/common/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tinytalefactory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/allauth/allauth.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/allauth/allauth.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/partials/messages.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/partials/messages.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/reset.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generate_stories/getting-started.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/generate_stories/getting-started.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image_generation.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_image_generation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +29,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -257,6 +254,10 @@
       <workItem from="1720195189495" duration="6303000" />
       <workItem from="1720222883660" duration="4187000" />
       <workItem from="1720228358694" duration="442000" />
+      <workItem from="1720392311576" duration="847000" />
+      <workItem from="1720478668541" duration="1025000" />
+      <workItem from="1720551606092" duration="974000" />
+      <workItem from="1720649491316" duration="11366000" />
     </task>
     <servers />
   </component>

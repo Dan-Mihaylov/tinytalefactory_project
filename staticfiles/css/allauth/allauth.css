@@ -50,6 +50,7 @@ body {
     background-color: #fff;
     display: flex;
     max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
     border-radius: 0.3em;
     box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
@@ -103,6 +104,7 @@ a:visited {
     text-align: center;
     background-color: #fff;
     max-width: 1000px;
+    width: 100%;
     padding: 1em;
     box-sizing: border-box;
     margin: 2em auto;
@@ -302,7 +304,7 @@ input[name="password"]:focus-visible {
 
     .right-nested-container .form-control {
         font-size: 1.2em;
-    width: 100%
+        width: 100%
     }
 
     .right-nested-container h2::after {

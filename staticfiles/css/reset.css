@@ -9,4 +9,6 @@ body {
     padding: 1em;
     min-height: 100vh;
     color: #444;
+    display: flex;
+    flex-direction: column;
 }

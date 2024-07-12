@@ -7,12 +7,22 @@
 
 {% block content %}
 
-    <div class="site" style="min-height: 50vh;">
+    <div class="site" style="flex: 1 1 auto;">
 
-        <div class="header-container">
+        <main class="header-container">
             <h1>Getting started with generating customized kids stories.</h1>
             <p>A short intro to getting started</p>
-        </div>
+    
+            <div class="how-to-generate-story-container">
+                <h2>There are two ways to generate your story!</h2>
+
+                <ul>
+                    <li>Fill out a small questionary about your kids interests <a href="{% url 'generate-story-questionary' %}">here</a></li>
+                    <li>Only select the topic you want to create a story about <a href="#">here</a></li>
+                </ul>
+                
+            </div>
+        </main>
 
     </div>
 

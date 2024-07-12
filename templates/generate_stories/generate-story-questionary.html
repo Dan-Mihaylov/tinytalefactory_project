@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    TinyTaleFactory
+{% endblock %}
+
+{% block content %}
+
+    <div class="site" style="flex: 1 1 auto;">
+
+        <main class="header-container">
+            <h1>Fill out the questionary and click on generate to start creating a story.</h1>
+            <p>Fields marked with asterisk * are required</p>
+
+            <form class="questionary" action="{% url 'generate-story-questionary' %}" method="POST" style="width: 100%;">
+                {% csrf_token %}
+                
+                <div>
+                    <label for="name">Kids Name</label>
+                    <input type="text" id="name" name="name">
+                </div>
+
+                <div>
+                    <label for="appearance">Kids Appearance</label>
+                    <input type="text" id="appearance" name="appearance" placeholder="ex. Dark hair, dark eyes">
+                    <span>The better the description, the better AI generates the results.</span>
+                </div>
+
+                <div>
+                    <label for="about">Story About Info</label>
+                    <textarea name="story-about" id="about" cols="30" rows="10" placeholder="ex. Story about playing football with his friends"></textarea>
+                </div>
+
+                <div>
+                    <label for="special-emphasis">Special emphasis</label>
+                    <input type="text" name="special-emphasis" id="special-emphasis" placeholder="ex. Scoring the winning goal">
+                    <span>If you would like to emphasise something in the story enter it here.</span>
+                </div>
+                {# TODO: Fix styles #}
+                <div style="position: relative; z-index: 10;">
+                    <input type="submit" value="Submit Information" name="submit">
+                </div>
+            </form>
+
+
+
+        </main>
+
+    </div>
+
+{% endblock %}
