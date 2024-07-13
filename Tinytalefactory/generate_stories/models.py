@@ -60,7 +60,7 @@ class Story(AuditMixin, models.Model):
         blank=False,
     )
 
-    info = models.JSONField()
+    info = models.JSONField() # {'paragraphs': ['p1', 'p2'...], 'img_urls: ['url1', 'url2'...]}
 
     slug = models.SlugField(
         unique=True,

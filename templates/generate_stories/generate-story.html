@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    TinyTaleFactory
+{% endblock %}
+
+{% block content %}
+
+    <div class="site" style="flex: 1 1 auto;">
+
+        <main class="header-container">
+            <h1>Generated story</h1>
+            
+            {% if story_text %}
+                {% for paragraph in story_text %}
+                    <p>{{ paragraph }}</p>
+                {% endfor %}
+                
+                <p>Tokens used: {{ tokens_used }}</p>
+            {% endif %}
+        
+            {% if story_content %}
+                    {% for paragraph,img_url in story_content.items %}
+                        <img src="{{ img_url }}" alt="funny face">
+                        <p>{{ paragraph }}</p>
+                    {% endfor %}
+            {% endif %}
+        
+        </main>
+        
+    </div>
+{% endblock %}
