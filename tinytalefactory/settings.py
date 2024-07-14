@@ -15,6 +15,11 @@ DEBUG = os.getenv('DEBUG', False)
 
 ALLOWED_HOSTS = []
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    'https://127.0.0.1:8000',
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -26,6 +31,7 @@ INSTALLED_APPS = [
     # Third Party Apps
     'allauth',
     'allauth.account',
+    'rest_framework',
 
     # Optional -- requires install using `django-allauth[socialacocunt]`.
     'allauth.socialaccount',
@@ -34,6 +40,7 @@ INSTALLED_APPS = [
     # My apps
     'Tinytalefactory.common',
     'Tinytalefactory.generate_stories',
+    "Tinytalefactory.api",
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -141,4 +148,12 @@ ACCOUNT_FORMS = {
     'reset_password': 'Tinytalefactory.allauth.forms.CustomResetPasswordForm',
     'reset_password_from_key': 'Tinytalefactory.allauth.forms.CustomResetPasswordKeyForm',
     'signup': 'Tinytalefactory.allauth.forms.CustomSignUpForm',
+}
+
+
+# Django Rest Framework Configurations
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
 }
