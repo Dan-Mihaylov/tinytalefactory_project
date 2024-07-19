@@ -17,6 +17,11 @@
                 {% csrf_token %}
                 
                 <div>
+                    <label for="title">Story Title</label>
+                    <input type="text" name="title" id="title" placeholder="Story title">
+                </div>
+                
+                <div>
                     <label for="name">Kids Name</label>
                     <input type="text" id="name" name="name">
                 </div>
@@ -39,7 +44,7 @@
                 </div>
                 {# TODO: Fix styles #}
                 <div style="position: relative; z-index: 10;">
-                    <input type="submit" value="Submit Information" name="submit">
+                    <input type="submit" value="Submit Information" name="submit" id="button">
                 </div>
             </form>
 
@@ -48,5 +53,35 @@
         </main>
 
     </div>
+
+    <script>
+        document.getElementById('button').addEventListener('click', function(event) {
+            const storyTitle = document.getElementById('title').value;
+            const childName = document.getElementById('name').value;
+            const appearance = document.getElementById('appearance').value;
+            const storyAbout = document.getElementById('about').value;
+            const specialEmphasis = document.getElementById('special-emphasis').value;
+            
+            const urlQuery = 
+                `?name=${childName}&appearance=${appearance}&story-about=${storyAbout}
+                &special-emphasis=${specialEmphasis}&title=${storyTitle}`;
+                
+            event.preventDefault();
+            
+            const url =  `{% url 'api-generate-story' 'true' %}` + urlQuery;
+            console.log(url);
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data =>{
+                    console.log('Api Response:', data);
+                })
+                .catch(error=>{
+                    console.log('Error', error);
+                });
+        });
+    
+    
+    </script>
 
 {% endblock %}

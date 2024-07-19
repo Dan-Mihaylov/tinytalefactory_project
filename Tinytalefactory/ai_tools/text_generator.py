@@ -1,11 +1,11 @@
 from openai import OpenAI
-client = OpenAI()
+from .client_initializer import client
 # TODO: change count of paragraphs from 2 to 10
 
 
 class StoryGenerator:
 
-    def __init__(self, client: OpenAI):
+    def __init__(self):
         self.client = client
         self.model = 'gpt-3.5-turbo'
         self.prompt = [
@@ -15,7 +15,7 @@ class StoryGenerator:
                            'you more about their kid and the kids hobbies or a story that they want to create a fond '
                            'memory of, and you will be writing a 3 VERY SHORT paragraphs NO MORE THAN 60 WORDS EACH of'
                            ' a story which includes the '
-                           'information you have been provided. The paragraphs MUST BE SEPARATED BY A \\n symbol. '
+                           'information you have been provided. The paragraphs MUST BE SEPARATED BY A | symbol. '
                            'Make sure the story is cheerful towards the kid and '
                            'catchy to read.'
             }

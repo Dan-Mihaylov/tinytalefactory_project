@@ -14,3 +14,10 @@ class StoryAdmin(admin.ModelAdmin):
 @admin.register(models.Token)
 class TokensAdmin(admin.ModelAdmin):
     list_display = ['user', 'purchased_tokens', 'promotional_tokens']
+
+
+@admin.register(models.Usage)
+class UsageAdmin(admin.ModelAdmin):
+
+    list_display = ['id', 'user', 'created_at', 'total_tokens']
+    list_filter = ['created_at', 'user']

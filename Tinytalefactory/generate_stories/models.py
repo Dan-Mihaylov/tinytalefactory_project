@@ -2,6 +2,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.text import slugify
+from django.db.models import Sum
 
 from Tinytalefactory.common.models import AuditMixin
 
@@ -81,3 +82,28 @@ class Story(AuditMixin, models.Model):
 
     def __str__(self):
         return self.slug
+
+
+class Usage(AuditMixin, models.Model):
+    user = models.ForeignKey(
+        user_model,
+        on_delete=models.DO_NOTHING,
+        editable=False,
+        null=True,
+        blank=True,
+    )
+
+    total_tokens = models.PositiveIntegerField(
+        validators=[MinValueValidator(0)],
+        editable=False,
+        null=False,
+        blank=True,
+    )
+
+    @classmethod
+    def total_usage(cls):
+        return cls.objects.aggregate(Sum('total_tokens'))['total_tokens']
+
+    def __str__(self):
+        return f'{self.created_at} - {self.total_tokens}'
+

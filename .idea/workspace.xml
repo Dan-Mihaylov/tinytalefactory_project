@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f369337c-924b-49b9-b59e-98b220604015" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tinytalefactory/api/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tinytalefactory/api/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tinytalefactory/api/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tinytalefactory/ai_tools/client_initializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tinytalefactory/ai_tools/image_generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tinytalefactory/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tinytalefactory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/ai_tools/text_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/ai_tools/text_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generate_stories/generate-story-questionary.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/generate_stories/generate-story-questionary.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,6 +263,10 @@
       <workItem from="1720649491316" duration="11366000" />
       <workItem from="1720788813788" duration="11654000" />
       <workItem from="1720863210652" duration="6811000" />
+      <workItem from="1720995108063" duration="1287000" />
+      <workItem from="1721076435803" duration="695000" />
+      <workItem from="1721133092239" duration="5090000" />
+      <workItem from="1721308486325" duration="15625000" />
     </task>
     <servers />
   </component>
@@ -266,7 +275,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tinytalefactory$tests.coverage" NAME="tests Coverage Results" MODIFIED="1720184273521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1720878869282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1721393915864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_json_correct.coverage" NAME="test_json_correct Coverage Results" MODIFIED="1720223656901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_image_generation.coverage" NAME="test_image_generation Coverage Results" MODIFIED="1720185304486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
