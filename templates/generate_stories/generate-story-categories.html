@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    TinyTaleFactory
+{% endblock %}
+
+{% block content %}
+
+    <div class="site" style="flex: 1 1 auto;">
+
+        <main class="header-container">
+            <h1>You can choose the type of story you want to generate based on the category.</h1>
+
+            <ul>
+            {% for name, desc in categories_info.items %}
+                <div class="list-container">
+
+                    <p onclick="showDropdown(this)">{{ name }}</p>
+                    <p id="{{ name }}" style="display: none;">{{ desc }}</p>
+
+                    <button id="{{ name }}-button" style="display: none;" onclick="continueWithStory(this)">
+                        Continue
+                    </button>
+
+                    <form class="continue-form" style="display: none" id="{{ name }}-form">
+
+                        <div class="continue-form-field">
+                            <label for="{{ name }}-story-title">Story Title</label>
+                            <input type="text" name="{{ name }}-story-title" id="{{ name }}-story-title">
+                        </div>
+
+                        <div class="continue-form-field">
+                            <label for="{{ name }}-kid-name">Child Name</label>
+                            <input type="text" name="{{ name }}-kid-name" id="{{ name }}-kid-name">
+                        </div>
+
+                        <div class="continue-form-field">
+                            <input type="button" value="Generate Story" name="{{ name }}" onclick="generateFromCategory(this)">
+                        </div>
+
+                    </form>
+                </div>
+            {% endfor %}
+            </ul>
+
+
+
+
+        </main>
+
+    </div>
+
+    <script>
+        function showDropdown(element){
+            console.log('ELEMENT CLICKED');
+            const nameAttribute = element.textContent.trim();
+            const dropDown = document.getElementById(nameAttribute);
+            const generateButton = document.getElementById(nameAttribute + '-button');
+
+            dropDown.style.display === 'none' ? dropDown.style.display = 'block' : dropDown.style.display = 'none';
+            generateButton.style.display === 'none' ? generateButton.style.display = 'block' : generateButton.style.display = 'none';
+        }
+
+        function continueWithStory(element) {
+            const formId = element.id.replace('button', 'form');
+            const formElement = document.getElementById(formId);
+
+            formElement.style.display === 'none' ? formElement.style.display = 'block' : formElement.style.display = 'none';
+        }
+
+        function generateFromCategory(element){
+
+            {# TODO: Check if there is kid name or story Id to proceed, if there is none, display warning #}
+
+            catName = element.name;
+            console.log(catName);
+
+            const storyTitleId = catName + '-story-title';
+            const kidNameId = catName + '-kid-name';
+
+            const storyTitle = document.getElementById(storyTitleId).value;
+            const kidName = document.getElementById(kidNameId).value;
+
+            if (!storyTitle.trim() && !kidName.trim() ) {
+                console.log('nono pepi nono');
+                return
+            }
+
+            console.log(storyTitle);
+            console.log(kidName);
+            {#console.log('Generate Button Clicked');#}
+            {##}
+            {#const categoryName = Array#}
+            {#    .from(element.parentElement.children)[0]#}
+            {#    .textContent#}
+            {#    .replace(' ', '_')#}
+            {#    .toLowerCase();#}
+            {##}
+            {#console.log(categoryName);#}
+        }
+
+
+    </script>
+
+{#    <script>#}
+{#        document.getElementById('button').addEventListener('click', function(event) {#}
+{#            const storyTitle = document.getElementById('title').value;#}
+{#            const childName = document.getElementById('name').value;#}
+{#            const appearance = document.getElementById('appearance').value;#}
+{#            const storyAbout = document.getElementById('about').value;#}
+{#            const specialEmphasis = document.getElementById('special-emphasis').value;#}
+{#            #}
+{#            const urlQuery = #}
+{#                `?name=${childName}&appearance=${appearance}&story-about=${storyAbout}#}
+{#                &special-emphasis=${specialEmphasis}&title=${storyTitle}`;#}
+{#                #}
+{#            event.preventDefault();#}
+{#            #}
+{#            const url =  `{% url 'api-generate-story' 'true' %}` + urlQuery;#}
+{#            console.log(url);#}
+{#            #}
+{#            fetch(url)#}
+{#                .then(response => response.json())#}
+{#                .then(data =>{#}
+{#                    console.log('Api Response:', data);#}
+{#                })#}
+{#                .catch(error=>{#}
+{#                    console.log('Error', error);#}
+{#                });#}
+{#        });#}
+{#    </script>#}
+
+{% endblock %}

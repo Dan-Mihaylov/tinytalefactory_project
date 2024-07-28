@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from Tinytalefactory.api.serializers import StoriesForListSerializer, StoriesForCreateSerializer
-from Tinytalefactory.generate_stories.helpers import generate_story_from_questionary
+from Tinytalefactory.generate_stories.helpers import generate_story_from_questionary, generate_images_from_paragraphs
 from Tinytalefactory.generate_stories.models import Story, Usage
 
 
@@ -26,12 +26,10 @@ class StoryGenerateApi(APIView):
 
     permission_classes = [IsAuthenticated]
     serializer_class = StoriesForCreateSerializer
-    story_text = ''  # need to split it by | to receive a list of paragraphs
+    story_text = []
     story_title = ''
     tokens_used = 0
-    images_urls = [
-        'https://images.pexels.com/photos/6898860/pexels-photo-6898860.jpeg?auto=compress&cs=tinysrgb&w=800&h=460&dpr=1'
-                  ] * 3
+    images_urls = []
 
     def get(self, request, *args, **kwargs):
 
@@ -46,11 +44,12 @@ class StoryGenerateApi(APIView):
                 story_info['special-emphasis'],
             )
 
-            self.story_text = self._split_paragraph()
             self.story_title = story_info['title'] if story_info['title'] != '' else f'The story of {story_info["name"]}'
-            self._generate_images_for_each_paragraph()
-            # TODO: When creating story from categories, take json out
+            self._generate_images_for_each_paragraph(story_info['appearance'])
+            # TODO: When creating story from categories, take json out of if statement
             json = self._create_json_object()
+        else:
+            ...
 
         response = Response(json, status=status.HTTP_200_OK)
         if json == bad_response:
@@ -85,20 +84,18 @@ class StoryGenerateApi(APIView):
 
     # TODO: When text is split into paragraphs, feed each paragraph into image generator, and generate the images.
 
-    def _generate_images_for_each_paragraph(self):
-        ...
+    def _generate_images_for_each_paragraph(self, appearance=''):
+        for paragraph in self.story_text:
+            self.images_urls.append(generate_images_from_paragraphs(paragraph, appearance))
 
     def _create_json_object(self,):
         return {
-            "title": "Title-1",
+            "title": self.story_title,
             "info": {
-                "paragraphs": [p.strip() for p in self.story_text],
+                "paragraphs": self.story_text,
                 "urls": self.images_urls
             }
         }
-
-    def _split_paragraph(self):
-        return self.story_text.split('|')
 
     def _create_story(self, data):
         serializer = self.serializer_class(data=data)
