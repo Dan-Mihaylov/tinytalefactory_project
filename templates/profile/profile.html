@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    TinyTaleFactory
+{% endblock %}
+
+{% block content %}
+
+    <div class="profile-site-wrapper">
+
+        <div class="profile-wrapper-left">
+            {% url 'api-list-stories' %}
+        </div>
+
+        <div class="profile-wrapper-right">
+
+            <div class="stories-wrapper">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const url = `{% url 'api-list-stories' %}`;
+
+        function onLoad(){
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    data.forEach(story => {
+
+                    })
+                })
+        }
+
+        onLoad();
+
+
+
+    </script>
+
+{% endblock %}

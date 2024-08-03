@@ -12,9 +12,10 @@ class StoryGenerator:
                 'role': 'system',
                 'content': 'Act as a custom children books writer, where you will receive prompts from people, telling '
                            'you more about their kid and the kids hobbies or a story that they want to create a fond '
-                           'memory of, and you will be writing a 3 VERY SHORT paragraphs NO MORE THAN 60 WORDS EACH of'
+                           'memory of, and you will be writing a 4 VERY SHORT paragraphs NO MORE THAN 60 WORDS EACH of'
                            ' a story which includes the '
-                           'information you have been provided. The paragraphs MUST BE SEPARATED BY A | symbol. '
+                           'information you have been provided. MAKE SURE THERE ARE 4 PARAGRAPHS.'
+                           ' The paragraphs MUST BE SEPARATED BY A | symbol. '
                            'Make sure the story is cheerful towards the kid and '
                            'catchy to read.'
             }
@@ -44,6 +45,11 @@ class StoryGenerator:
 
     def generate_prompt_from_category(self, category: str):
 
+        create_title_prompt = (
+            ' Start with the title of the story, just a plain text for the title, MAKE SURE title ends with'
+            ' the separator " | ". Also make sure there are 4 PARAGRAPHS in total.'
+        )
+
         categories = {
             'adventure': Categories.ADVENTURE,
             'fantasy': Categories.FANTASY,
@@ -59,7 +65,7 @@ class StoryGenerator:
 
         self.prompt.append({
             'role': 'user',
-            'content': categories[category]
+            'content': categories[category] + create_title_prompt
         })
 
         return self.prompt

@@ -11,7 +11,7 @@
 }
 
 .left-side img {
-    max-width: 100%;
+    max-width: 40%;
     margin: -7em 0 -4em -6em;
     z-index: 1;
     position: absolute;

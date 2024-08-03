@@ -24,17 +24,14 @@
                     </button>
 
                     <form class="continue-form" style="display: none" id="{{ name }}-form">
-
+                        
                         <div class="continue-form-field">
-                            <label for="{{ name }}-story-title">Story Title</label>
-                            <input type="text" name="{{ name }}-story-title" id="{{ name }}-story-title">
+                            <p>
+                                This is to confirm that you are continuing generating a kid story from already
+                                pre-defined categories. Your tokens will be used against this generation.
+                            </p>
                         </div>
-
-                        <div class="continue-form-field">
-                            <label for="{{ name }}-kid-name">Child Name</label>
-                            <input type="text" name="{{ name }}-kid-name" id="{{ name }}-kid-name">
-                        </div>
-
+                        
                         <div class="continue-form-field">
                             <input type="button" value="Generate Story" name="{{ name }}" onclick="generateFromCategory(this)">
                         </div>
@@ -60,6 +57,7 @@
 
             dropDown.style.display === 'none' ? dropDown.style.display = 'block' : dropDown.style.display = 'none';
             generateButton.style.display === 'none' ? generateButton.style.display = 'block' : generateButton.style.display = 'none';
+            // TODO: When the final HTML is ready, on clicking the element, toggle the children's display mode as well
         }
 
         function continueWithStory(element) {
@@ -73,22 +71,20 @@
 
             {# TODO: Check if there is kid name or story Id to proceed, if there is none, display warning #}
 
-            catName = element.name;
+            catName = element.name.toLowerCase().split(' ').join('_');
             console.log(catName);
 
-            const storyTitleId = catName + '-story-title';
-            const kidNameId = catName + '-kid-name';
+            const urlQuery = `?category=${catName}`;
+            const url =  `{% url 'api-generate-story' 'false' %}` + urlQuery;
 
-            const storyTitle = document.getElementById(storyTitleId).value;
-            const kidName = document.getElementById(kidNameId).value;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => console.log('Json Response: ', data))
+                .catch(error => console.log('Error:', error));
+            
+            // TODO: When getting the response, check if valid, and if valid get link to show story.
 
-            if (!storyTitle.trim() && !kidName.trim() ) {
-                console.log('nono pepi nono');
-                return
-            }
 
-            console.log(storyTitle);
-            console.log(kidName);
             {#console.log('Generate Button Clicked');#}
             {##}
             {#const categoryName = Array#}
@@ -99,7 +95,6 @@
             {##}
             {#console.log(categoryName);#}
         }
-
 
     </script>
 

@@ -3,6 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.StoriesListCreateApi.as_view(), name='api-list-create-stories'),
-    path('generate/<str:from_questionary>/', views.StoryGenerateApi.as_view(), name='api-generate-story'),
+    path('list-stories/', views.StoriesListApiView.as_view(), name='api-list-stories'),
+    path('generate/<str:from_questionary>/', views.StoryGenerateApiView.as_view(), name='api-generate-story'),
 ]

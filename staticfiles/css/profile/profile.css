@@ -1,0 +1,11 @@
+.profile-site-wrapper {
+    width: 100%;
+    padding: 2em;
+    background-color: #ff6666;
+    margin: -1em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+

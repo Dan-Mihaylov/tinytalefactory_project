@@ -3,12 +3,19 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from Tinytalefactory.api.serializers import StoriesForListSerializer, StoriesForCreateSerializer
-from Tinytalefactory.generate_stories.helpers import generate_story_from_questionary, generate_images_from_paragraphs
+from Tinytalefactory.api.serializers import (
+    StoriesForListSerializer,
+    StoriesForCreateSerializer
+)
+from Tinytalefactory.generate_stories.helpers import (
+    generate_story_from_questionary,
+    generate_images_from_paragraphs,
+    generate_story_from_category
+)
 from Tinytalefactory.generate_stories.models import Story, Usage
 
 
-class StoriesListCreateApi(APIView):
+class StoriesListApiView(APIView):
     permission_classes = [IsAuthenticated]
     serializer_class = StoriesForListSerializer
 
@@ -22,7 +29,7 @@ class StoriesListCreateApi(APIView):
         return Response(json)
 
 
-class StoryGenerateApi(APIView):
+class StoryGenerateApiView(APIView):
 
     permission_classes = [IsAuthenticated]
     serializer_class = StoriesForCreateSerializer
@@ -35,9 +42,11 @@ class StoryGenerateApi(APIView):
 
         json = ["Something went wrong"]  # Default response
         bad_response = json
+        appearance = ''
 
         if self._check_if_generate_from_questionary():
             story_info = self._extract_story_details_from_get()
+            appearance = story_info['appearance']
             self.story_text, self.tokens_used = generate_story_from_questionary(
                 story_info['name'],
                 story_info['story-about'],
@@ -45,18 +54,27 @@ class StoryGenerateApi(APIView):
             )
 
             self.story_title = story_info['title'] if story_info['title'] != '' else f'The story of {story_info["name"]}'
-            self._generate_images_for_each_paragraph(story_info['appearance'])
-            # TODO: When creating story from categories, take json out of if statement
-            json = self._create_json_object()
         else:
-            ...
+            story_category = self._extract_story_category()
+            response_text_list, self.tokens_used = generate_story_from_category(story_category)
+            self._get_story_paragraphs_and_title_from_generate_from_questionary(response_text_list)
 
+        self._generate_images_for_each_paragraph(appearance)
+        json = self._create_json_object()
         response = Response(json, status=status.HTTP_200_OK)
+
         if json == bad_response:
             return response
         else:
             self._submit_tokens_used_info()
             return self._create_story(json)
+
+    def _extract_story_category(self):
+        return self.request.GET.get('category', '')
+
+    def _get_story_paragraphs_and_title_from_generate_from_questionary(self, response_text_list):
+        self.story_text = response_text_list[1::]
+        self.story_title = response_text_list[0]
 
     def _check_if_generate_from_questionary(self):
         return self.kwargs.get('from_questionary', 'false') == 'true'
@@ -99,6 +117,7 @@ class StoryGenerateApi(APIView):
 
     def _create_story(self, data):
         serializer = self.serializer_class(data=data)
+        # TODO: If valid - Take one token for story creation from user.
         if serializer.is_valid():
             serializer.validated_data['user'] = self.request.user
             serializer.save()
