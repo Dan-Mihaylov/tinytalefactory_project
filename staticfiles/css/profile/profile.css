@@ -1,11 +1,89 @@
 .profile-site-wrapper {
     width: 100%;
-    padding: 2em;
+    padding: 1em;
     background-color: #ff6666;
-    margin: -1em;
     display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    flex: 1 1 auto;
+}
+
+.profile-wrapper-left {
+    flex: 1 1 30%;
+    background-color: #dddddd;
+    min-height: 300px;
+}
+
+.profile-wrapper-right {
+    flex: 1 1 60%;
+    background-color: skyblue;
+    min-height: 300px;
+}
+
+.profile-card {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    background-color: #fff;
+    max-width: 30em;
+    overflow: hidden;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
+}
+
+#profile-settings {
+    color: #444;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 2em;
+    padding: 0.5em;
+}
+
+#profile-settings:hover {
+    background-color: darkorange;
+    cursor: pointer;
+    border-radius: 0 0 0 0.3em;
+    color: #eee;
+}
+
+.top-motive {
+    min-height: 5em;
+    background-color: orange;
+    flex: 1 1 100%;
+}
+
+.profile-image-container {
+    width: 6em;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 1em;
+    left: calc(50% - 3em);
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.3);
+}
+
+.profile-image-container img {
+    width: 100%;
+}
+
+.settings-options-wrapper {
+    display: none;
     flex-wrap: wrap;
 }
 
+.user-name-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 100%;
+    margin-top: 2em;
+}
 
+.user-info-wrapper {
+    display: flex;
+    flex: 1 1 100%;
+}
 

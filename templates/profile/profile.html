@@ -10,7 +10,35 @@
     <div class="profile-site-wrapper">
 
         <div class="profile-wrapper-left">
-            {% url 'api-list-stories' %}
+            
+            <div class="profile-card">
+                
+                <i id="profile-settings" class="fa-solid fa-gear"></i>
+                
+                <div class="top-motive"></div>
+                
+                <div class="profile-image-container">
+                    <img src="https://th.bing.com/th/id/OIG2.HxUYyDVAk2NeRBQOw7Fm?pid=ImgGn" alt="prof">
+                </div>
+                
+                <div class="settings-options-wrapper">
+                    <ul>
+                        <li>Set Username</li>
+                        <li>Verify Email</li>
+                        <li>Set Password</li>
+                        <li>Change Password</li>
+                        <li>Add New Email</li>
+                    </ul>
+                </div>
+                
+                <div class="user-name-wrapper">
+                    <h3>{{ user }}</h3>
+                </div>
+                
+                <div class="user-info-wrapper">
+                    
+                </div>
+            </div>
         </div>
 
         <div class="profile-wrapper-right">
@@ -42,5 +70,7 @@
 
 
     </script>
+
+    <script src="{% static 'js/profile/profileOptions.js' %}"></script>
 
 {% endblock %}
