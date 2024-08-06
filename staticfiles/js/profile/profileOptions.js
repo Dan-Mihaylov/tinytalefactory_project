@@ -3,7 +3,7 @@ profileSettingsElement.addEventListener('click', toggleSettings);
 
 function toggleSettings(event) {
     const parentNodeElement = event.target.parentNode;
-    const childrenElementsToToggle = Array.from(parentNodeElement.children).slice(4, parentNodeElement.length);
+    const childrenElementsToToggle = Array.from(parentNodeElement.children).slice(5, parentNodeElement.length);
 
     const settingsWrapperElement = parentNodeElement.querySelectorAll('.settings-options-wrapper')[0];
 

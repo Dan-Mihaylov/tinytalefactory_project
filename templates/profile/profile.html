@@ -10,17 +10,21 @@
     <div class="profile-site-wrapper">
 
         <div class="profile-wrapper-left">
-            
+
             <div class="profile-card">
-                
+
                 <i id="profile-settings" class="fa-solid fa-gear"></i>
-                
+
                 <div class="top-motive"></div>
-                
+
                 <div class="profile-image-container">
                     <img src="https://th.bing.com/th/id/OIG2.HxUYyDVAk2NeRBQOw7Fm?pid=ImgGn" alt="prof">
                 </div>
-                
+
+                <div class="user-name-wrapper">
+                    <h3>{{ user }}</h3>
+                </div>
+
                 <div class="settings-options-wrapper">
                     <ul>
                         <li>Set Username</li>
@@ -30,14 +34,38 @@
                         <li>Add New Email</li>
                     </ul>
                 </div>
-                
-                <div class="user-name-wrapper">
-                    <h3>{{ user }}</h3>
-                </div>
-                
+
                 <div class="user-info-wrapper">
-                    
+                    <ul class="user-info-list">
+
+                        <li class="user-info-list-items">
+                            <i class="fa-solid fa-book-open awesome"></i>
+                            <span>0</span>
+                            <p>Your Generated Stories</p>
+                        </li>
+
+                        <li class="user-info-list-items">
+                            <i class="fa-solid fa-coins awesome"></i>
+                            <span>1</span>
+                            <p>Your Total Tokens</p>
+                        </li>
+
+                        <li class="user-info-list-items">
+                            <i class="fa-regular fa-circle awesome"></i>
+                            <span>0</span>
+                            <p>Your Free Tokens</p>
+                        </li>
+                    </ul>
                 </div>
+
+                <div class="on-hover-wrapper"><p>Initial</p></div>
+
+                <div class="user-more-info">
+                    <p>Member since: {{ user.date_joined|date }}</p>
+                    <p>Last login: {{ user.last_login|date }}</p>
+                    <button class="btn buy-more"><i id="get-tokens" class="fa-solid fa-hand-holding-dollar"></i>  Get Tokens</button>
+                </div>
+
             </div>
         </div>
 
@@ -54,11 +82,48 @@
     <script>
         const url = `{% url 'api-list-stories' %}`;
 
+        const userInfoListItems = document.querySelectorAll('.user-info-list-items');
+        const onHoverWrapperElement = document.querySelectorAll('.on-hover-wrapper')[0];
+
+        Array.from(userInfoListItems)
+            .forEach(el=>{
+                el.addEventListener('mouseenter', (event)=>{
+                    const newTextContent = event.target.querySelector('p').textContent;
+                    const pElement = onHoverWrapperElement.children[0];
+                    pElement.textContent = newTextContent;
+                    pElement.style.opacity = '100';
+                });
+                el.addEventListener('mouseleave', (event)=>{
+                    const pElement = onHoverWrapperElement.children[0];
+                    pElement.style.opacity = '0';
+                })
+            })
+
+        function fillStoriesCountElement(totalStories) {
+            const storyCountElement = document.querySelectorAll('.user-info-list-items')[0];
+            const spanElement = storyCountElement.children[1];
+
+            function delay(){
+                const currNumber = Number(spanElement.textContent);
+                spanElement.textContent = currNumber + 1;
+                setTimeout(recurse(currNumber + 1), 100);
+            }
+
+            function recurse(n) {
+                if (n == totalStories) {
+                    return;
+                }
+                setTimeout(delay, 100);
+            }
+
+            recurse(Number(0));
+        }
+
         function onLoad(){
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
+                    fillStoriesCountElement(data.length);
                     data.forEach(story => {
 
                     })
