@@ -11,7 +11,8 @@ class ImageGenerator:
         self.n = 1
         self.images = ''
         self.prompt = ("Create vibrant, cartoon-like images for a children's book based on the paragraph I provide."
-                       " The images should be bright, happy, and evoke positive feelings. ")
+                       " The images should be bright, happy, and evoke positive feelings. DO NOT ADD ANY TEXT TO THE "
+                       "image. ")
 
     def create_prompt(self, paragraph: str, appearance=''):
         """

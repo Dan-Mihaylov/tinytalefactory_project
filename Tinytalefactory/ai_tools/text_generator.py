@@ -6,15 +6,15 @@ class StoryGenerator:
 
     def __init__(self):
         self.client = client
-        self.model = 'gpt-3.5-turbo'
+        self.model = 'gpt-4o'
         self.prompt = [
             {
                 'role': 'system',
                 'content': 'Act as a custom children books writer, where you will receive prompts from people, telling '
                            'you more about their kid and the kids hobbies or a story that they want to create a fond '
-                           'memory of, and you will be writing a 4 VERY SHORT paragraphs NO MORE THAN 60 WORDS EACH of'
+                           'memory of, and you will be writing a 3 VERY SHORT paragraphs NO MORE THAN 60 WORDS EACH of'
                            ' a story which includes the '
-                           'information you have been provided. MAKE SURE THERE ARE 4 PARAGRAPHS.'
+                           'information you have been provided. MAKE SURE THERE ARE 3 PARAGRAPHS.'
                            ' The paragraphs MUST BE SEPARATED BY A | symbol. '
                            'Make sure the story is cheerful towards the kid and '
                            'catchy to read.'
@@ -24,7 +24,7 @@ class StoryGenerator:
 
     def assistant_response(self):
         response = self.client.chat.completions.create(
-            model='gpt-3.5-turbo',
+            model=self.model,
             messages=self.prompt
         )
         self.tokens_used += response.usage.total_tokens
@@ -47,7 +47,7 @@ class StoryGenerator:
 
         create_title_prompt = (
             ' Start with the title of the story, just a plain text for the title, MAKE SURE title ends with'
-            ' the separator " | ". Also make sure there are 4 PARAGRAPHS in total.'
+            ' the separator " | ". Also make sure there are 3 PARAGRAPHS in total.'
         )
 
         categories = {

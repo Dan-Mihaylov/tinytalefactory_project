@@ -8,13 +8,12 @@
 {% block content %}
 
     <div class="profile-site-wrapper">
-
+        {# Left Side Starts Here #}
         <div class="profile-wrapper-left">
 
             <div class="profile-card">
 
                 <i id="profile-settings" class="fa-solid fa-gear"></i>
-
                 <div class="top-motive"></div>
 
                 <div class="profile-image-container">
@@ -23,16 +22,6 @@
 
                 <div class="user-name-wrapper">
                     <h3>{{ user }}</h3>
-                </div>
-
-                <div class="settings-options-wrapper">
-                    <ul>
-                        <li>Set Username</li>
-                        <li>Verify Email</li>
-                        <li>Set Password</li>
-                        <li>Change Password</li>
-                        <li>Add New Email</li>
-                    </ul>
                 </div>
 
                 <div class="user-info-wrapper">
@@ -60,6 +49,16 @@
 
                 <div class="on-hover-wrapper"><p>Initial</p></div>
 
+                <div class="settings-options-wrapper">
+                    <ul>
+                        <li id="change-user-info">Change User Info</li>
+                        <li id="verify-email">Verify Email</li>
+                        <li id="set-password">Set Password</li>
+                        <li id="change-password">Change Password</li>
+                        <li id="add-new-email">Add New Email</li>
+                    </ul>
+                </div>
+
                 <div class="user-more-info">
                     <p>Member since: {{ user.date_joined|date }}</p>
                     <p>Last login: {{ user.last_login|date }}</p>
@@ -68,74 +67,29 @@
 
             </div>
         </div>
+        {# Left Side Ends Here #}
 
-        <div class="profile-wrapper-right">
+        {# Right Side Starts Here #}
+        <div id="profile-wrapper-right" class="profile-wrapper-right">
 
             <div class="stories-wrapper">
 
             </div>
 
+            <iframe id="change-email-frame" style="width: 100%; height: 100%;" src="{% url 'account_email' %}" title="something"></iframe>
+
         </div>
+        {# Right Side Ends Here #}
 
     </div>
 
     <script>
         const url = `{% url 'api-list-stories' %}`;
-
-        const userInfoListItems = document.querySelectorAll('.user-info-list-items');
-        const onHoverWrapperElement = document.querySelectorAll('.on-hover-wrapper')[0];
-
-        Array.from(userInfoListItems)
-            .forEach(el=>{
-                el.addEventListener('mouseenter', (event)=>{
-                    const newTextContent = event.target.querySelector('p').textContent;
-                    const pElement = onHoverWrapperElement.children[0];
-                    pElement.textContent = newTextContent;
-                    pElement.style.opacity = '100';
-                });
-                el.addEventListener('mouseleave', (event)=>{
-                    const pElement = onHoverWrapperElement.children[0];
-                    pElement.style.opacity = '0';
-                })
-            })
-
-        function fillStoriesCountElement(totalStories) {
-            const storyCountElement = document.querySelectorAll('.user-info-list-items')[0];
-            const spanElement = storyCountElement.children[1];
-
-            function delay(){
-                const currNumber = Number(spanElement.textContent);
-                spanElement.textContent = currNumber + 1;
-                setTimeout(recurse(currNumber + 1), 100);
-            }
-
-            function recurse(n) {
-                if (n == totalStories) {
-                    return;
-                }
-                setTimeout(delay, 100);
-            }
-
-            recurse(Number(0));
-        }
-
-        function onLoad(){
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    fillStoriesCountElement(data.length);
-                    data.forEach(story => {
-
-                    })
-                })
-        }
-
-        onLoad();
-
-
-
+        const CSRFToken = `{% csrf_token %}`;
+        const CSRFTokenValue = `{{ csrf_token }}`;
     </script>
-
+    
     <script src="{% static 'js/profile/profileOptions.js' %}"></script>
+    <script src="{% static 'js/profile/profileScript.js' %}"></script>
 
 {% endblock %}

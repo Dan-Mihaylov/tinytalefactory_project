@@ -75,6 +75,33 @@
     flex-wrap: wrap;
 }
 
+.settings-options-wrapper ul {
+    opacity: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    transition: opacity 0.5s ease-in-out;
+
+}
+
+.settings-options-wrapper ul li {
+    flex: 1 1 100%;
+    padding: 1em 2em;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.settings-options-wrapper ul li:hover {
+    cursor: pointer;
+    background-color: orange;
+    color: #fff;
+}
+
+.settings-options-wrapper ul li:last-child {
+    margin-bottom: 2em;
+}
+
 .user-name-wrapper {
     display: flex;
     justify-content: center;
@@ -170,4 +197,92 @@
 .awesome {
     padding: 1em;
 }
+
+/* Right Side Wrapper Starts */
+/* user info change */
+.right-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #fff;
+    border-radius: 0.3em;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-info-wrapper h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.change-user-info-form{
+    flex-basis: 100%;
+    padding: 2em;
+    width: 100%;
+    max-width: 35em;
+}
+
+.user-info-form-field {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.user-info-form-field:not(:last-child) {
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
+    overflow: hidden;
+    border-radius: 0.5em;
+}
+
+.user-info-form-field label {
+    padding: 0.5em;
+    width: 30%;
+    background-color: steelblue;
+    color: #eee;
+    text-align: right;
+    font-size: 0.9em;
+    text-wrap: nowrap;
+}
+
+.user-info-form-field input {
+    width: 70%;
+    padding: 0.5em;
+    border: none;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.user-info-form-field input:focus {
+    outline: none;
+    background-color: #eee;
+    color: #222;
+}
+
+.user-info-form-field button {
+    margin: 1em 0;
+    border: none;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.1);
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    background-color: #fff;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.user-info-form-field button:hover {
+    cursor: pointer;
+    background-color: darkorange;
+    color: #fff;
+}
+
+.success-warning {
+    color: darkseagreen;
+    font-weight: bolder;
+    transition: opacity 5s linear;
+    opacity: 0;
+}
+
+
+
+
 

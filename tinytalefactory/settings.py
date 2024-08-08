@@ -157,3 +157,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     )
 }
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
