@@ -3,6 +3,15 @@ const onHoverWrapperElement = document.querySelectorAll('.on-hover-wrapper')[0];
 const profileWrapperRight = document.getElementById('profile-wrapper-right');
 const changeUserInfoElement = document.getElementById('change-user-info');
 
+const emailSettingsEl = document.getElementById('email-settings');
+const setPasswordEl = document.getElementById('password');
+
+
+
+emailSettingsEl.addEventListener('click', createIframeElement);
+setPasswordEl.addEventListener('click', createIframeElement);
+setPasswordEl.addEventListener('click', createIframeElement);
+
 // Display help text on icon hover
 Array.from(userInfoListItems)
     .forEach(el => {
@@ -51,36 +60,105 @@ function onload() {
 
 onload();
 
+// Create iframe Element
+function createIframeElement(event) {
+
+    clearChildrenSelectedClass(event.target.parentNode);
+    event.target.classList.add('selected');
+    clearProfileWrapperRight();
+
+    const targetId = event.target.getAttribute('id');
+    const iFrameEl = document.createElement('iframe');
+
+    switch (targetId) {
+        case 'email-settings':
+            iFrameEl.setAttribute('id', 'change-email-frame');
+            iFrameEl.setAttribute('src', accountEmailUrl);
+            iFrameEl.setAttribute('title', 'Account Email Settings');
+
+            profileWrapperRight.append(iFrameEl);
+
+            setTimeout(addStylesheetToEmailFrameDocument, 300);
+            break;
+
+        case 'password':
+            iFrameEl.setAttribute('id', 'set-password-frame');
+            iFrameEl.setAttribute('src', accountSetPasswordSetUrl);
+            iFrameEl.setAttribute('title', 'Account Set Password');
+
+            profileWrapperRight.append(iFrameEl);
+
+            setTimeout(addStylesheetToPasswordFrameDocument, 300);
+            break;
+    }
+
+}
+
 // Change email iFrame TODO: Maybe a different approach
-function changeEmailFrame() {
-    const frameElement = document.getElementById('change-email-frame');
-    frameElement.style.border = 'none';
+
+function addStylesheetToPasswordFrameDocument() {
+    console.log('PASSWORD SET');
+    const frameElement = document.getElementById('set-password-frame');
 
     const contentDocument = frameElement.contentDocument;
     const activeBodyElement = contentDocument.activeElement;
 
-    const menuElement = activeBodyElement.childNodes[1];
-    const containerElement = activeBodyElement.childNodes[3];
+    const availableButtons = activeBodyElement.querySelectorAll('form button');
+    console.log(availableButtons);
+    availableButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            frameElement.style.opacity = '0';
+            setTimeout(addStylesheetToPasswordFrameDocument, 1500);
+        })
+    });
 
-    const parentElement = containerElement.parentElement;
-    parentElement.style.margin = '0';
-    parentElement.style.padding = '0';
+    // include the nested-allauth.css as a style so it can be displayed appropriately
+    const linkEl = document.createElement('link');
+    linkEl.setAttribute('rel', 'stylesheet');
+    linkEl.setAttribute('href', nestedStyleUrl);
 
-    menuElement.style.display = 'none';
-    containerElement.style.minHeight = '100vh';
-    containerElement.style.margin = 0;
+    contentDocument.head.appendChild(linkEl);
+
+    // change opacity to 1
+    frameElement.style.opacity = '100';
+
 }
 
-setTimeout(changeEmailFrame, 100);
+
+function addStylesheetToEmailFrameDocument() {
+    console.log('entered!')
+    const frameElement = document.getElementById('change-email-frame');
+
+    const contentDocument = frameElement.contentDocument;
+    const activeBodyElement = contentDocument.activeElement;
+
+    const availableButtons = activeBodyElement.querySelectorAll('button');
+    availableButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            frameElement.style.opacity = '0';
+            setTimeout(addStylesheetToEmailFrameDocument, 1500);
+        });
+    });
+
+    // include the nested-allauth.css as a style so it can be displayed appropriately
+    const linkEl = document.createElement('link');
+    linkEl.setAttribute('rel', 'stylesheet');
+    linkEl.setAttribute('href', nestedStyleUrl);
+
+    contentDocument.head.appendChild(linkEl);
+
+    // change opacity to 1
+    frameElement.style.opacity = '100';
+}
 
 // Change user info functionality
 changeUserInfoElement.addEventListener('click', displayChangeUserInfoDiv);
 
 function displayChangeUserInfoDiv(event) {
     clearProfileWrapperRight();
-    resetChildrenBackgroundAndColor(event.target.parentNode);
-    event.target.style.backgroundColor = 'orange';
-    event.target.style.color = '#fff';
+    clearChildrenSelectedClass(event.target.parentNode);
+    event.target.classList.add('selected');
+
 
     // create a new wrapper
     const wrapperElement = document.createElement('div');
@@ -167,7 +245,6 @@ function displayChangeUserInfoDiv(event) {
 
     // fill the form elements if the info is already available
     fillKnownProfileInfo(usernameInputElement, firstNameInputElement, lastNameInputElement);
-
 }
 
 function fillKnownProfileInfo(usernameElement, firstNameElement, lastNameElement) {
@@ -241,9 +318,8 @@ function clearProfileWrapperRight(){
     profileWrapperRight.innerHTML = '';
 }
 
-function resetChildrenBackgroundAndColor(node) {
+function clearChildrenSelectedClass(node) {
     [...node.children].map(child=>{
-        child.style.backgroundColor='inherit';
-        child.style.color='inherit';
+        child.classList.remove('selected');
     });
 }

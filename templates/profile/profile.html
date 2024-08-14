@@ -51,11 +51,16 @@
 
                 <div class="settings-options-wrapper">
                     <ul>
+                        <li id="display-stories">Show Stories</li>
                         <li id="change-user-info">Change User Info</li>
-                        <li id="verify-email">Verify Email</li>
-                        <li id="set-password">Set Password</li>
-                        <li id="change-password">Change Password</li>
-                        <li id="add-new-email">Add New Email</li>
+                        <li id="email-settings">Email Settings</li>
+                        <li id="password">
+                            {% if user.password %}
+                                Change Password
+                            {% else %}
+                                Set Password
+                            {% endif %}
+                        </li>
                     </ul>
                 </div>
 
@@ -75,9 +80,7 @@
             <div class="stories-wrapper">
 
             </div>
-
-            <iframe id="change-email-frame" style="width: 100%; height: 100%;" src="{% url 'account_email' %}" title="something"></iframe>
-
+            
         </div>
         {# Right Side Ends Here #}
 
@@ -87,6 +90,10 @@
         const url = `{% url 'api-list-stories' %}`;
         const CSRFToken = `{% csrf_token %}`;
         const CSRFTokenValue = `{{ csrf_token }}`;
+        const nestedStyleUrl = `{% static 'css/allauth/nested-allauth.css' %}`;
+        const accountEmailUrl = `{% url 'account_email' %}`;
+        const accountSetPasswordSetUrl = `{% url 'account_set_password' %}`;
+        const accountChangePasswordUrl = `{% url 'account_change_password' %}`;
     </script>
     
     <script src="{% static 'js/profile/profileOptions.js' %}"></script>
