@@ -76,10 +76,6 @@
 
         {# Right Side Starts Here #}
         <div id="profile-wrapper-right" class="profile-wrapper-right">
-
-            <div class="stories-wrapper">
-
-            </div>
             
         </div>
         {# Right Side Ends Here #}
@@ -94,6 +90,7 @@
         const accountEmailUrl = `{% url 'account_email' %}`;
         const accountSetPasswordSetUrl = `{% url 'account_set_password' %}`;
         const accountChangePasswordUrl = `{% url 'account_change_password' %}`;
+        const getStoriesURL = `{% url 'api-list-stories' %}`;
     </script>
     
     <script src="{% static 'js/profile/profileOptions.js' %}"></script>

@@ -1,0 +1,44 @@
+.header-container {
+    margin-top: 5rem;
+    background-color: #ff6666;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.generate-from-category-header {
+    display: block;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.generate-from-cat-list {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.list-container {
+    flex: 1 1 100%;
+    background-color: #fff;
+    padding: 1rem;
+}
+
+.list-container p:not(:first-of-type) {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px solid rgb(2, 42, 71, 0.2)
+}
+
+#category-description-header {
+    padding: 0;
+    font-size: 1.3rem;
+}
+
+
+/* Continue Form style */
+
+.continue-form {
+    margin-top: 2rem;
+}

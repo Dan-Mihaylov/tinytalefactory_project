@@ -7,16 +7,16 @@
 
 {% block content %}
 
-    <div class="site" style="flex: 1 1 auto;">
+    <div class="site">
 
         <main class="header-container">
-            <h1>You can choose the type of story you want to generate based on the category.</h1>
+            <h1 class="generate-from-category-header">You can choose the type of story you want to generate based on the category.</h1>
 
-            <ul>
+            <ul class="generate-from-cat-list">
             {% for name, desc in categories_info.items %}
                 <div class="list-container">
 
-                    <p onclick="showDropdown(this)">{{ name }}</p>
+                    <p id="category-description-header" onclick="showDropdown(this)">{{ name }}</p>
                     <p id="{{ name }}" style="display: none;">{{ desc }}</p>
 
                     <button id="{{ name }}-button" style="display: none;" onclick="continueWithStory(this)">
@@ -40,90 +40,15 @@
                 </div>
             {% endfor %}
             </ul>
-
-
-
-
+        
         </main>
 
     </div>
-
+    
     <script>
-        function showDropdown(element){
-            console.log('ELEMENT CLICKED');
-            const nameAttribute = element.textContent.trim();
-            const dropDown = document.getElementById(nameAttribute);
-            const generateButton = document.getElementById(nameAttribute + '-button');
-
-            dropDown.style.display === 'none' ? dropDown.style.display = 'block' : dropDown.style.display = 'none';
-            generateButton.style.display === 'none' ? generateButton.style.display = 'block' : generateButton.style.display = 'none';
-            // TODO: When the final HTML is ready, on clicking the element, toggle the children's display mode as well
-        }
-
-        function continueWithStory(element) {
-            const formId = element.id.replace('button', 'form');
-            const formElement = document.getElementById(formId);
-
-            formElement.style.display === 'none' ? formElement.style.display = 'block' : formElement.style.display = 'none';
-        }
-
-        function generateFromCategory(element){
-
-            {# TODO: Check if there is kid name or story Id to proceed, if there is none, display warning #}
-
-            catName = element.name.toLowerCase().split(' ').join('_');
-            console.log(catName);
-
-            const urlQuery = `?category=${catName}`;
-            const url =  `{% url 'api-generate-story' 'false' %}` + urlQuery;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => console.log('Json Response: ', data))
-                .catch(error => console.log('Error:', error));
-            
-            // TODO: When getting the response, check if valid, and if valid get link to show story.
-
-
-            {#console.log('Generate Button Clicked');#}
-            {##}
-            {#const categoryName = Array#}
-            {#    .from(element.parentElement.children)[0]#}
-            {#    .textContent#}
-            {#    .replace(' ', '_')#}
-            {#    .toLowerCase();#}
-            {##}
-            {#console.log(categoryName);#}
-        }
-
+    const baseGenerateUrl = `{% url 'api-generate-story' 'false' %}`;
     </script>
-
-{#    <script>#}
-{#        document.getElementById('button').addEventListener('click', function(event) {#}
-{#            const storyTitle = document.getElementById('title').value;#}
-{#            const childName = document.getElementById('name').value;#}
-{#            const appearance = document.getElementById('appearance').value;#}
-{#            const storyAbout = document.getElementById('about').value;#}
-{#            const specialEmphasis = document.getElementById('special-emphasis').value;#}
-{#            #}
-{#            const urlQuery = #}
-{#                `?name=${childName}&appearance=${appearance}&story-about=${storyAbout}#}
-{#                &special-emphasis=${specialEmphasis}&title=${storyTitle}`;#}
-{#                #}
-{#            event.preventDefault();#}
-{#            #}
-{#            const url =  `{% url 'api-generate-story' 'true' %}` + urlQuery;#}
-{#            console.log(url);#}
-{#            #}
-{#            fetch(url)#}
-{#                .then(response => response.json())#}
-{#                .then(data =>{#}
-{#                    console.log('Api Response:', data);#}
-{#                })#}
-{#                .catch(error=>{#}
-{#                    console.log('Error', error);#}
-{#                });#}
-{#        });#}
-{#    </script>#}
-
+    
+    <script src="{% static 'js/generate-stories/generateStoryFromCategory.js' %}"></script>
+    
 {% endblock %}
