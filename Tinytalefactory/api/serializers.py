@@ -15,7 +15,7 @@ class StoriesForListSerializer(serializers.ModelSerializer):
 class StoriesForCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Story
-        fields = ['title', 'info']
+        fields = ['title', 'info', 'slug']
 
 
 class UserForUpdateSerializer(serializers.ModelSerializer):

@@ -1,10 +1,45 @@
-<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+{% load allauth account %}
+
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/generate-stories/view-story.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>My Generated Story</title>
 </head>
 <body>
+    <i class="fa-solid fa-xmark"></i>
 
+    <main>
+        <article class="story-container">
+            <h1>{{ object.title }}</h1>
+
+            {% for url, paragraph in info %}
+                <div class="content-swappable" style="display: none">
+                    <div class="media">
+                        <i class="fa-solid fa-less-than" onclick="previous()"></i>
+                        <i class="fa-solid fa-greater-than" onclick="next()"></i>
+                        <img src="{{ url }}" alt="#">
+                    </div>
+                    <p>{{ paragraph }}</p>
+                </div>
+            {% endfor %}
+        <div class="dots-container">
+            {% for _ in info %}
+                  <span class="dot"></span>
+            {% endfor %}
+        </div>
+        
+        </article>
+    </main>
 </body>
+
+<script src="{% static 'js/generate-stories/viewStory.js' %}"></script>
+
 </html>

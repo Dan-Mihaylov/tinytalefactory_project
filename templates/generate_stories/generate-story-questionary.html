@@ -7,43 +7,43 @@
 
 {% block content %}
 
-    <div class="site" style="flex: 1 1 auto;">
+    <div class="site">
 
-        <main class="header-container">
-            <h1>Fill out the questionary and click on generate to start creating a story.</h1>
+        <main class="header-container centered-flex">
+            <h1 id="generate-from-questionary-header">Fill out the questionary and click on generate to start creating a story.</h1>
             <p>Fields marked with asterisk * are required</p>
 
             <form class="questionary" action="{% url 'generate-story-questionary' %}" method="POST" style="width: 100%;">
                 {% csrf_token %}
                 
-                <div>
+                <div class="form-field">
+                    <input type="text" name="title" id="title" placeholder="">
                     <label for="title">Story Title</label>
-                    <input type="text" name="title" id="title" placeholder="Story title">
                 </div>
                 
-                <div>
+                <div class="form-field">
+                    <input type="text" id="name" name="name" placeholder="">
                     <label for="name">Kids Name</label>
-                    <input type="text" id="name" name="name">
                 </div>
 
-                <div>
+                <div class="form-field">
+                    <input type="text" id="appearance" name="appearance" placeholder="">
                     <label for="appearance">Kids Appearance</label>
-                    <input type="text" id="appearance" name="appearance" placeholder="ex. Dark hair, dark eyes">
                     <span>The better the description, the better AI generates the results.</span>
                 </div>
 
-                <div>
+                <div class="form-field">
+                    <textarea name="story-about" id="about" cols="30" rows="10" placeholder=""></textarea>
                     <label for="about">Story About Info</label>
-                    <textarea name="story-about" id="about" cols="30" rows="10" placeholder="ex. Story about playing football with his friends"></textarea>
                 </div>
 
-                <div>
+                <div class="form-field">
+                    <input type="text" name="special-emphasis" id="special-emphasis" placeholder="">
                     <label for="special-emphasis">Special emphasis</label>
-                    <input type="text" name="special-emphasis" id="special-emphasis" placeholder="ex. Scoring the winning goal">
                     <span>If you would like to emphasise something in the story enter it here.</span>
                 </div>
                 {# TODO: Fix styles #}
-                <div style="position: relative; z-index: 10;">
+                <div class="form-field" style="position: relative; z-index: 10;">
                     <input type="submit" value="Submit Information" name="submit" id="button">
                 </div>
             </form>
@@ -53,33 +53,11 @@
         </main>
 
     </div>
-
     <script>
-        document.getElementById('button').addEventListener('click', function(event) {
-            const storyTitle = document.getElementById('title').value;
-            const childName = document.getElementById('name').value;
-            const appearance = document.getElementById('appearance').value;
-            const storyAbout = document.getElementById('about').value;
-            const specialEmphasis = document.getElementById('special-emphasis').value;
-            
-            const urlQuery = 
-                `?name=${childName}&appearance=${appearance}&story-about=${storyAbout}
-                &special-emphasis=${specialEmphasis}&title=${storyTitle}`;
-                
-            event.preventDefault();
-            
-            const url =  `{% url 'api-generate-story' 'true' %}` + urlQuery;
-            console.log(url);
-            
-            fetch(url)
-                .then(response => response.json())
-                .then(data =>{
-                    console.log('Api Response:', data);
-                })
-                .catch(error=>{
-                    console.log('Error', error);
-                });
-        });
+        const baseGenerateFromQuestionaryUrl = `{% url 'api-generate-story' 'true' %}`;
+        const baseViewStoryUrl = `{% url 'view-story' 'placeholder' %}`;
     </script>
+    <script src="{% static 'js/generate-stories/generateStoryFromQuestionary.js' %}"></script>
+    
 
 {% endblock %}

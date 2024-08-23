@@ -1,6 +1,7 @@
 .site {
     max-width: 1000px;
     margin: 0 auto;
+    flex: 1 1 auto;
 }
 
 .content-header-container {

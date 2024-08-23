@@ -1,6 +1,5 @@
 .header-container {
     margin-top: 5rem;
-    background-color: #ff6666;
     padding: 2rem;
     display: flex;
     flex-wrap: wrap;
@@ -10,6 +9,7 @@
     display: block;
     text-align: center;
     font-weight: lighter;
+    padding: 0 5rem 5rem 5rem;
 }
 
 .generate-from-cat-list {
@@ -23,6 +23,8 @@
     flex: 1 1 100%;
     background-color: #fff;
     padding: 1rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.2);
 }
 
 .list-container p:not(:first-of-type) {
@@ -31,9 +33,33 @@
     border-top: 1px solid rgb(2, 42, 71, 0.2)
 }
 
+.list-container > button {
+    background-color: #fff;
+    border: 1px solid rgb(2, 42, 71, 0.1);
+    padding: 0.3rem 1rem;
+    transition: color 0.02s linear, background-color 0.5s linear;
+    border-radius: 0.3rem;
+}
+
+.list-container > button:hover {
+    cursor: pointer;
+    background-color: rgb(255, 102, 102, 0.8);
+}
+
+.list-container > button:active {
+    background-color: rgb(255, 102, 102);
+    color: #666;
+}
+
 #category-description-header {
     padding: 0;
     font-size: 1.3rem;
+    transition: background-color 0.3s linear, color 0.3s linear;
+}
+
+#category-description-header:hover {
+    cursor: pointer;
+    color: steelblue;
 }
 
 
@@ -41,4 +67,26 @@
 
 .continue-form {
     margin-top: 2rem;
+}
+
+.continue-form-field > input[type="button"] {
+    background-color: #fff;
+    border: 1px solid rgb(2, 42, 71, 0.1);
+    padding: 0.3rem 1rem;
+    transition: color 0.02s linear, background-color 0.5s linear;
+    border-radius: 0.3rem;
+}
+
+.continue-form-field > input[type="button"]:hover {
+    cursor: pointer;
+    background-color: rgb(255, 102, 102, 0.8);
+}
+
+@media screen and (max-width: 900px) {
+    .generate-from-category-header {
+        display: block;
+        text-align: center;
+        font-weight: lighter;
+        padding: 5rem 0 10rem 0;
+    }
 }

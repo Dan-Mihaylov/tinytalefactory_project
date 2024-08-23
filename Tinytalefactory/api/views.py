@@ -27,7 +27,7 @@ class StoriesListApiView(APIView):
     serializer_class = StoriesForListSerializer
 
     def get_queryset(self):
-        return Story.objects.filter(user=self.request.user)
+        return Story.objects.filter(user=self.request.user).order_by('-id')
 
     def get(self, request):
         stories = self.get_queryset()
@@ -43,8 +43,8 @@ class StoryGenerateApiView(APIView):
     story_text = []
     story_title = ''
     tokens_used = 0
-    # images_urls = ['https://images.pexels.com/photos/4790613/pexels-photo-4790613.jpeg?auto=compress&cs=tinysrgb&w=250&h=250&dpr=1'] * 3
-    images_urls = []
+    images_urls = ['https://images.pexels.com/photos/26707538/pexels-photo-26707538/free-photo-of-gray-fox-in-the-snow.jpeg?auto=compress&cs=tinysrgb&w=560&h=560&dpr=1'] * 3
+    # images_urls = []
 
     def get(self, request, *args, **kwargs):
 
@@ -67,7 +67,7 @@ class StoryGenerateApiView(APIView):
             response_text_list, self.tokens_used = generate_story_from_category(story_category)
             self._get_story_paragraphs_and_title_from_generate_from_questionary(response_text_list)
 
-        self._generate_images_for_each_paragraph(appearance)
+        # self._generate_images_for_each_paragraph(appearance)
         json = self._create_json_object()
         response = Response(json, status=status.HTTP_200_OK)
 

@@ -7,9 +7,6 @@ const showStoriesElement = document.getElementById('display-stories');
 const emailSettingsEl = document.getElementById('email-settings');
 const setPasswordEl = document.getElementById('password');
 
-// TODO: When having the baseViewStoryURL add it onto here.. so the button works
-const baseViewStoryUrl = '#';
-
 emailSettingsEl.addEventListener('click', createIframeElement);
 setPasswordEl.addEventListener('click', createIframeElement);
 setPasswordEl.addEventListener('click', createIframeElement);
@@ -43,7 +40,7 @@ function fillStoriesCountElement(totalStories) {
     }
 
     function recurse(n) {
-        if (n == totalStories) {
+        if (n === totalStories) {
             return;
         }
         setTimeout(delay, 50);
@@ -354,7 +351,7 @@ async function getStories() {
 }
 
 function createStoryCards(storiesArray) {
-    const generatedElements = new Array();
+    const generatedElements = [];
     const fontAwesomeBookClass = 'fa-solid fa-book-open-reader';
 
     storiesArray.forEach(story => {
@@ -362,6 +359,7 @@ function createStoryCards(storiesArray) {
         const storyTitle = story['title'];
         const storyImage = story['info']['urls'][0];
         const createdAt = story['created_at'].split('T')[0].replaceAll('-', '/');
+        const storyUrl = baseStoryViewUrl.replace('placeholder', storySlug);
 
         // Card Element Creation
         const storyCardEl = document.createElement('div');
@@ -395,7 +393,7 @@ function createStoryCards(storiesArray) {
 
         const linkEl = document.createElement('a');
         linkEl.textContent = 'View story';
-        linkEl.setAttribute('href', baseViewStoryUrl + storySlug);
+        linkEl.setAttribute('href', storyUrl);
         articleEl.append(linkEl);
 
         const bookEl = document.createElement('i');
