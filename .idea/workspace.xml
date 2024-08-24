@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f369337c-924b-49b9-b59e-98b220604015" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tinytalefactory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tinytalefactory.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/css/generate-stories/view-story.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/generate-stories/view-story.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/js/generate-stories/viewStory.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/js/generate-stories/viewStory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/generate_stories/view-story.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/generate_stories/view-story.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tinytalefactory/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +308,7 @@
       <workItem from="1724176290361" duration="22459000" />
       <workItem from="1724250586346" duration="24980000" />
       <workItem from="1724361427548" duration="17500000" />
-      <workItem from="1724531814957" duration="1722000" />
+      <workItem from="1724531814957" duration="10438000" />
     </task>
     <servers />
   </component>

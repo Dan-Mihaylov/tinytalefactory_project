@@ -152,10 +152,60 @@ main {
     right: 0;
     padding: 1rem;
     font-size: 1.2rem;
+    border-radius: 0.3rem 0 0 0;
+    transition: background-color 0.2s linear, color 0.2s linear;
 }
 
 #save-story:hover {
     cursor: pointer;
+    background-color: rgb(2, 42, 71, 0.2);
+}
+
+/* Generated books styles */
+.generate-book {
+    margin:0;
+    padding: 0;
+}
+
+.page {
+    max-width: 210mm;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    height: 296.8mm;
+    page-break-after: always; /* Ensures page break after each .page */
+    padding-top: 0.1rem;
+}
+
+.page .media  {
+    border-radius: 0;
+}
+
+.cover-page {
+    background-color: steelblue;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    min-height: 296.85mm;
+    width: 100%;
+    max-width: 210mm;
+}
+
+
+
+.page p:first-of-type {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 2rem 1rem;
+    letter-spacing: 0.1rem;
+}
+
+#cover-page-header {
+    font-size: 6rem;
+    display: block;
+    text-align: center;
 }
 
 @media screen and (max-width: 600px) {
@@ -165,5 +215,17 @@ main {
         align-items: center;
         justify-content: center;
         background-color: #fff;
+    }
+}
+
+@media print {
+    .page, .cover-page {
+        height: 297mm; /* A4 height */
+        width: 210mm; /* A4 width */
+        margin: 0; /* Reset margin */
+        padding: 0; /* Reset padding */
+        overflow: hidden; /* Prevent overflow */
+        page-break-after: always; /* Ensure a page break after each .page */
+        page-break-inside: avoid; /* Avoid breaking inside */
     }
 }

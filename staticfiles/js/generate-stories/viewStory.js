@@ -1,8 +1,10 @@
 const totalPages = document.querySelectorAll('.content-swappable');
 const dotElements = document.querySelectorAll('.dot');
 const xButtonEl = document.querySelector('body > i:first-of-type');
+const saveButtonEl = document.getElementById('save-story');
 
 xButtonEl.addEventListener('click', () => history.back());
+saveButtonEl.addEventListener('click', saveStory);
 
 let pageIndex = 0;
 showPage(pageIndex);
@@ -42,4 +44,32 @@ for (let i = 0; i < dotElements.length; i++) {
     })
 }
 
+async function saveStory(event) {
+    const storyBookContainer = document.querySelector('section.generate-book');
+    // const bodyEl = document.querySelector('body');
+    // bodyEl.innerHTML = '';
+    // bodyEl.append(storyBookContainer);
+
+    // storyBookContainer = document.querySelector('section.generate-book');
+
+    const options = {
+        margin: 0, // No margin
+        filename: 'generated-book.pdf',
+        image: { type: 'jpeg', quality: 0.99 },
+        html2canvas: {
+            scale: 4,
+            useCORS: true,
+            scrollX: 0,
+            scrollY: 0
+        },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak: {
+            mode: ['css', 'legacy'],
+            after: '.page', // Page break after each .page class
+            avoid: ['.cover-page'] // Avoid breaking inside the cover page
+        }
+    };
+
+    html2pdf().set(options).from(storyBookContainer).save();
+}
 
