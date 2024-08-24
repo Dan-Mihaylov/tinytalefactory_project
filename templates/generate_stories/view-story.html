@@ -11,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/generate-stories/view-story.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js">
     <title>My Generated Story</title>
 </head>
 <body>
@@ -35,7 +36,7 @@
                   <span class="dot"></span>
             {% endfor %}
         </div>
-        
+        <i id="save-story" class="fa-solid fa-download"></i>
         </article>
     </main>
 </body>

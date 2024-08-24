@@ -12,7 +12,7 @@ from Tinytalefactory.api.serializers import (
 from Tinytalefactory.generate_stories.helpers import (
     generate_story_from_questionary,
     generate_images_from_paragraphs,
-    generate_story_from_category
+    generate_story_from_category, upload_image
 )
 from Tinytalefactory.generate_stories.models import Story, Usage
 
@@ -67,7 +67,7 @@ class StoryGenerateApiView(APIView):
             response_text_list, self.tokens_used = generate_story_from_category(story_category)
             self._get_story_paragraphs_and_title_from_generate_from_questionary(response_text_list)
 
-        # self._generate_images_for_each_paragraph(appearance)
+        self._generate_images_for_each_paragraph(appearance)
         json = self._create_json_object()
         response = Response(json, status=status.HTTP_200_OK)
 
@@ -111,11 +111,18 @@ class StoryGenerateApiView(APIView):
     # TODO: When text is split into paragraphs, feed each paragraph into image generator, and generate the images.
 
     def _generate_images_for_each_paragraph(self, appearance=''):
-        images = []
+        images_urls = []
         for paragraph in self.story_text:
-            images.append(generate_images_from_paragraphs(paragraph, appearance))
-        self.images_urls = images
-        return
+            images_urls.append(generate_images_from_paragraphs(paragraph, appearance))
+
+        self._upload_images_to_cloud(images_urls)
+
+    def _upload_images_to_cloud(self, images_urls:list):
+        secured_urls = []
+        for image in images_urls:
+            secured_urls.append(upload_image(image))
+        if len(secured_urls) > 0:
+            self.images_urls = secured_urls
 
     def _create_json_object(self,):
         return {

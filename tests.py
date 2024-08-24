@@ -6,7 +6,14 @@ from typing import List, Dict
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Tinytalefactory.settings')
 django.setup()
 
+import cloudinary
+from cloudinary import CloudinaryImage
+from cloudinary import uploader, api
 
+IMAGE_URL = 'https://images.pexels.com/photos/26707538/pexels-photo-26707538/free-photo-of-gray-fox-in-the-snow.jpeg?auto=compress&cs=tinysrgb&w=350&h=250&dpr=1'
+response = uploader.upload(IMAGE_URL, asset_folder='ttf')
+print(response.secure_url)
+print(response)
 
 
 # client = OpenAI()
@@ -92,46 +99,46 @@ django.setup()
 #     conversation.start_conversation()
 
 
-class Categories:
-    KEYS = [
-        'adventure', 'fantasy', 'fairy_tales',
-        'animals', 'friendship', 'mystery',
-        'educational', 'family', 'humour', 'historical'
-    ]
-    ADVENTURE = 'Create an adventure story, filled with exciting journeys and quests.'
-    FANTASY = 'Create a fantasy story, magical worlds with mythical creatures and imaginative settings.'
-    FAIRY_TALES = 'Create a fairy tales story, classic tales with moral lessons and happy endings'
-    ANIMALS = 'Create an animals story, featuring animals as main characters, often with human like traits.'
-    FRIENDSHIP = 'Create a friendship story, book that explores the themes of friendship and relationships.'
-    MYSTERY = 'Create a mystery story, engaging story with puzzles and mysteries to solve.'
-    EDUCATIONAL = 'Create an educational story, book to teach concepts like numbers, letters and basic science'
-    FAMILY = 'Create a family story, that focuses on family dynamics and relationships.'
-    HUMOUR = 'Create a funny and entertaining story that makes children laugh.'
-    HISTORICAL = 'Create a historical story, that introduces kids to historical events and figures in an engaging way.'
-
-    @classmethod
-    def info(cls):
-        to_remove = [
-            '__module__', 'KEYS', 'info', '__dict__', '__weakref__', '__doc__', 'remove_keys', 'format_key_names'
-        ]
-        information = dict(cls.__dict__)
-        information = cls.remove_keys(to_remove, information)
-        information = cls.format_key_names(information)
-
-        print(information)
-
-    @staticmethod
-    def remove_keys(to_remove_keys_list: list, dictionary: dict):
-        [dictionary.pop(key) for key in to_remove_keys_list]
-        return dictionary
-
-    @staticmethod
-    def format_key_names(dictionary: dict):
-        return {
-            key.replace('_', ' ').lower().capitalize(): value
-            for key, value in dictionary.items()
-        }
-
-
-category = Categories()
-category.info()
+# class Categories:
+#     KEYS = [
+#         'adventure', 'fantasy', 'fairy_tales',
+#         'animals', 'friendship', 'mystery',
+#         'educational', 'family', 'humour', 'historical'
+#     ]
+#     ADVENTURE = 'Create an adventure story, filled with exciting journeys and quests.'
+#     FANTASY = 'Create a fantasy story, magical worlds with mythical creatures and imaginative settings.'
+#     FAIRY_TALES = 'Create a fairy tales story, classic tales with moral lessons and happy endings'
+#     ANIMALS = 'Create an animals story, featuring animals as main characters, often with human like traits.'
+#     FRIENDSHIP = 'Create a friendship story, book that explores the themes of friendship and relationships.'
+#     MYSTERY = 'Create a mystery story, engaging story with puzzles and mysteries to solve.'
+#     EDUCATIONAL = 'Create an educational story, book to teach concepts like numbers, letters and basic science'
+#     FAMILY = 'Create a family story, that focuses on family dynamics and relationships.'
+#     HUMOUR = 'Create a funny and entertaining story that makes children laugh.'
+#     HISTORICAL = 'Create a historical story, that introduces kids to historical events and figures in an engaging way.'
+#
+#     @classmethod
+#     def info(cls):
+#         to_remove = [
+#             '__module__', 'KEYS', 'info', '__dict__', '__weakref__', '__doc__', 'remove_keys', 'format_key_names'
+#         ]
+#         information = dict(cls.__dict__)
+#         information = cls.remove_keys(to_remove, information)
+#         information = cls.format_key_names(information)
+#
+#         print(information)
+#
+#     @staticmethod
+#     def remove_keys(to_remove_keys_list: list, dictionary: dict):
+#         [dictionary.pop(key) for key in to_remove_keys_list]
+#         return dictionary
+#
+#     @staticmethod
+#     def format_key_names(dictionary: dict):
+#         return {
+#             key.replace('_', ' ').lower().capitalize(): value
+#             for key, value in dictionary.items()
+#         }
+#
+#
+# category = Categories()
+# category.info()

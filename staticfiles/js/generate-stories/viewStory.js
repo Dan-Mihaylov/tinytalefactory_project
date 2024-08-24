@@ -41,3 +41,5 @@ for (let i = 0; i < dotElements.length; i++) {
         showPage(pageIndex);
     })
 }
+
+

@@ -2,8 +2,11 @@ from openai import OpenAI
 from Tinytalefactory.ai_tools.text_generator import StoryGenerator
 from Tinytalefactory.ai_tools.image_generator import ImageGenerator
 
+from cloudinary import uploader
+
 
 SPLIT_BY = '|'
+ASSET_FOLDER = 'ttf'
 
 
 # TODO: if everything correct, must split the paragraphs on new line and then iterate through all items and generate img
@@ -46,3 +49,10 @@ def format_text_to_paragraphs_in_list(text: str):
     stripped_paragraphs = [p.strip() for p in paragraphs]
     filtered_paragraphs = list(filter(lambda x: x != '', stripped_paragraphs))
     return filtered_paragraphs
+
+
+# TODO: Maybe generate an asset folder based on the user?
+def upload_image(image):
+    response = uploader.upload(image, asset_folder=ASSET_FOLDER)
+    if response:
+        return response['secure_url']
