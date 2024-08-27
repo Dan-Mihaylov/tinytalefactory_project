@@ -4,10 +4,12 @@ from rest_framework.views import APIView
 from rest_framework import generics as APIGenericView
 from rest_framework.response import Response
 
+from .permissions import IsOwner
+
 from Tinytalefactory.api.serializers import (
     StoriesForListSerializer,
     StoriesForCreateSerializer,
-    UserForUpdateSerializer
+    UserForUpdateSerializer, StoriesForRetrieveSerializer
 )
 from Tinytalefactory.generate_stories.helpers import (
     generate_story_from_questionary,
@@ -152,6 +154,19 @@ class StoryGenerateApiView(APIView):
         Add story info to the session in case customer does not like the result and wants to regenerate
         """
         self.request.session['story_info'] = story_info
+
+
+class StoryRetrieveApiView(APIGenericView.RetrieveAPIView):
+
+    serializer_class = StoriesForRetrieveSerializer
+    permission_classes = [
+        IsAuthenticated,
+        IsOwner,
+    ]
+    lookup_field = 'slug'
+
+    def get_queryset(self):
+        return Story.objects.all()
 
 
 class UserInfoChangeApiView(APIGenericView.RetrieveUpdateAPIView):

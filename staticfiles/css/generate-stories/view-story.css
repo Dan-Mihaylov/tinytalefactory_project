@@ -24,9 +24,12 @@ body > i:first-of-type:hover {
 }
 
 main {
+    display: block;
     max-width: 1200px;
     margin: 0 auto;
     background-color: #444444;
+    transition: opacity 0.5s linear;
+    opacity: 0.8;
 }
 
 
@@ -146,7 +149,7 @@ main {
     background-color: rgb(2, 42, 71, 0.5);
 }
 
-#save-story {
+#pre-save-story, #save-story {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -156,18 +159,47 @@ main {
     transition: background-color 0.2s linear, color 0.2s linear;
 }
 
-#save-story:hover {
+#return {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: 0 0.3rem 0 0;
+    transition: background-color 0.2s linear, color 0.2s linear;
+}
+
+#save-story:hover, #pre-save-story:hover, #return:hover {
     cursor: pointer;
     background-color: rgb(2, 42, 71, 0.2);
 }
 
 /* Generated books styles */
 .generate-book {
-    margin:0;
+    margin:0 auto;
+    padding: 0;
+    transition: opacity 2s linear;
+    opacity: 0;
+}
+
+.controller {
+    max-width: 210mm;
+    padding: 1em 3.5rem;
+    position: relative;
+    background-color: #fff;
+    text-align: center;
+    margin-bottom: 1em;
+    opacity: 0;
+    transition: opacity 2s linear;
+}
+
+.controller p {
+    display: block;
     padding: 0;
 }
 
 .page {
+    position: relative;
     max-width: 210mm;
     display: flex;
     justify-content: center;
@@ -176,6 +208,7 @@ main {
     height: 296.8mm;
     page-break-after: always; /* Ensures page break after each .page */
     padding-top: 0.1rem;
+    background-color: #fff;
 }
 
 .page .media  {
@@ -183,7 +216,7 @@ main {
 }
 
 .cover-page {
-    background-color: steelblue;
+    background-color: rgb(0, 17, 51);
     color: #eee;
     display: flex;
     align-items: center;
@@ -196,9 +229,9 @@ main {
 
 .page p:first-of-type {
     display: block;
-    text-align: center;
+    text-align: left;
     font-size: 1.5rem;
-    padding: 2rem 1rem;
+    padding: 2rem;
     letter-spacing: 0.1rem;
 }
 
@@ -206,6 +239,32 @@ main {
     font-size: 6rem;
     display: block;
     text-align: center;
+}
+
+.color-picker {
+    position: absolute;
+    padding: 1rem;
+    right: 0;
+    bottom: 0;
+}
+
+.input-field {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    gap: 0.5rem;
+    line-height: 1.5;
+}
+
+input[type="color"] {
+    border: none;
+    width: 3rem;
+    height: 1.5rem;
+    box-shadow: none;
+}
+
+input[type="color"]:hover {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {

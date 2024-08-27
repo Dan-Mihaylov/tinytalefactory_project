@@ -18,6 +18,13 @@ class StoriesForCreateSerializer(serializers.ModelSerializer):
         fields = ['title', 'info', 'slug']
 
 
+class StoriesForRetrieveSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Story
+        fields = ['created_at', 'updated_at', 'title', 'info',]
+
+
 class UserForUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:

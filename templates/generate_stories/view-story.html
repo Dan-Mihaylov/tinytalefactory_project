@@ -11,13 +11,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/generate-stories/view-story.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>My Generated Story</title>
 </head>
 <body>
     <i class="fa-solid fa-xmark"></i>
 
-    <main>
+    <main style="display: block;">
         <article class="story-container">
             <h1>{{ object.title }}</h1>
 
@@ -36,11 +36,53 @@
                   <span class="dot"></span>
             {% endfor %}
         </div>
-        <i id="save-story" class="fa-solid fa-download"></i>
+        <i id="pre-save-story" class="fa-solid fa-download"></i>
         </article>
     </main>
+
+{#    <section class="generate-book controller">#}
+{#        <p>#}
+{#            Before saving your book to a .pdf file, you can customize each page background and foreground colors.#}
+{#            When you are done customizing just click on the download button.#}
+{#        </p>#}
+{#        <i id="save-story" class="fa-solid fa-download"></i>#}
+{#        <i id="return" class="fa-solid fa-backward"></i>#}
+{##}
+{#    </section>#}
+
+{#    <section class="generate-book">#}
+{#        <section class="page cover-page">#}
+{#            <h1 id="cover-page-header">{{ object.title }}</h1>#}
+{#        </section>#}
+{##}
+{#        {% for url, paragraph in info %}#}
+{#            <section class="page">#}
+{#                <article class="generate-book-container">#}
+{##}
+{#                    <div class="media">#}
+{#                        <img src="{{ url }}" alt="Image">#}
+{#                    </div>#}
+{##}
+{#                    <p>{{ paragraph }}</p>#}
+{##}
+{#                </article>#}
+{#                <div class="color-picker">#}
+{#                    <div class="input-field">#}
+{#                        <label for="choose-background">Choose your background</label>#}
+{#                        <input type="color" name="background" id="choose-background" value="#ffffff">#}
+{#                    </div>#}
+{##}
+{#                    <div class="input-field">#}
+{#                        <label for="choose-foreground">Chose your characters color</label>#}
+{#                        <input type="color" name="foreground", id="choose-foreground" value="#022A47">#}
+{#                    </div>#}
+{#                </div>#}
+{#            </section>#}
+{#        {% endfor %}#}
+{#    </section>#}
 </body>
 
+<script> const storyRetrieveUrl = `{% url 'api-retrieve-story' object.slug %}`</script>
 <script src="{% static 'js/generate-stories/viewStory.js' %}"></script>
 
 </html>
