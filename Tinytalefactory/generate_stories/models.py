@@ -44,7 +44,6 @@ class Token(models.Model):
         return f'{self.user} - {self.total_tokens()}'
 
 
-# TODO: Create an AuditModelMixin (Created at, Edited at) and inherit.
 class Story(AuditMixin, models.Model):
 
     user = models.ForeignKey(
@@ -62,6 +61,12 @@ class Story(AuditMixin, models.Model):
     )
 
     info = models.JSONField() # {'paragraphs': ['p1', 'p2'...], 'img_urls: ['url1', 'url2'...]}
+
+    is_public = models.BooleanField(
+        default=False,
+        null=False,
+        blank=True,
+    )
 
     slug = models.SlugField(
         max_length=100,

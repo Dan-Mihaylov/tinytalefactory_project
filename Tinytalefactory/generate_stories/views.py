@@ -60,3 +60,7 @@ class StoriesViewStoryView(OwnerOfStoryRequiredMixin, views.DetailView):
             return result
         except IndexError or KeyError:
             return ()
+
+
+class StoriesSamplesView(views.TemplateView):
+    template_name = 'generate_stories/sample-stories.html'

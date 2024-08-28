@@ -9,7 +9,9 @@ from .permissions import IsOwner
 from Tinytalefactory.api.serializers import (
     StoriesForListSerializer,
     StoriesForCreateSerializer,
-    UserForUpdateSerializer, StoriesForRetrieveSerializer
+    UserForUpdateSerializer,
+    StoriesForRetrieveSerializer,
+    StoriesSamplesForListSerializer
 )
 from Tinytalefactory.generate_stories.helpers import (
     generate_story_from_questionary,
@@ -188,3 +190,42 @@ class UserInfoChangeApiView(APIGenericView.RetrieveUpdateAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+class StoriesListSampleApiView(APIGenericView.ListAPIView):
+    serializer_class = StoriesSamplesForListSerializer
+
+    def get_queryset(self):
+        return Story.objects.filter(is_public=True)
+
+
+class StoriesAndUsersCountApiView(APIView):
+
+    def get(self, request, *args, **kwargs):
+
+        total_stories_count = self._get_total_stories_count()
+        public_stories_count = self._get_public_stories_count()
+        total_users_count = self._get_total_users_count()
+
+        data = self._create_data_object(total_stories_count, public_stories_count, total_users_count)
+
+        return Response(data, status=status.HTTP_200_OK)
+
+    @staticmethod
+    def _get_total_stories_count():
+        return Story.objects.count()
+
+    @staticmethod
+    def _get_public_stories_count():
+        return Story.objects.filter(is_public=True).count()
+
+    @staticmethod
+    def _get_total_users_count():
+        return UserModel.objects.count()
+
+    @staticmethod
+    def _create_data_object(total_stories_count, public_stories_count, total_users_count):
+        return {
+            'total_stories': total_stories_count,
+            'public_stories': public_stories_count,
+            'total_users': total_users_count
+        }

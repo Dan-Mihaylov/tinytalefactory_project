@@ -1,9 +1,16 @@
 @import "../reset.css";
 @import "../typography.css";
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     color: rgb(2, 42, 71, 0.8);
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 body > i:first-of-type {
@@ -23,13 +30,29 @@ body > i:first-of-type:hover {
     color: #eee;
 }
 
+#scroll-up {
+    display: none;
+    position: fixed;
+    bottom: 4rem;
+    right: 2rem;
+    padding: 1.3rem;
+    background-color: rgb(255, 255, 255, 0.3);
+    box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.1);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+#scroll-up:hover {
+    cursor: pointer;
+    background-color: #fff;
+}
+
 main {
     display: block;
     max-width: 1200px;
     margin: 0 auto;
     background-color: #444444;
     transition: opacity 0.5s linear;
-    opacity: 0.8;
 }
 
 
@@ -178,7 +201,7 @@ main {
 .generate-book {
     margin:0 auto;
     padding: 0;
-    transition: opacity 2s linear;
+    transition: opacity 1s linear;
     opacity: 0;
 }
 
@@ -190,7 +213,7 @@ main {
     text-align: center;
     margin-bottom: 1em;
     opacity: 0;
-    transition: opacity 2s linear;
+    transition: opacity 1s linear;
 }
 
 .controller p {
@@ -209,6 +232,7 @@ main {
     page-break-after: always; /* Ensures page break after each .page */
     padding-top: 0.1rem;
     background-color: #fff;
+    transition: max-width 1s linear, min-height 1s linear, height 1s linear;
 }
 
 .page .media  {
@@ -239,6 +263,7 @@ main {
     font-size: 6rem;
     display: block;
     text-align: center;
+    padding: 0 2rem;
 }
 
 .color-picker {
@@ -260,11 +285,94 @@ input[type="color"] {
     border: none;
     width: 3rem;
     height: 1.5rem;
-    box-shadow: none;
+    box-shadow: none !important;
+    outline: none !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
 }
 
 input[type="color"]:hover {
     cursor: pointer;
+}
+
+/* Page size styling */
+.page-size-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    max-width: 10rem;
+    background-color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+#page-size-select {
+    background-color: #fff;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0 0.3rem;
+    transition: background-color 0.2s linear;
+}
+
+#page-size-select:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+/* Font size slider */
+.slider-container {
+    max-width: 25rem;
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    padding: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    line-height: 0.2;
+    background-color: #fff;
+    color: rgb(2, 42, 71);
+    border-radius: 0.5rem;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: 1 1 auto;
+    height: 0.5rem;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s; /
+    transition: opacity .2s;
+    border-radius: 0.3rem;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    aspect-ratio: 1/1;
+    background: rgb(2, 42, 71, 0.8);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+    width: 1rem;
+    aspect-ratio: 1/1;
+    background: rgb(2, 42, 71, 0.8);
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1;
 }
 
 @media screen and (max-width: 600px) {

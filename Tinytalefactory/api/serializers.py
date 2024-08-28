@@ -6,6 +6,13 @@ from Tinytalefactory.generate_stories.models import Story
 UserModel = get_user_model()
 
 
+class StoriesSamplesForListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Story
+        fields = ['title', 'info', 'slug']
+
+
 class StoriesForListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Story
