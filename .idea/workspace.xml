@@ -5,24 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f369337c-924b-49b9-b59e-98b220604015" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/staticfiles/css/generate-stories/sample-stories.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/js/generate-stories/sampleStories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/generate_stories/sample-stories.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/css/common/about.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/js/common/about.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/css/generate-stories/generate-stories-questionary.scc.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/generate-stories/generate-stories-questionary.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/css/generate-stories/view-story.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/generate-stories/view-story.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/reset.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/auth_mixins/mixins.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/auth_mixins/mixins.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/generate-stories/sample-stories.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/generate-stories/sample-stories.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/css/typography.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/typography.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/js/generate-stories/viewStory.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/js/generate-stories/viewStory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/generate_stories/view-story.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/generate_stories/view-story.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/badge.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/button.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/allauth/elements/button.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/field.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/fields.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/h1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/h2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/hr.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/panel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/table.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tinytalefactory/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/common/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tinytalefactory/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/common/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,10 +95,11 @@
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\templates\common" />
+      <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\templates\allauth" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\Tinytalefactory" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\Tinytalefactory\generate_stories" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\prompt_results" />
-      <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\Tinytalefactory\allauth" />
     </key>
   </component>
   <component name="RunManager" selected="Python.manage">
@@ -325,7 +329,9 @@
       <workItem from="1724531814957" duration="10655000" />
       <workItem from="1724695600227" duration="274000" />
       <workItem from="1724759678856" duration="38336000" />
-      <workItem from="1724847772816" duration="22788000" />
+      <workItem from="1724847772816" duration="26744000" />
+      <workItem from="1724938521525" duration="6066000" />
+      <workItem from="1724945994145" duration="486000" />
     </task>
     <servers />
   </component>
@@ -343,20 +349,9 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Tinytalefactory/api/views.py</url>
-          <line>124</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tinytalefactory$tests.coverage" NAME="tests Coverage Results" MODIFIED="1724425454522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1724855485375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1724945997189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$text_generator.coverage" NAME="text_generator Coverage Results" MODIFIED="1722003892084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tinytalefactory/ai_tools" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_json_correct.coverage" NAME="test_json_correct Coverage Results" MODIFIED="1720223656901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_image_generation.coverage" NAME="test_image_generation Coverage Results" MODIFIED="1720185304486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
