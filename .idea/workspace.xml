@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f369337c-924b-49b9-b59e-98b220604015" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/staticfiles/css/common/about.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/js/common/about.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/permissions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/auth_mixins/mixins.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/auth_mixins/mixins.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/css/generate-stories/sample-stories.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/generate-stories/sample-stories.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/badge.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/button.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/allauth/elements/button.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/field.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/fields.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/h1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/h2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/hr.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/panel.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allauth/elements/table.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tinytalefactory/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/common/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tinytalefactory/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/common/views.py" afterDir="false" />
     </list>
@@ -331,7 +313,8 @@
       <workItem from="1724759678856" duration="38336000" />
       <workItem from="1724847772816" duration="26744000" />
       <workItem from="1724938521525" duration="6066000" />
-      <workItem from="1724945994145" duration="486000" />
+      <workItem from="1724945994145" duration="1374000" />
+      <workItem from="1725016116872" duration="1248000" />
     </task>
     <servers />
   </component>
@@ -351,7 +334,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tinytalefactory$tests.coverage" NAME="tests Coverage Results" MODIFIED="1724425454522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1724945997189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1725016164959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$text_generator.coverage" NAME="text_generator Coverage Results" MODIFIED="1722003892084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tinytalefactory/ai_tools" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_json_correct.coverage" NAME="test_json_correct Coverage Results" MODIFIED="1720223656901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_image_generation.coverage" NAME="test_image_generation Coverage Results" MODIFIED="1720185304486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

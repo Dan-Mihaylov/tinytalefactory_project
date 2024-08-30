@@ -1,6 +1,9 @@
-from django.shortcuts import render, HttpResponse
+from django.views import generic as views
 
 
-def index(request):
+class IndexView(views.TemplateView):
+    template_name = 'common/index.html'
 
-    return render(request, 'index.html')
+
+class AboutView(views.TemplateView):
+    template_name = 'common/about.html'

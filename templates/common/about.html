@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Tiny Tale Factory About
+{% endblock %}
+
+{% block content %}
+
+    <div class="site">
+        <main class="about-container">
+            <article class="about-article">
+                <div class="about-article-side">
+                    <h1>Welcome to Tiny Tale Factory</h1>
+                    <p>
+                        Tiny Tale Factory is a unique website that combines the power of OpenAI's cutting-edge
+                        technologies, including the ChatGPT-4 and DALL-E 3 models, to bring stories to life.
+                        Our platform is designed to automatically generate personalized children's books based on a
+                        brief description of the child and the nature of the story you want. Alternatively, you can
+                        choose from a variety of predefined categories to generate an enchanting tale.
+                    </p>
+                </div>
+                <div class="about-media-side">
+                    <img src="https://res.cloudinary.com/dh7ur0uv3/image/upload/mxt2aebwsv72dklljaba.png" alt="image">
+                </div>
+            </article>
+
+            <article class="about-article image-second">
+                <div class="about-media-side">
+                    <img src="https://res.cloudinary.com/dh7ur0uv3/image/upload/jfs8vdq6esigdvv056uv.png" alt="image">
+                </div>
+
+
+                <div class="about-article-side">
+                    <h1>Our Journey and Technology</h1>
+                    <p>
+                        Tiny Tale Factory began as an ambitious web development project with the aim of showcasing 
+                        capabilities of modern AI in creative storytelling. We used a variety of technologies to build
+                        this platform:
+                    </p>
+                    <ul>
+                        <li><strong>Python: </strong>The backbone of our application, enabling robust logic and seamless integration of AI models.</li>
+                        <li><strong>Django: </strong>A powerful web framework that allows us to manage data, user accounts, and story generation processes efficiently.</li>
+                        <li><strong>JavaScript, HTML and CSS: </strong>These technologies are employed to create an interactive and user-friendly interface, making your journey with Tiny Tale Factory enjoyable.</li>
+                        <li><strong>PostgreSQL: </strong>A reliable and scalable database solution to store user data, story preferences, and generated content.</li>
+                        <li><strong>Various Libraries</strong>A range of additional libraries supports our core functionalities, ensuring everything runs smoothly.</li>
+                    </ul>
+                </div>
+            </article>
+            
+            <article class="about-article">
+                <div class="about-article-side">
+                    <h1>Our mission</h1>
+                    <p>
+                        At Tiny Tale Factory, our mission is to inspire creativity and bring joy to children through
+                        the magic of storytelling. Whether you're looking to create a personalized story or simply 
+                        explore the wonders of our pre-defined tales, we're here to make storytelling a delightful and 
+                        memorable experience for you and your child.
+                    </p>
+                    <p>Start your storytelling adventure today! <a href="{% url 'account_login' %}">Login</a> or <a
+                            href="{% url 'account_signup' %}">signup</a></p> 
+                </div>
+                <div class="about-media-side">
+                    <img src="https://res.cloudinary.com/dh7ur0uv3/image/upload/gckpqaegeljaa9gsvj40.png" alt="image">
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <script src="{% static 'js/common/about.js' %}"></script>
+
+{% endblock %}
