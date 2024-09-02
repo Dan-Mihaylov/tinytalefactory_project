@@ -1,3 +1,6 @@
+from django.db.models import QuerySet
+from django.http import JsonResponse
+from django.urls import reverse_lazy, reverse, resolve
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
@@ -11,7 +14,8 @@ from Tinytalefactory.api.serializers import (
     StoriesForCreateSerializer,
     UserForUpdateSerializer,
     StoriesForRetrieveSerializer,
-    StoriesSamplesForListSerializer
+    StoriesSamplesForListSerializer,
+    OrderForCreateSerializer,
 )
 from Tinytalefactory.generate_stories.helpers import (
     generate_story_from_questionary,
@@ -19,8 +23,13 @@ from Tinytalefactory.generate_stories.helpers import (
     generate_story_from_category, upload_image
 )
 from Tinytalefactory.generate_stories.models import Story, Usage
+from Tinytalefactory.paypal.models import Order
 
 from django.contrib.auth import get_user_model
+
+from .paypal_utils import get_access_token, create_reference_number
+
+import requests, json
 
 
 UserModel = get_user_model()
@@ -229,3 +238,194 @@ class StoriesAndUsersCountApiView(APIView):
             'public_stories': public_stories_count,
             'total_users': total_users_count
         }
+
+
+# Payment view start here
+class PaymentCreateApiView(APIView):
+    CREATE_ORDER_URL = 'https://api-m.sandbox.paypal.com/v2/checkout/orders'
+    RETURN_URL = reverse_lazy('payment-success')
+    CANCEL_URL = reverse_lazy('payment-cancel')
+    PRICE_PER_ITEM = 1.10
+    CURRENCY = 'GBP'
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        access_token = get_access_token()
+        reference = create_reference_number()
+        quantity = request.data.get('quantity', 0)
+        total_price = self.PRICE_PER_ITEM * int(quantity)
+
+        headers = {
+            'Content-Type': 'application/json',
+            'PayPal-Request-Id': reference,
+            'Authorization': f'Bearer {access_token}',
+        }
+
+        data = {
+            "intent": "CAPTURE",
+            "purchase_units": [{
+                "reference_id": reference,
+                "amount": {
+                    "currency_code": self.CURRENCY,
+                    "value": total_price,
+                    "quantity": quantity
+                }
+            } ],
+            "payment_source": {
+                "paypal": {
+                    "experience_context": {
+                        "payment_method_preference": "IMMEDIATE_PAYMENT_REQUIRED",
+                        "brand_name": "Tiny Tale Factory",
+                        "locale": "en-UK",
+                        "landing_page": "LOGIN",
+                        "user_action": "PAY_NOW",
+                        "return_url": f'http://{self.request.get_host()}{self.RETURN_URL}',
+                        "cancel_url": f'http://{self.request.get_host()}{self.CANCEL_URL}' }
+                }
+            }
+        }
+
+        data = JsonResponse(data)
+        data_json = data.content
+
+        response = requests.post(self.CREATE_ORDER_URL, headers=headers, data=data_json)
+
+        if response.status_code == 200:
+            order_id = response.json()['id']
+
+            payment_data = {
+                'id': order_id,
+                'link': response.json()['links'][1]['href']
+            }
+
+            created = self._create_order(order_id, reference, quantity, total_price)
+
+            if created:
+                return Response(data=json.dumps(payment_data), status=status.HTTP_201_CREATED)
+            return Response(data=['An issue arisen creating your order'], status=status.HTTP_400_BAD_REQUEST)
+
+    def _create_order(self, order_id, reference, quantity, price):
+        data = {
+            'order_id': order_id,
+            'user': self.request.user,
+            'reference': reference,
+            'quantity': quantity,
+            'price': price,
+            'status': 'Placed',
+        }
+
+        new_order = Order.objects.create(**data)
+
+        return True if new_order else False
+
+
+class PaymentExecuteApiView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        try:
+            order_id = request.data.get('order_id', '')
+
+            capture_payment_response = self._capture_payment(order_id)
+
+            if not capture_payment_response['status'] == 'COMPLETED':
+                return Response(data=['There was an issue processing your payment.'])
+
+            order = self._get_order(order_id)
+
+            if not order:
+                return Response(data=['Something went wrong with fetching your order'], status=status.HTTP_409_CONFLICT)
+
+            self._change_order_complete_status(order)
+            self._transfer_tokens_to_user(request.user, order)
+            self._change_tokens_transferred_status(order)
+
+            return Response(data=['Success'], status=status.HTTP_200_OK)
+
+        except KeyError or Exception:
+            return Response(data=['Oops, something went wrong!'])
+
+    @staticmethod
+    def _capture_payment(order_id):
+        CAPTURE_URL = f'https://api-m.sandbox.paypal.com/v2/checkout/orders/{order_id}/capture'
+
+        auth_token = get_access_token()
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': f'Bearer {auth_token}',
+        }
+
+        response = requests.post(CAPTURE_URL, headers=headers)
+        return response.json()
+
+    @staticmethod
+    def _get_order(order_id):
+        order = Order.objects.filter(order_id=order_id)
+        return order
+
+    @staticmethod
+    def _change_order_complete_status(order:Order):
+        order.status = 'Completed'
+        order.save()
+        return
+
+    @staticmethod
+    def _transfer_tokens_to_user(user: UserModel, order: Order):
+        quantity = order.quantity
+        user.tokens.purchased_tokens = user.tokens.purchased_tokens + quantity
+        user.tokens.save()
+        return
+
+    @staticmethod
+    def _change_tokens_transferred_status(order: Order):
+        order.transferred = True
+        order.save()
+        return
+
+
+class PaymentCancelApiView(APIView):
+    ERROR_RESPONSE = Response(data=['Something went wrong'], status=status.HTTP_418_IM_A_TEAPOT)
+    SUCCESS_RESPONSE = Response(data=['Order cancelled successfully'], status=status.HTTP_200_OK)
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        try:
+            order_id = request.data.get('order_id', '')
+
+            order_info_response = self._check_order_info(order_id)
+            if order_info_response['status'] != 'PAYER_ACTION_REQUIRED':
+                return self.ERROR_RESPONSE
+
+            order = self._get_order(order_id)
+            if not order:
+                return self.ERROR_RESPONSE
+
+            self._change_order_status(order)
+            return self.SUCCESS_RESPONSE
+
+        except KeyError or Exception:
+            return self.ERROR_RESPONSE
+
+    @staticmethod
+    def _get_order(order_id):
+        order = Order.objects.filter(order_id=order_id).first()
+        return order
+
+    @staticmethod
+    def _change_order_status(order: Order):
+        order.status = 'Cancelled'
+        order.save()
+        return
+
+    @staticmethod
+    def _check_order_info(order_id):
+        ORDER_INFO_URL = f'https://api-m.sandbox.paypal.com/v2/checkout/orders/{order_id}'
+
+        auth_token = get_access_token()
+
+        headers = {
+            'Authorization': f'Bearer {auth_token}',
+        }
+
+        response = requests.get(ORDER_INFO_URL, headers=headers)
+        return response.json()

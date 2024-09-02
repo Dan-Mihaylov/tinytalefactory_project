@@ -10,6 +10,7 @@ from Tinytalefactory.common.models import AuditMixin
 user_model = get_user_model()
 
 
+# TODO: when creating a new user, automatically create the tokens for them
 class Token(models.Model):
 
     user = models.OneToOneField(
@@ -25,6 +26,7 @@ class Token(models.Model):
             MinValueValidator(0),
             MaxValueValidator(3),
         ],
+        default=0,
         null=True,
         blank=True,
     )
@@ -33,6 +35,7 @@ class Token(models.Model):
         validators=[
             MinValueValidator(0),
         ],
+        default=0,
         null=True,
         blank=True,
     )

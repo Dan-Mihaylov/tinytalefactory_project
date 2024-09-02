@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from Tinytalefactory.generate_stories.models import Story
+from Tinytalefactory.paypal.models import Order
 
 
 UserModel = get_user_model()
@@ -37,3 +38,10 @@ class UserForUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
         fields = ['username', 'first_name', 'last_name']
+
+
+class OrderForCreateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Order
+        fields = ['user', 'reference', 'quantity', 'price', 'status']

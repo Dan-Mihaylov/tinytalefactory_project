@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f369337c-924b-49b9-b59e-98b220604015" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Tinytalefactory/paypal/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/paypal/cancel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/paypal/success.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tinytalefactory/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/common/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tinytalefactory/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/common/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/paypal_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/paypal_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/profile/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/profile/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image_generation.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_image_generation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_paypal_payments.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_paypal_payments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tinytalefactory/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tinytalefactory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tinytalefactory/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,10 +35,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -43,43 +58,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.manage.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test_image_generation.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test_json_correct.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
-    &quot;Python.text_generator.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/danie/OneDrive/Documents/tinytalefactory/staticfiles/images&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.manage.executor": "Debug",
+    "Python.paypal_utils.executor": "Run",
+    "Python.test_image_generation.executor": "Run",
+    "Python.test_json_correct.executor": "Run",
+    "Python.test_paypal_payments.executor": "Run",
+    "Python.tests.executor": "Run",
+    "Python.text_generator.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/danie/OneDrive/Documents/tinytalefactory/staticfiles/images",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\staticfiles\images" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\Tinytalefactory" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\templates\common" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\templates\allauth" />
-      <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\Tinytalefactory" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\Tinytalefactory\generate_stories" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\prompt_results" />
     </key>
@@ -101,6 +118,29 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
       <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="paypal_utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="tinytalefactory" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tinytalefactory/api" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tinytalefactory/api/paypal_utils.py" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -131,7 +171,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_json_correct" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test_paypal_payments" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tinytalefactory" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,7 +185,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_json_correct.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_paypal_payments.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -169,29 +209,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="text_generator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="tinytalefactory" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tinytalefactory/ai_tools" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tinytalefactory/ai_tools/text_generator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -226,8 +243,8 @@
     </configuration>
     <list>
       <item itemvalue="Django Server.tinytalefactory" />
-      <item itemvalue="Python.text_generator" />
-      <item itemvalue="Python.test_json_correct" />
+      <item itemvalue="Python.paypal_utils" />
+      <item itemvalue="Python.test_paypal_payments" />
       <item itemvalue="Python.test_image_generation" />
       <item itemvalue="Python.manage" />
       <item itemvalue="Python.tests" />
@@ -235,10 +252,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.manage" />
-        <item itemvalue="Python.tests" />
-        <item itemvalue="Python.text_generator" />
-        <item itemvalue="Python.test_json_correct" />
         <item itemvalue="Python.test_image_generation" />
+        <item itemvalue="Python.paypal_utils" />
+        <item itemvalue="Python.test_paypal_payments" />
+        <item itemvalue="Python.tests" />
       </list>
     </recent_temporary>
   </component>
@@ -314,7 +331,7 @@
       <workItem from="1724847772816" duration="26744000" />
       <workItem from="1724938521525" duration="6066000" />
       <workItem from="1724945994145" duration="1374000" />
-      <workItem from="1725016116872" duration="1248000" />
+      <workItem from="1725016116872" duration="42111000" />
     </task>
     <servers />
   </component>
@@ -332,11 +349,24 @@
       </map>
     </option>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Tinytalefactory/api/views.py</url>
+          <line>392</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tinytalefactory$tests.coverage" NAME="tests Coverage Results" MODIFIED="1724425454522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1725016164959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tinytalefactory$paypal_utils.coverage" NAME="paypal_utils Coverage Results" MODIFIED="1725295686860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tinytalefactory/api" />
+    <SUITE FILE_PATH="coverage/tinytalefactory$test_paypal_payments.coverage" NAME="test_paypal_payments Coverage Results" MODIFIED="1725291339675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1725316630693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$text_generator.coverage" NAME="text_generator Coverage Results" MODIFIED="1722003892084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tinytalefactory/ai_tools" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_json_correct.coverage" NAME="test_json_correct Coverage Results" MODIFIED="1720223656901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tinytalefactory$test_image_generation.coverage" NAME="test_image_generation Coverage Results" MODIFIED="1720185304486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tinytalefactory$test_image_generation.coverage" NAME="test_image_generation Coverage Results" MODIFIED="1725295990278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

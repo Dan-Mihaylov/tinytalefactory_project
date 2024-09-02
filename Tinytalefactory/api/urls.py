@@ -9,4 +9,7 @@ urlpatterns = [
     path('story/<slug:slug>/', views.StoryRetrieveApiView.as_view(), name='api-retrieve-story'),
     path('samples/', views.StoriesListSampleApiView.as_view(), name='api-list-samples'),
     path('base-stats/', views.StoriesAndUsersCountApiView.as_view(), name='api-base-stats'),
+    path('create-payment/', views.PaymentCreateApiView.as_view(), name='api-payment-create'),
+    path('execute-payment/', views.PaymentExecuteApiView.as_view(), name='api-payment-execute'),
+    path('cancel-payment/', views.PaymentCancelApiView.as_view(), name='api-payment-cancel'),
 ]

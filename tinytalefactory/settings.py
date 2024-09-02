@@ -19,6 +19,7 @@ ALLOWED_HOSTS = []
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     'https://127.0.0.1:8000',
+    'https://sandbox.paypal.com',
 ]
 
 INSTALLED_APPS = [
@@ -33,6 +34,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_framework',
+    'corsheaders',
 
     # Optional -- requires install using `django-allauth[socialacocunt]`.
     'allauth.socialaccount',
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'Tinytalefactory.common',
     'Tinytalefactory.generate_stories',
     "Tinytalefactory.api",
+    'Tinytalefactory.paypal',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -52,6 +55,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

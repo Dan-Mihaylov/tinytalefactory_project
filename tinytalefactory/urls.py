@@ -8,5 +8,6 @@ urlpatterns = [
     path('api/', include('Tinytalefactory.api.urls')),
     path('profile/', include('Tinytalefactory.profile.urls')),
     path('', include('Tinytalefactory.common.urls')),
+    path('', include('Tinytalefactory.paypal.urls')),
 ]
 
