@@ -1,0 +1,36 @@
+.order-info-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+    margin: 5rem auto;
+    max-width: 40rem;
+    width: 100%;
+    flex: 1 0 auto;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.3);
+}
+
+.order-info-container article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.bold {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(2, 42, 81, 0.7);
+}
+
+br {
+    margin: 1rem 0;
+}
+
+.order-info-container article p {
+    max-width: 30rem;
+}

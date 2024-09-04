@@ -7,9 +7,9 @@ from . import models
 # TODO: Change the display items
 @admin.register(models.Story)
 class StoryAdmin(admin.ModelAdmin):
-    list_display = ['id', 'slug', 'user', 'title', 'created_at', 'updated_at']
+    list_display = ['id', 'slug', 'user', 'title', 'is_public', 'created_at', 'updated_at']
 
-    list_filter = ['user', 'created_at', 'updated_at']
+    list_filter = ['user', 'created_at', 'updated_at', 'is_public']
     search_fields = ['title']
 
 

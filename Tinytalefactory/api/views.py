@@ -267,7 +267,7 @@ class PaymentCreateApiView(APIView):
                 "reference_id": reference,
                 "amount": {
                     "currency_code": self.CURRENCY,
-                    "value": total_price,
+                    "value": f"{total_price:.2f}",
                     "quantity": quantity
                 }
             } ],
@@ -361,7 +361,7 @@ class PaymentExecuteApiView(APIView):
     @staticmethod
     def _get_order(order_id):
         order = Order.objects.filter(order_id=order_id)
-        return order
+        return order.first() if order else False
 
     @staticmethod
     def _change_order_complete_status(order:Order):

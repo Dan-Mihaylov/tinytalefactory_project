@@ -67,7 +67,9 @@
                 <div class="user-more-info">
                     <p>Member since: {{ user.date_joined|date }}</p>
                     <p>Last login: {{ user.last_login|date }}</p>
-                    <button class="btn buy-more"><i id="get-tokens" class="fa-solid fa-hand-holding-dollar"></i>  Get Tokens</button>
+                    <button class="btn buy-more"><i id="get-tokens" class="fa-solid fa-hand-holding-dollar"></i> Get
+                        Tokens
+                    </button>
                 </div>
 
             </div>
@@ -75,12 +77,11 @@
         {# Left Side Ends Here #}
 
         {# Right Side Starts Here #}
-        <div id="profile-wrapper-right" class="profile-wrapper-right">
-            
-        </div>
+        <div id="profile-wrapper-right" class="profile-wrapper-right"></div>
         {# Right Side Ends Here #}
 
     </div>
+
 
     <script>
         const url = `{% url 'api-list-stories' %}`;
@@ -92,9 +93,13 @@
         const accountChangePasswordUrl = `{% url 'account_change_password' %}`;
         const getStoriesURL = `{% url 'api-list-stories' %}`;
         const baseStoryViewUrl = `{% url 'view-story' 'placeholder'%}`;
+        const startPaymentUrl = ` {% url 'api-payment-create' %}`;
+        const totalTokens = `{{ request.user.tokens.total_tokens }}`;
+        const promotionalTokens = `{{ request.user.tokens.promotional_tokens }}`
     </script>
-    
+
     <script src="{% static 'js/profile/profileOptions.js' %}"></script>
+    <script src="{% static 'js/profile/paypalScript.js' %}"></script>
     <script src="{% static 'js/profile/profileScript.js' %}"></script>
 
 {% endblock %}

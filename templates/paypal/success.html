@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Payment Successful
+{% endblock %}
+
+{% block content %}
+
+        <main class="order-info-container">
+            <article>
+                {% if valid_order %}
+                    <h2>Thank you for your purchase</h2>
+                    <p>
+                        Your order with order id:
+                        <br>
+                        <strong class="bold">{{ order_id }}</strong>
+                        <br>
+                        has been successful.
+                        <br>
+                        It might take up a minute for your account to be credited the bough tokens.
+                    </p>
+                    <p>
+                        You can now more exciting stories using our platform.
+                        Go to your <a href="{% url 'profile-page' %}">profile page</a> to view your total tokens.
+                    </p>
+                {% else %}
+                    <h2>Oh, no!</h2>
+                    <p>
+                        There is nothing to see here. Go <a href="#" onclick="history.back()">back</a>.
+                    </p>
+                {% endif %}
+            </article>
+            {% csrf_token %}
+        </main>
+
+    <script>
+        const paymentExecuteUrl = `{% url 'api-payment-execute' %}`;
+        const orderId = `{{ order_id }}`;
+        const csrfTokenValue = `{{ csrf_token }}`;
+    </script>
+
+    <script src="{% static 'js/paypal/paymentExecute.js' %}"></script>
+
+{% endblock %}

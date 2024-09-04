@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Cancel transaction
+{% endblock %}
+
+{% block content %}
+
+
+    <main class="order-info-container">
+        <article>
+            {% if valid_order %}
+                <h2>Transaction cancelled.</h2>
+                <p>
+                    Oh no, it looks like you have cancelled the transaction. Continue browsing or go back to your
+                    <a href="{% url 'profile-page' %}">profile page</a>.
+                </p>
+            {% else %}
+                <h2>Oh, no!</h2>
+                <p>
+                    It looks like you are trying to cancel something that does not exist.
+                    <br>
+                    <a href="" onclick="history.back()">Go back</a>
+                </p>
+            {% endif %}
+        </article>
+        {% csrf_token %}
+    </main>
+
+    <script>
+        const paymentCancelUrl = `{% url 'api-payment-cancel' %}`;
+        const orderId = `{{ order_id }}`;
+        const csrfTokenValue = `{{ csrf_token }}`;
+    </script>
+
+    <script src="{% static 'js/paypal/paymentCancel.js' %}"></script>
+
+
+{% endblock %}

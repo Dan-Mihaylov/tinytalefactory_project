@@ -203,6 +203,7 @@
 /* Right Side Wrapper Starts */
 /* user info change */
 .right-info-wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-width: 100%;
@@ -380,6 +381,167 @@
     transition: color 0.3s linear;
 }
 
+/* styling buy tokens */
+
+.buy-tokens-info {
+    text-align: center;
+    max-width: 42rem;
+    padding: 0 1rem;
+}
+
+.token-buy-form {
+    box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.3);
+    border-radius: 0.3rem;
+    padding: 1rem;
+    max-width: 20rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 3rem auto;
+}
+
+.tokens-form-field {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 100%;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.tokens-form-field label, .tokens-form-field i {
+    padding-top: 0.5rem;
+}
+
+.tokens-buy-container {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.tokens-form-field input {
+    max-width: 6rem;
+    padding: 0.3rem 0.8rem;
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    outline: none;
+    border-radius: 0.5rem;
+    border: 0;
+    box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.1);
+    text-align: center;
+}
+
+.tokens-form-field input:focus-visible {
+    outline: 1px solid rgb(2, 42, 71, 0.8);
+}
+
+#tokens-price {
+    margin-right: 1.8rem;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#minus-token {
+    color: indianred;
+    transition: color 0.3s linear;
+}
+
+#plus-token {
+    color: darkseagreen;
+    transition: color 0.3s linear;
+}
+
+#plus-token:hover {
+    cursor: pointer;
+    color: darkolivegreen;
+}
+
+#minus-token:hover {
+    cursor: pointer;
+    color: darkred;
+}
+
+.token-price-p {
+    font-size: 1.2rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 15rem;
+    width: 100%;
+}
+
+#paypal-button-container {
+    margin: 3rem auto;
+}
+
+#paypal-btn {
+    padding: 1rem;
+    box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.1);
+    border-radius: 0.3rem;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s linear, background-color 0.3s linear, box-shadow 0.3s linear;
+    display: flex;
+    gap: 1rem;
+    line-height: 1;
+}
+
+#paypal-btn:hover {
+    cursor: pointer;
+    background-color: steelblue;
+    color: #eee;
+    box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.3);
+}
+
+.buy-tokens-info strong {
+    color: steelblue;
+    font-weight: bold;
+}
+
+.loader-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255, 0.9);
+}
+
+.terms-and-cons-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    padding: 3rem 5rem;
+    border-radius: 0.3rem;
+}
+
+.terms-and-cons-overlay h3 {
+    font-size: 1.4rem;
+    color: rgb(2, 42, 71, 0.8);
+    text-align: left;
+    max-width: 60rem;
+    width: 100%;
+}
+
+.terms-and-cons-overlay p, .terms-and-cons-overlay a {
+    color: rgb(2, 42, 71, 0.7);
+    text-align: left;
+    max-width: 60rem;
+    width: 100%;
+}
+
 
 /* iframe styles */
 iframe {
@@ -403,6 +565,14 @@ iframe {
     }
     .profile-site-wrapper {
         flex-direction: column;
+    }
+    .terms-and-cons-overlay {
+        padding: 3rem;
+    }
+    .profile-wrapper-right {
+        margin: 0 -1rem;
+        max-height: none;
+        min-height: 100%;
     }
 }
 
