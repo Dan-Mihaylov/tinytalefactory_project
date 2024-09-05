@@ -5,19 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f369337c-924b-49b9-b59e-98b220604015" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/staticfiles/css/paypal/cancel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/css/paypal/success.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/js/paypal/paymentCancel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/js/paypal/paymentExectute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/staticfiles/js/profile/paypalScript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/css/generate-stories/getting-started.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/js/generate-stories/storiesUtils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/staticfiles/js/opacityRegulator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tinytalefactory/ai_tools/image_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/ai_tools/image_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/paypal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/paypal/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/common/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/common/about.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/generate-stories/generate-stories-questionary.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/generate-stories/generate-stories-questionary.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/generate-stories/generate-story-categories.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/generate-stories/generate-story-categories.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/generate-stories/sample-stories.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/generate-stories/sample-stories.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/generate-stories/view-story.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/generate-stories/view-story.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/partials/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/partials/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/partials/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/partials/navbar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/css/profile/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/profile/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/reset.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/js/profile/profileScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/js/profile/profileScript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/js/generate-stories/generateStoryFromCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/js/generate-stories/generateStoryFromCategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/js/generate-stories/generateStoryFromQuestionary.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/js/generate-stories/generateStoryFromQuestionary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generate_stories/generate-story-categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/generate_stories/generate-story-categories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generate_stories/generate-story-questionary.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/generate_stories/generate-story-questionary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generate_stories/generate-story.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/generate_stories/generate-story.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generate_stories/getting-started.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/generate_stories/getting-started.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generate_stories/sample-stories.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/generate_stories/sample-stories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/generate_stories/view-story.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/generate_stories/view-story.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_image_generation.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_image_generation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_paypal_payments.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_paypal_payments.py" afterDir="false" />
@@ -36,8 +51,8 @@
       <list>
         <option value="Python Script" />
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -332,7 +347,7 @@
       <workItem from="1724945994145" duration="1374000" />
       <workItem from="1725016116872" duration="45368000" />
       <workItem from="1725364720683" duration="27751000" />
-      <workItem from="1725458310534" duration="818000" />
+      <workItem from="1725458310534" duration="29143000" />
     </task>
     <servers />
   </component>

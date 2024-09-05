@@ -34,31 +34,42 @@
                 <div class="about-article-side">
                     <h1>Our Journey and Technology</h1>
                     <p>
-                        Tiny Tale Factory began as an ambitious web development project with the aim of showcasing 
+                        Tiny Tale Factory began as an ambitious web development project with the aim of showcasing
                         capabilities of modern AI in creative storytelling. We used a variety of technologies to build
                         this platform:
                     </p>
                     <ul>
-                        <li><strong>Python: </strong>The backbone of our application, enabling robust logic and seamless integration of AI models.</li>
-                        <li><strong>Django: </strong>A powerful web framework that allows us to manage data, user accounts, and story generation processes efficiently.</li>
-                        <li><strong>JavaScript, HTML and CSS: </strong>These technologies are employed to create an interactive and user-friendly interface, making your journey with Tiny Tale Factory enjoyable.</li>
-                        <li><strong>PostgreSQL: </strong>A reliable and scalable database solution to store user data, story preferences, and generated content.</li>
-                        <li><strong>Various Libraries</strong>A range of additional libraries supports our core functionalities, ensuring everything runs smoothly.</li>
+                        <li><strong>Python: </strong>The backbone of our application, enabling robust logic and seamless
+                            integration of AI models.
+                        </li>
+                        <li><strong>Django: </strong>A powerful web framework that allows us to manage data, user
+                            accounts, and story generation processes efficiently.
+                        </li>
+                        <li><strong>JavaScript, HTML and CSS: </strong>These technologies are employed to create an
+                            interactive and user-friendly interface, making your journey with Tiny Tale Factory
+                            enjoyable.
+                        </li>
+                        <li><strong>PostgreSQL: </strong>A reliable and scalable database solution to store user data,
+                            story preferences, and generated content.
+                        </li>
+                        <li><strong>Various Libraries</strong>A range of additional libraries supports our core
+                            functionalities, ensuring everything runs smoothly.
+                        </li>
                     </ul>
                 </div>
             </article>
-            
+
             <article class="about-article">
                 <div class="about-article-side">
                     <h1>Our mission</h1>
                     <p>
                         At Tiny Tale Factory, our mission is to inspire creativity and bring joy to children through
-                        the magic of storytelling. Whether you're looking to create a personalized story or simply 
-                        explore the wonders of our pre-defined tales, we're here to make storytelling a delightful and 
+                        the magic of storytelling. Whether you're looking to create a personalized story or simply
+                        explore the wonders of our pre-defined tales, we're here to make storytelling a delightful and
                         memorable experience for you and your child.
                     </p>
                     <p>Start your storytelling adventure today! <a href="{% url 'account_login' %}">Login</a> or <a
-                            href="{% url 'account_signup' %}">signup</a></p> 
+                            href="{% url 'account_signup' %}">signup</a></p>
                 </div>
                 <div class="about-media-side">
                     <img src="https://res.cloudinary.com/dh7ur0uv3/image/upload/gckpqaegeljaa9gsvj40.png" alt="image">
@@ -69,5 +80,10 @@
     </div>
 
     <script src="{% static 'js/common/about.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('body').classList.add('about-us-background');
+        })
+    </script>
 
 {% endblock %}

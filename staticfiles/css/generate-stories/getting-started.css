@@ -1,0 +1,96 @@
+.getting-started-header {
+    font-weight: normal;
+    font-size: 2rem;
+    margin: 0 auto;
+    max-width: 60rem;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.getting-started-p {
+    font-size: 1.1rem;
+    color: rgb(2, 42, 71, 0.8);
+    padding: 0;
+}
+
+.header-container > ol {
+    max-width: 42rem;
+    padding: 0 2rem;
+    color: rgb(2, 42, 71, 0.8)
+}
+
+.header-container > ol li {
+    margin-bottom: 1rem;
+}
+
+.how-to-generate-story-container {
+    padding: 1rem;
+}
+
+.how-to-generate-story-container h2 {
+    font-size: 2rem;
+    font-weight: normal;
+    text-align: center;
+}
+
+.how-to-generate-story-container > ul {
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style-type: none;
+}
+
+.how-to-generate-story-container > ul li {
+    padding: 1.5rem 2rem;
+    border-radius: 0.3rem;
+    min-width: 20rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 1rem 0 rgb(2, 42, 71, 0.2);
+    overflow: hidden;
+    transition: background-color 0.3s linear, color 0.3s linear;
+}
+
+.how-to-generate-story-container > ul li:hover {
+    cursor: pointer;
+    background-color: #15466f;
+    color: #eee;
+}
+
+.how-to-generate-story-container > ul li:hover::after {
+    background-color: #fff;
+    color: rgb(2, 42, 71, 0.9);
+}
+
+.how-to-generate-story-container > ul li::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2rem;
+    aspect-ratio: 1/1;
+    background-color: #15466f;
+    color: #eee;
+    font-size: 0.8rem;
+    border-bottom-right-radius: 0.3rem;
+    transition: background-color 0.3s linear, color 0.3s linear;
+}
+
+.how-to-generate-story-container > ul li:first-of-type::after {
+    content: '1';
+}
+
+.how-to-generate-story-container > ul li:last-of-type::after {
+    content: '2';
+}
+
+@media (max-width: 600px) {
+    .getting-started-header {
+        padding: 5rem 1rem 2rem 1rem;
+    }
+}

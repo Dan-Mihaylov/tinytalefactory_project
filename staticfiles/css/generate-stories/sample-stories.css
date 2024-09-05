@@ -1,12 +1,13 @@
 .section-banner {
     position: relative;
-    min-height: 40rem;
+    min-height: 60rem;
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(94,236,215,1) 0%, rgba(94,236,215,1) 41%, rgba(0,212,255,1) 100%);
     margin: 0 -1rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 1.5s opacity linear;
 }
 
 /* Stories stats container */
@@ -15,15 +16,17 @@
     position: absolute;
     height: 8rem;
     bottom: -4rem;
-
+    border-radius: 0.3rem;
     display: flex;
     justify-content: space-evenly;
     max-width: 40rem;
     width: 100%;
-    background-color: rgb(44, 71, 96);
-    color: #eee;
+    background-color: rgb(255, 255, 255);
+    color: rgb(2, 42, 71, 0.9);
     padding: 1rem;
     box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.5);
+    transition: 0.5s opacity linear;
+    z-index: 10;
 }
 
 .stats-container {
@@ -41,16 +44,20 @@
 /* ends */
 
 .section-main {
-    background-color: #fff;
-    margin: 0 -1em;
+    margin: 0 -1em -4em -1em;
     min-height: 40rem;
     padding: 8rem 0 5rem 0;
+    background: #7474BF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #348AC7, #7474BF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    transition: opacity 1s linear;
 }
 
 .main-container {
     margin: 0 auto;
     border-radius: 0.5rem;
     box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.1);
+    background-color: #fff;
 }
 
 .description-article {
@@ -58,6 +65,7 @@
     max-width: 50rem;
     text-align: center;
     margin: 0 auto;
+    transition: opacity 1s linear;
 }
 
 .description-article {
@@ -76,6 +84,7 @@
     gap: 2rem;
     width: 100%;
     padding: 5rem 2rem 5rem 2rem;
+    transition: opacity 1s linear;
 }
 
 .browse-story-card {
@@ -93,6 +102,7 @@
     text-decoration: none;
     color: inherit;
     box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.2);
+    transition: opacity 1s linear;
 }
 
 .browse-story-card:hover .card-overlay {
@@ -182,5 +192,14 @@
     .stories-stats-container {
         gap: 2rem;
         padding: 1rem 2rem;
+    }
+
+    .section-main {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .stories-stats-container {
+        max-width: 90%;
     }
 }

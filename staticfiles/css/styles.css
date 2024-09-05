@@ -5,6 +5,7 @@
 @import url('partials/footer.css');
 @import url('profile/profile.css');
 @import url('index.css');
+@import url('generate-stories/getting-started.css');
 @import url('generate-stories/generate-story-categories.css');
 @import url('generate-stories/generate-stories-questionary.css');
 @import url('generate-stories/sample-stories.css');

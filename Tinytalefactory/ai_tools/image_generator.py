@@ -24,7 +24,7 @@ class ImageGenerator:
 
     def generate_image(self, paragraph: str, appearance=''):
 
-        self.create_prompt(paragraph)
+        self.create_prompt(paragraph, appearance)
 
         response = self.client.images.generate(
             model=self.model,

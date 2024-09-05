@@ -7,23 +7,52 @@
 
 {% block content %}
 
-    <div class="site" style="flex: 1 1 auto;">
+    <div class="site not-visible" style="flex: 1 1 auto;">
 
-        <main class="header-container">
-            <h1>Getting started with generating customized kids stories.</h1>
-            <p>A short intro to getting started</p>
-    
+        <main class="header-container centered-flex">
+            <h1 class="getting-started-header">Getting started with generating customized kids stories.</h1>
+            <p class="getting-started-p">There are two ways of getting started.</p>
+
+            <ol>
+                <li>
+                    <strong>Personalized Story Creation: </strong>
+                    <br>
+                    Fill out a short form with some key details. At a minimum, you'll need to provide the child's
+                    name and what the story will be about. For an even more tailored experience, you can add extra
+                    details like the child's appearance, specific elements to emphasize in the story, or even a custom
+                    title. This will make the story more accurate and engaging for your little one.
+                </li>
+
+                <li>
+                    <strong>Predefined Categories: </strong>
+                    <br>
+                    If you're in a hurry or looking for quick inspiration, simply browse our predefined categories
+                    and click "Generate." It's that simple!
+                </li>
+            </ol>
+
             <div class="how-to-generate-story-container">
-                <h2>There are two ways to generate your story!</h2>
+                <h2>Your story, your way!</h2>
 
                 <ul>
-                    <li>Fill out a small questionary about your kids interests <a href="{% url 'generate-story-questionary' %}">here</a></li>
-                    <li>Only select the topic you want to create a story about <a href="{% url 'generate-story-categories' %}">here</a></li>
+                    <li onclick="document.location.href = `{% url 'generate-story-questionary' %}`">
+                            Personalized story creation
+                    </li>
+                    <li onclick="document.location.href = `{% url 'generate-story-categories' %}`">
+
+                        Predefined categories
+
+                    </li>
                 </ul>
-                
+
             </div>
         </main>
 
     </div>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('body').classList.add('story-generate-background');
+        })
+    </script>
+    <script src="{% static 'js/opacityRegulator.js' %}"></script>
 {% endblock %}

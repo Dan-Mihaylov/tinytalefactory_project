@@ -11,6 +11,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #4e54c8;
+    background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);
+    background: linear-gradient(to right, #8f94fb, #4e54c8);
 }
 
 body > i:first-of-type {
@@ -51,8 +54,7 @@ main {
     display: block;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #444444;
-    transition: opacity 0.5s linear;
+    transition: opacity 0.2s ease-out;
 }
 
 
@@ -62,6 +64,8 @@ main {
     width: 100%;
     padding: 1rem 2rem 2rem 2rem;
     background-color: #fff;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.3);
 }
 
 .story-container h1 {

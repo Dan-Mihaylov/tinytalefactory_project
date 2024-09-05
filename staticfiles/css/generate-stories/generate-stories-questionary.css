@@ -1,3 +1,9 @@
+.story-generate-background {
+    background: #4b6cb7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .centered-flex {
     justify-content: center;
 }
@@ -5,7 +11,9 @@
 #generate-from-questionary-header {
     display: block;
     text-align: center;
-    font-weight: lighter;
+    font-weight: normal;
+    max-width: 40rem;
+    font-size: 2rem;
 }
 
 .header-container > p:first-of-type {
@@ -19,21 +27,14 @@
     background-color: rgb(205, 92, 92, 0.2);
 }
 
-.header-container {
-    color: rgb(2, 42, 71, 0.9);
-}
-
 .questionary {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    max-width: 30rem;
     width: 100%;
     gap: 3rem;
     padding: 3rem 2rem 2rem 2rem;
     background-color: #fff;
     border-radius: 0.5rem;
-    box-shadow: 0 1em 2em 0 rgb(2, 42, 71, 0.2);
 }
 
 .form-field {
@@ -42,6 +43,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.form-fieldset:first-of-type {
+    display: block;
+}
+
+.form-fieldset:first-of-type .form-field {
+    margin-bottom: 3rem;
+}
+
+.form-fieldset {
+    flex: 1 1 40%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
 }
 
 .form-field input, .form-field textarea {
@@ -53,7 +69,8 @@
     resize: none;
 }
 
-.form-field:nth-of-type(2)::after, .form-field:nth-of-type(4)::after {
+.form-fieldset:nth-of-type(1) .form-field:nth-of-type(2)::after,
+.form-fieldset:nth-of-type(2) .form-field:nth-of-type(1)::after {
     display: inline-block;
     content: '*';
     font-size: 1.2rem;
@@ -103,6 +120,24 @@
     color: rgb(2, 42, 71, 0.7);
 }
 
+#button[type="button"] {
+    background-color: inherit;
+    border: none;
+    box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.2);
+    transition: background-color 0.3s linear, color 0.3s linear;
+    width: 100%;
+}
+
+#button[type="button"]:hover {
+    background-color: rgb(2, 42, 71, 0.7);
+    color: #eee;
+    cursor: pointer;
+}
+
+.form-field:last-of-type {
+    width: 100%;
+}
+
 /* Elements after clicking on generate button */
 
 .loader {
@@ -132,7 +167,7 @@
 }
 
 .loader-wrapper h2:first-of-type, p {
-    font-weight: lighter;
+    font-weight: normal;
     display: block;
     width: 100%;
     text-align: center;
@@ -164,4 +199,9 @@
     color: #fff;
 }
 
-
+@media (max-width: 600px) {
+    #generate-from-questionary-header {
+        padding: 2rem 1rem 0 1rem;
+        font-size: 1.8rem;
+    }
+}

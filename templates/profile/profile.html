@@ -9,7 +9,7 @@
 
     <div class="profile-site-wrapper">
         {# Left Side Starts Here #}
-        <div class="profile-wrapper-left">
+        <div class="profile-wrapper-left not-visible">
 
             <div class="profile-card">
 
@@ -77,7 +77,7 @@
         {# Left Side Ends Here #}
 
         {# Right Side Starts Here #}
-        <div id="profile-wrapper-right" class="profile-wrapper-right"></div>
+        <div id="profile-wrapper-right" class="profile-wrapper-right not-visible"></div>
         {# Right Side Ends Here #}
 
     </div>
@@ -101,5 +101,11 @@
     <script src="{% static 'js/profile/profileOptions.js' %}"></script>
     <script src="{% static 'js/profile/paypalScript.js' %}"></script>
     <script src="{% static 'js/profile/profileScript.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('body').classList.add('profile-page-background');
+        })
+    </script>
+
 
 {% endblock %}

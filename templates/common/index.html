@@ -7,68 +7,80 @@
 
 {% block content %}
 
+    <section class="section-index-banner">
+        <article class="content-header-container not-visible">
+            <h1 class="not-visible">Personalized stories for your little one</h1>
+            <p class="not-visible">
+                Welcome to <strong>Tiny Tale Factory!</strong>
+                <br class="reset-padding-margin">
+                We specialize in bringing your child's imagination to life through personalized stories crafted just
+                for them.
+                <br class="reset-padding-margin">
+                Simply provide a few details, and let a unique tale unfold, complete with captivating
+                illustrations.
+                <br class="reset-padding-margin">
+                <strong>Begin creating unforgettable memories today!</strong>
+            </p>
+        </article>
+    </section>
+
     <div class="site">
-    
-    <div class="content-header-container">
-        <h1>Personalized stories for your little one</h1>
-        <p>Welcome to Tiny Tale Factory!<br>We bring your child's imagination to life with personalized stories tailored just for them. <br>Simply enter a few details, and watch as a unique tale unfolds, complete with beautiful illustrations.<br>Start creating memories today!</p>
-    </div>
-    
-    <main>
-        <a class="card" href="{% url 'getting-started' %}">
-            <div class="media">
-                <img src="{% static 'images/kids-playing-white-bg.jpg' %}" alt="img1">
-            </div>
-            <div class="text">
-            <h4>Create a personalized story</h4>
-            <p>Have an idea for a little story? Start your creative journey with us</p>
-            </div>
-        </a>
-        
-        <a class="card" href="#">
-            <div class="media">
-                <img src="{% static 'images/kids-playing-white-bg (2).jpg' %}" alt="img1">
-            </div>
-            <div class="text">
-            <h4>How it works</h4>
-            <p>Everything you need to start crafting personalized stories for your child</p>
-            </div>
-        </a>
 
-        <a class="card" href="{% url 'sample-stories' %}">
-            <div class="media">
-                <img src="{% static 'images/dots-white-bg-02.jpg' %}" alt="img1">
-            </div>
-            <div class="text">
-            <h4>Sample personalized stories</h4>
-            <p>Eager to see the final result? Browse this page to have a look</p>
-            </div>
-        </a>
+        <main>
+            <a class="card not-visible" href="{% url 'getting-started' %}">
+                <div class="media">
+                    <img src="{% static 'images/kids-playing-white-bg.jpg' %}" alt="img1">
+                </div>
+                <div class="text">
+                    <h4>Create a personalized story</h4>
+                    <p>Have an idea for a little story? Start your creative journey with us</p>
+                </div>
+            </a>
 
-        <a class="card" href="{% url 'about' %}">
-            <div class="media">
-                <img src="{% static 'images/dots-white-bg.jpg' %}" alt="img1">
-            </div>
-            <div class="text">
-            <h4>Learn more about us</h4>
-            <p>Want to know more about us, and how we started this project? Browse here</p>
-            </div>
-        </a>
-        
-        <a class="card" href="#">
-            <div class="media">
-                <img src="{% static 'images/contact-us.jpg' %}" alt="img1">
-            </div>
-            <div class="text">
-            <h4>Contact us</h4>
-            <p>Have a query you can't find the answer to over here? Get in touch</p>
-            </div>
-        </a>        
-        
-    </main>
-    
+            <a class="card not-visible" href="#">
+                <div class="media">
+                    <img src="{% static 'images/kids-playing-white-bg (2).jpg' %}" alt="img1">
+                </div>
+                <div class="text">
+                    <h4>How it works</h4>
+                    <p>Everything you need to start crafting personalized stories for your child</p>
+                </div>
+            </a>
+
+            <a class="card not-visible" href="{% url 'sample-stories' %}">
+                <div class="media">
+                    <img src="{% static 'images/dots-white-bg-02.jpg' %}" alt="img1">
+                </div>
+                <div class="text">
+                    <h4>Sample personalized stories</h4>
+                    <p>Eager to see the final result? Browse this page to have a look</p>
+                </div>
+            </a>
+
+            <a class="card not-visible" href="{% url 'about' %}">
+                <div class="media">
+                    <img src="{% static 'images/dots-white-bg.jpg' %}" alt="img1">
+                </div>
+                <div class="text">
+                    <h4>Learn more about us</h4>
+                    <p>Want to know more about us, and how we started this project? Browse here</p>
+                </div>
+            </a>
+
+            <a class="card not-visible" href="#">
+                <div class="media">
+                    <img src="{% static 'images/contact-us.jpg' %}" alt="img1">
+                </div>
+                <div class="text">
+                    <h4>Contact us</h4>
+                    <p>Have a query you can't find the answer to over here? Get in touch</p>
+                </div>
+            </a>
+
+        </main>
+
     </div>
-    
-    
-    
+
+
+
 {% endblock %}

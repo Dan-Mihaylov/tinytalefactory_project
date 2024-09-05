@@ -1,3 +1,5 @@
+const mainEl = document.querySelector('.header-container');
+
 function showDropdown (element) {
     const nameAttribute = element.textContent.trim();
     const dropDown = document.getElementById(nameAttribute);
@@ -27,15 +29,28 @@ function continueWithStory (element) {
 
 function generateFromCategory (element) {
 
-    catName = element.name.toLowerCase().split(' ').join('_');
+    const catName = element.name.toLowerCase().split(' ').join('_');
 
     const urlQuery = `?category=${catName}`;
     const url = baseGenerateUrl + urlQuery;
 
+    clearMainEl();
+    const wrapperEl = createLoadingPage();
+    mainEl.append(wrapperEl);
+
     fetch(url)
         .then(response => response.json())
-        .then(data => console.log('Json Response: ', data))
+
+        .then(data => {
+            displayResult(data['title'], data['slug'], wrapperEl);
+        })
+
         .catch(error => console.log('Error:', error));
 
     // TODO: When getting the response, check if valid, and if valid get link to show story.
+}
+
+
+function clearMainEl() {
+    mainEl.innerHTML = '';
 }

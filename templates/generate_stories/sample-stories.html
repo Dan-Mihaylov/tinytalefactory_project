@@ -7,9 +7,9 @@
 
 {% block content %}
 
-    <section class="section section-banner">
+    <section class="section section-banner not-visible">
 
-        <div class="sample-books-header-container">
+        <div class="sample-books-header-container not-visible">
             <h1>Explore sample books</h1>
             <p>Books listed here have been generated with prompts from our users, stored on the public domain</p>
         </div>
@@ -17,7 +17,7 @@
         <div class="shape-container sh-one"></div>
         <div class="shape-container sh-two"></div>
 
-        <div class="stories-stats-container">
+        <div class="stories-stats-container not-visible">
             <div class="stats-container">
                 <i class="fa-solid fa-book"></i>
                 <small>Total Stories:</small>
@@ -39,11 +39,11 @@
 
     </section>
 
-    <section class="section-main">
+    <section class="section-main not-visible">
         <div class="site">
             <main class="main-container">
 
-                <article class="description-article">
+                <article class="description-article not-visible">
                     <h3>Public generated stories</h3>
                     <p>
                         You can browse the publicly available stories, generated for our users. You can view,
@@ -54,7 +54,7 @@
                     </small>
                 </article>
 
-                <section class="section-browse-stories">
+                <section class="section-browse-stories not-visible">
                     
                 </section>
 
@@ -69,5 +69,4 @@
     </script>
 
     <script src="{% static 'js/generate-stories/sampleStories.js' %}"></script>
-
 {% endblock %}

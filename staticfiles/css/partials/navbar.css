@@ -5,6 +5,7 @@ header {
     background-color: #fff;
     margin: -1em -1em 0 -1em;
     padding-left: 1em;
+    border-bottom: 1px solid rgb(2, 42, 71, 0.05);
 }
 
 header h1 {
