@@ -19,7 +19,7 @@
     <i id="scroll-up" class="fa-solid fa-chevron-up"></i>
 
     <main style="display: block;">
-        <article class="story-container">
+        <article class="story-container not-visible">
             <h1>{{ object.title }}</h1>
 
             {% for url, paragraph in info %}
@@ -40,50 +40,10 @@
         <i id="pre-save-story" class="fa-solid fa-download"></i>
         </article>
     </main>
-
-{#    <section class="generate-book controller">#}
-{#        <p>#}
-{#            Before saving your book to a .pdf file, you can customize each page background and foreground colors.#}
-{#            When you are done customizing just click on the download button.#}
-{#        </p>#}
-{#        <i id="save-story" class="fa-solid fa-download"></i>#}
-{#        <i id="return" class="fa-solid fa-backward"></i>#}
-{##}
-{#    </section>#}
-
-{#    <section class="generate-book">#}
-{#        <section class="page cover-page">#}
-{#            <h1 id="cover-page-header">{{ object.title }}</h1>#}
-{#        </section>#}
-{##}
-{#        {% for url, paragraph in info %}#}
-{#            <section class="page">#}
-{#                <article class="generate-book-container">#}
-{##}
-{#                    <div class="media">#}
-{#                        <img src="{{ url }}" alt="Image">#}
-{#                    </div>#}
-{##}
-{#                    <p>{{ paragraph }}</p>#}
-{##}
-{#                </article>#}
-{#                <div class="color-picker">#}
-{#                    <div class="input-field">#}
-{#                        <label for="choose-background">Choose your background</label>#}
-{#                        <input type="color" name="background" id="choose-background" value="#ffffff">#}
-{#                    </div>#}
-{##}
-{#                    <div class="input-field">#}
-{#                        <label for="choose-foreground">Chose your characters color</label>#}
-{#                        <input type="color" name="foreground", id="choose-foreground" value="#022A47">#}
-{#                    </div>#}
-{#                </div>#}
-{#            </section>#}
-{#        {% endfor %}#}
-{#    </section>#}
 </body>
 
 <script> const storyRetrieveUrl = `{% url 'api-retrieve-story' object.slug %}`</script>
 <script src="{% static 'js/generate-stories/viewStory.js' %}"></script>
+<script src="{% static 'js/opacityRegulator.js' %}"></script>
 
 </html>

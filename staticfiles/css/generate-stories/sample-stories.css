@@ -138,33 +138,6 @@
     object-fit: cover;
 }
 
-
-
-
-/*.shape-container {*/
-/*    max-width: 20rem;*/
-/*    width: 100%;*/
-/*    aspect-ratio: 1/1;*/
-/*    background-size: contain;*/
-/*    position: absolute;*/
-/*    z-index: 1;*/
-/*    transition: max-width 0.5s ease, height 0.5s ease;*/
-/*    border: 1px solid rgb(2, 42, 71, 0.8);*/
-/*    border-radius: 50%;*/
-/*    box-shadow: 0 0.5em 1em 0 rgb(2, 42, 71, 0.3);*/
-/*}*/
-
-/*.sh-one {*/
-/*    background-image: url('https://res.cloudinary.com/dh7ur0uv3/image/upload/v1724798361/te3qhxvinkz5msrus5f6.png');*/
-/*    bottom: 2rem;*/
-/*    left: 0rem;*/
-/*}*/
-
-/*.sh-two {*/
-/*    background-image: url('https://res.cloudinary.com/dh7ur0uv3/image/upload/v1724759848/jfs8vdq6esigdvv056uv.png');*/
-/*    top: 2rem;*/
-/*    right: 2rem;*/
-/*}*/
 .sample-books-header-container h1 {
     font-size: 3rem;
 }

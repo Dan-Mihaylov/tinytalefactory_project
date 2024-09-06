@@ -7,48 +7,64 @@
 
 {% block content %}
 
-    <div class="site">
+    <div class="site not-visible">
 
-        <main class="header-container">
-            <h1 class="generate-from-category-header">You can choose the type of story you want to generate based on the category.</h1>
+        <main class="header-container centered-flex">
+            <h1 class="generate-from-category-header">You can choose the type of story you want to generate based on the
+                category.</h1>
+            <p class="results-disclaimer">
+                Please note that stories generated using predefined categories may not be as consistent or tailored
+                as those created through our personalized form. The personalized form allows for more specific inputs,
+                leading to stories that better match your unique preferences and expectations.
+                For personalized form click
+                <a href="{% url 'generate-story-questionary' %}"> here</a>
+            </p>
+            <div class="generate-from-cat-list">
+                {% for name, desc in categories_info.items %}
+                    <div class="list-container">
 
-            <ul class="generate-from-cat-list">
-            {% for name, desc in categories_info.items %}
-                <div class="list-container">
+                        <p id="category-description-header" onclick="showDropdown(this)">{{ name }}</p>
+                        <p id="{{ name }}" style="display: none;">{{ desc }}</p>
 
-                    <p id="category-description-header" onclick="showDropdown(this)">{{ name }}</p>
-                    <p id="{{ name }}" style="display: none;">{{ desc }}</p>
+                        <button id="{{ name }}-button" style="display: none;" onclick="continueWithStory(this)">
+                            Continue
+                        </button>
 
-                    <button id="{{ name }}-button" style="display: none;" onclick="continueWithStory(this)">
-                        Continue
-                    </button>
+                        <form class="continue-form" style="display: none" id="{{ name }}-form">
 
-                    <form class="continue-form" style="display: none" id="{{ name }}-form">
-                        
-                        <div class="continue-form-field">
-                            <p>
-                                This is to confirm that you are continuing generating a kid story from already
-                                pre-defined categories. Your tokens will be used against this generation.
-                            </p>
-                        </div>
-                        
-                        <div class="continue-form-field">
-                            <input type="button" value="Generate Story" name="{{ name }}" onclick="generateFromCategory(this)">
-                        </div>
+                            <div class="continue-form-field">
+                                <p>
+                                    This is to confirm that you are continuing generating a kid story from already
+                                    pre-defined categories.
+                                    <br>
+                                    <strong>Your tokens will be used against this generation.</strong>
+                                </p>
+                            </div>
 
-                    </form>
-                </div>
-            {% endfor %}
-            </ul>
-        
+                            <div class="continue-form-field">
+                                <input type="button" value="Generate Story" name="{{ name }}"
+                                       onclick="generateFromCategory(this)">
+                            </div>
+
+                        </form>
+                    </div>
+                {% endfor %}
+            </div>
+
         </main>
 
     </div>
-    
+
     <script>
-    const baseGenerateUrl = `{% url 'api-generate-story' 'false' %}`;
+        const baseGenerateUrl = `{% url 'api-generate-story' 'false' %}`;
+        const baseViewStoryUrl = `{% url 'view-story' 'placeholder' %}`;
     </script>
-    
+    <script src="{% static 'js/generate-stories/storiesUtils.js' %}"></script>
     <script src="{% static 'js/generate-stories/generateStoryFromCategory.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('body').classList.add('story-generate-background');
+        })
+    </script>
     
 {% endblock %}
