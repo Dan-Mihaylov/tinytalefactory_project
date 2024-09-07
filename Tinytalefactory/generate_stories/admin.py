@@ -23,3 +23,9 @@ class UsageAdmin(admin.ModelAdmin):
 
     list_display = ['id', 'user', 'created_at', 'total_tokens']
     list_filter = ['created_at', 'user']
+
+
+@admin.register(models.VerifiedEmail)
+class VerifiedEmailAdmin(admin.ModelAdmin):
+
+    list_display = ['email', 'created_at']

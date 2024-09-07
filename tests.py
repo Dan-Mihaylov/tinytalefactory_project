@@ -10,10 +10,10 @@ import cloudinary
 from cloudinary import CloudinaryImage
 from cloudinary import uploader, api
 
-IMAGE_URL = 'https://images.pexels.com/photos/26707538/pexels-photo-26707538/free-photo-of-gray-fox-in-the-snow.jpeg?auto=compress&cs=tinysrgb&w=350&h=250&dpr=1'
-response = uploader.upload(IMAGE_URL, asset_folder='ttf')
-print(response.secure_url)
-print(response)
+# IMAGE_URL = 'https://images.pexels.com/photos/26707538/pexels-photo-26707538/free-photo-of-gray-fox-in-the-snow.jpeg?auto=compress&cs=tinysrgb&w=350&h=250&dpr=1'
+# response = uploader.upload(IMAGE_URL, asset_folder='ttf')
+# print(response.secure_url)
+# print(response)
 
 
 # client = OpenAI()

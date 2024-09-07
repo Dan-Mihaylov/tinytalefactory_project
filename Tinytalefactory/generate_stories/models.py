@@ -116,3 +116,9 @@ class Usage(AuditMixin, models.Model):
     def __str__(self):
         return f'{self.created_at} - {self.total_tokens}'
 
+
+class VerifiedEmail(AuditMixin, models.Model):
+
+    email = models.EmailField(
+        unique=True,
+    )
