@@ -3,16 +3,18 @@ from .client_initializer import client
 
 class ImageGenerator:
 
+    """Styles are vivid, or natural, vivid causes the images to be hyperreal"""
+
     def __init__(self):
         self.client = client
         self.model = 'dall-e-3'
         self.size = '1024x1024'
-        self.quality = 'standard'
+        self.quality = 'hd'
         self.n = 1
         self.images = ''
-        self.prompt = ("Create vibrant, cartoon-like images for a children's book based on the paragraph I provide."
-                       " The images should be bright, happy, and evoke positive feelings. DO NOT ADD ANY TEXT TO THE "
-                       "image. ")
+        self.prompt = ("Create a disney style image based on the paragraph I provide. "
+                       "You will be given the appearance of the kid and the paragraph. ")
+        self.style = 'natural'
 
     def create_prompt(self, paragraph: str, appearance=''):
         """

@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f369337c-924b-49b9-b59e-98b220604015" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tinytalefactory/common/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_image_edit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/generate_stories/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/generate_stories/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_image_generation.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_image_generation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_paypal_payments.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_paypal_payments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tinytalefactory/ai_tools/image_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/ai_tools/image_generator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +86,7 @@
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\prompt_results" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.manage">
+  <component name="RunManager" selected="Python.test_image_edit">
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tinytalefactory" />
       <option name="ENV_FILES" value="" />
@@ -129,6 +125,29 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tinytalefactory/api/paypal_utils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_image_edit" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="tinytalefactory" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_image_edit.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,29 +202,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="tinytalefactory" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="tinytalefactory" type="Python.DjangoServer" factoryName="Django server">
       <module name="tinytalefactory" />
       <option name="ENV_FILES" value="" />
@@ -232,19 +228,19 @@
     </configuration>
     <list>
       <item itemvalue="Django Server.tinytalefactory" />
-      <item itemvalue="Python.paypal_utils" />
-      <item itemvalue="Python.test_paypal_payments" />
-      <item itemvalue="Python.test_image_generation" />
+      <item itemvalue="Python.test_image_edit" />
       <item itemvalue="Python.manage" />
-      <item itemvalue="Python.tests" />
+      <item itemvalue="Python.paypal_utils" />
+      <item itemvalue="Python.test_image_generation" />
+      <item itemvalue="Python.test_paypal_payments" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test_image_edit" />
         <item itemvalue="Python.manage" />
         <item itemvalue="Python.test_image_generation" />
         <item itemvalue="Python.paypal_utils" />
         <item itemvalue="Python.test_paypal_payments" />
-        <item itemvalue="Python.tests" />
       </list>
     </recent_temporary>
   </component>
@@ -325,6 +321,9 @@
       <workItem from="1725458310534" duration="29143000" />
       <workItem from="1725576345292" duration="188000" />
       <workItem from="1725628815949" duration="7851000" />
+      <workItem from="1725695111032" duration="169000" />
+      <workItem from="1725829213978" duration="246000" />
+      <workItem from="1725993025855" duration="6267000" />
     </task>
     <servers />
   </component>
@@ -362,7 +361,7 @@
     <SUITE FILE_PATH="coverage/tinytalefactory$tests.coverage" NAME="tests Coverage Results" MODIFIED="1724425454522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$paypal_utils.coverage" NAME="paypal_utils Coverage Results" MODIFIED="1725295686860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tinytalefactory/api" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_paypal_payments.coverage" NAME="test_paypal_payments Coverage Results" MODIFIED="1725291339675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1725637735303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1726048109978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$text_generator.coverage" NAME="text_generator Coverage Results" MODIFIED="1722003892084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tinytalefactory/ai_tools" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_json_correct.coverage" NAME="test_json_correct Coverage Results" MODIFIED="1720223656901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_image_generation.coverage" NAME="test_image_generation Coverage Results" MODIFIED="1725295990278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
