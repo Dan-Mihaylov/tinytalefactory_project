@@ -12,22 +12,12 @@ class ImageGenerator:
         self.quality = 'hd'
         self.n = 1
         self.images = ''
-        self.prompt = ("Create a disney style animated image based on the paragraph I provide. "
-                       "If you are given the appearance of the person, you MUST ADHERE to it at all times, you will"
-                       "be provided with the paragraph as well.")
+        self.prompt = ''
         self.style = 'vivid'
 
-    def create_prompt(self, paragraph: str, appearance=''):
-        """
-        Override if you want to do custom validations or changes to the paragraph before generating an image.
-        """
-        self.prompt += f'The appearance of the person is: {appearance}' if appearance != '' else ''
+    def generate_image(self, prompt: str):
 
-        self.prompt += f'The paragraph is: {paragraph}'
-
-    def generate_image(self, paragraph: str, appearance=''):
-
-        self.create_prompt(paragraph, appearance)
+        self.prompt = prompt
 
         response = self.client.images.generate(
             model=self.model,

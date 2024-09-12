@@ -35,11 +35,11 @@ def generate_story_from_category(category_name: str):
     return story_text, story_generator.tokens_used
 
 
-def generate_images_from_paragraphs(paragraph: str, appearance=''):
+def generate_images_from_paragraphs(prompt: str):
 
     image_generator = ImageGenerator()
 
-    image_url = image_generator.generate_image(paragraph=paragraph, appearance=appearance)
+    image_url = image_generator.generate_image(prompt=prompt)
 
     return image_url
 
@@ -49,6 +49,9 @@ def format_text_to_paragraphs_in_list(text: str):
     stripped_paragraphs = [p.strip() for p in paragraphs]
     filtered_paragraphs = list(filter(lambda x: x != '', stripped_paragraphs))
     return filtered_paragraphs
+
+def gene():
+    ...
 
 
 # TODO: Maybe generate an asset folder based on the user?

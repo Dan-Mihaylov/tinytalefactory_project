@@ -35,6 +35,7 @@ from .paypal_utils import get_access_token, create_reference_number
 
 import requests, json
 
+from ..ai_tools.image_prompt_generator import ImagePromptGenerator
 from ..common.helpers import create_story_generated_notification
 
 UserModel = get_user_model()
@@ -56,6 +57,7 @@ class StoriesListApiView(APIView):
 
 class StoryGenerateApiView(APIView):
 
+    IMAGE_STYLE = 'Animated Disney Like'
     permission_classes = [IsAuthenticated]
     serializer_class = StoriesForCreateSerializer
     story_text = []
@@ -132,7 +134,10 @@ class StoryGenerateApiView(APIView):
     def _generate_images_for_each_paragraph(self, appearance=''):
         images_urls = []
         for paragraph in self.story_text:
-            images_urls.append(generate_images_from_paragraphs(paragraph, appearance))
+            prompt_generator = ImagePromptGenerator()
+            prompt_generator.generate_prompt_from_info(self.IMAGE_STYLE, appearance, paragraph)
+            prompt = prompt_generator.assistant_response()
+            images_urls.append(generate_images_from_paragraphs(prompt))
 
         self._upload_images_to_cloud(images_urls)
 
