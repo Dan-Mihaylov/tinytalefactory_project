@@ -4,6 +4,7 @@ from django.utils.timezone import now
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 
 from Tinytalefactory.generate_stories.models import Token, VerifiedEmail
+from .helpers import create_sign_up_notification
 
 
 PROMOTIONAL_TOKENS_ON_EMAIL_CONFIRMATION = 1
@@ -21,6 +22,7 @@ def user_signed_up_(request, user, **kwargs):
 
         # TODO: Give promotional tokens when the email has been verified only.
         Token.objects.create(user=user, promotional_tokens=1)
+        create_sign_up_notification(user)
 
     except Exception:
         return

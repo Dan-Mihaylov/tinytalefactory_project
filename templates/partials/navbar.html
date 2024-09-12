@@ -2,10 +2,18 @@
 
 <header>
     <img src="{% static 'images/boy-running.gif' %}" alt="run">
-    <h1>Tiny Tale Factory</h1>
-    
+    <div class="logo-container">
+        <a href="{% url 'index' %}">
+            <img id="logo" src="https://res.cloudinary.com/dh7ur0uv3/image/upload/v1726086478/t-3-removebg-preview_w2mrkk.png"
+             alt="Tiny Tale Factory">
+        </a>
+    </div>
     <nav class="navigation">
         <ul>
+            {% if user.is_authenticated %}
+                <li><a id="toggle-notifications" href="#"><i id="notification" class="fa-solid fa-bell"><small
+                        class="notification-count"></small></i></a></li>
+            {% endif %}
             <li><a href="{% url 'index' %}">Home</a></li>
             {% if not user.is_authenticated %}
                 <li><a href="{% url 'account_login' %}">Login</a></li>
@@ -21,7 +29,8 @@
     <div id="messages-container" class="messages-container">
         <strong>Mesages</strong>
         <ul>
-            {% for message in messages %}<li>{{ message }}</li>{% endfor %}
+            {% for message in messages %}
+                <li>{{ message }}</li>{% endfor %}
         </ul>
 
         <button id="close-messages-button">

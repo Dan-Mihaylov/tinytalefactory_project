@@ -96,6 +96,7 @@
         const startPaymentUrl = ` {% url 'api-payment-create' %}`;
         const totalTokens = `{{ request.user.tokens.total_tokens }}`;
         const promotionalTokens = `{{ request.user.tokens.promotional_tokens }}`
+        const notificationsURL = `{% url 'api-notifications' %}`;
     </script>
 
     <script src="{% static 'js/profile/profileOptions.js' %}"></script>

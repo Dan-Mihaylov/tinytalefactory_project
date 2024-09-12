@@ -12,15 +12,16 @@ class ImageGenerator:
         self.quality = 'hd'
         self.n = 1
         self.images = ''
-        self.prompt = ("Create a disney style image based on the paragraph I provide. "
-                       "You will be given the appearance of the kid and the paragraph. ")
-        self.style = 'natural'
+        self.prompt = ("Create a disney style animated image based on the paragraph I provide. "
+                       "If you are given the appearance of the person, you MUST ADHERE to it at all times, you will"
+                       "be provided with the paragraph as well.")
+        self.style = 'vivid'
 
     def create_prompt(self, paragraph: str, appearance=''):
         """
         Override if you want to do custom validations or changes to the paragraph before generating an image.
         """
-        self.prompt += f'The appearance of the kid is: {appearance}' if appearance != '' else ''
+        self.prompt += f'The appearance of the person is: {appearance}' if appearance != '' else ''
 
         self.prompt += f'The paragraph is: {paragraph}'
 

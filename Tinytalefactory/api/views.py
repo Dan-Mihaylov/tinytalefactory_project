@@ -16,6 +16,9 @@ from Tinytalefactory.api.serializers import (
     StoriesForRetrieveSerializer,
     StoriesSamplesForListSerializer,
     OrderForCreateSerializer,
+    NotificationForCreateSerializer,
+    NotificationForRetrieveSerializer,
+    NotificationForUpdateSeenSerializer,
 )
 from Tinytalefactory.generate_stories.helpers import (
     generate_story_from_questionary,
@@ -24,6 +27,7 @@ from Tinytalefactory.generate_stories.helpers import (
 )
 from Tinytalefactory.generate_stories.models import Story, Usage
 from Tinytalefactory.paypal.models import Order
+from Tinytalefactory.common.models import Notification
 
 from django.contrib.auth import get_user_model
 
@@ -31,6 +35,7 @@ from .paypal_utils import get_access_token, create_reference_number
 
 import requests, json
 
+from ..common.helpers import create_story_generated_notification
 
 UserModel = get_user_model()
 
@@ -88,6 +93,7 @@ class StoryGenerateApiView(APIView):
             return response
         else:
             self._submit_tokens_used_info()
+            create_story_generated_notification(self.request.user, self.story_title)
             return self._create_story(json)
 
     def _extract_story_category(self):
@@ -429,3 +435,20 @@ class PaymentCancelApiView(APIView):
 
         response = requests.get(ORDER_INFO_URL, headers=headers)
         return response.json()
+
+
+class NotificationListApiView(APIGenericView.ListAPIView):
+    serializer_class = NotificationForRetrieveSerializer
+    permission_classes = [IsAuthenticated, IsOwner]
+
+    def get_queryset(self):
+        return self.request.user.notifications.all().order_by('-created_at')
+
+
+class NotificationUpdateSeenApiView(APIGenericView.UpdateAPIView):
+    serializer_class = NotificationForUpdateSeenSerializer
+    permission_classes = [IsAuthenticated, IsOwner]
+    lookup_field = 'pk'
+
+    def get_queryset(self):
+        return self.request.user.notifications.all().order_by('-created_at')

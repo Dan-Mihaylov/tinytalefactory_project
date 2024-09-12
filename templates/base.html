@@ -19,8 +19,15 @@
     {% endblock %}
     
     {% include 'partials/footer.html' %}
+{#    {% csrf_token %}#}
     
+    <script>
+        const notificationsURL = `{% url 'api-notifications' %}`;
+        const baseNotificationSeenURL = `{% url 'api-update-notification' 0 %}`.replace('0/', '');
+        const CSRFTokenValue = `{{ csrf_token }}`;
+    </script>
     <script src="{% static 'js/messagesHide.js' %}"></script>
     <script src="{% static 'js/opacityRegulator.js' %}"></script>
+    <script src="{% static 'js/notificationScript.js' %}"></script>
 </body>
 </html>
