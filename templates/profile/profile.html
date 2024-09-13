@@ -86,7 +86,6 @@
     <script>
         const url = `{% url 'api-list-stories' %}`;
         const CSRFToken = `{% csrf_token %}`;
-        const CSRFTokenValue = `{{ csrf_token }}`;
         const nestedStyleUrl = `{% static 'css/allauth/nested-allauth.css' %}`;
         const accountEmailUrl = `{% url 'account_email' %}`;
         const accountSetPasswordSetUrl = `{% url 'account_set_password' %}`;
@@ -96,7 +95,8 @@
         const startPaymentUrl = ` {% url 'api-payment-create' %}`;
         const totalTokens = `{{ request.user.tokens.total_tokens }}`;
         const promotionalTokens = `{{ request.user.tokens.promotional_tokens }}`
-        const notificationsURL = `{% url 'api-notifications' %}`;
+        CSRFTokenValue = `{{ csrf_token }}`;
+        notificationsURL = `{% url 'api-notifications' %}`;
     </script>
 
     <script src="{% static 'js/profile/profileOptions.js' %}"></script>

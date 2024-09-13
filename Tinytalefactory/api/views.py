@@ -129,14 +129,20 @@ class StoryGenerateApiView(APIView):
 
         return story_info
 
-    # TODO: When text is split into paragraphs, feed each paragraph into image generator, and generate the images.
-
     def _generate_images_for_each_paragraph(self, appearance=''):
         images_urls = []
-        for paragraph in self.story_text:
-            prompt_generator = ImagePromptGenerator()
-            prompt_generator.generate_prompt_from_info(self.IMAGE_STYLE, appearance, paragraph)
-            prompt = prompt_generator.assistant_response()
+        whole_story = ''.join([f'Paragraph {i + 1}: {text}' for i, text in enumerate(self.story_text)])
+        prompt_generator = ImagePromptGenerator()
+
+        if self._check_if_generate_from_questionary():
+            prompt_generator.generate_prompt_from_whole_story(whole_story, self.IMAGE_STYLE, appearance)
+            prompts = prompt_generator.assistant_response()
+
+        else:
+            prompt_generator.generate_prompt_from_whole_story(whole_story)
+            prompts = prompt_generator.assistant_response()
+
+        for prompt in prompts.split(' | '):
             images_urls.append(generate_images_from_paragraphs(prompt))
 
         self._upload_images_to_cloud(images_urls)

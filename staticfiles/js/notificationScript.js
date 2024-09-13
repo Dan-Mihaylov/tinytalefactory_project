@@ -2,6 +2,7 @@ const notificationEl = document.getElementById('notification');
 const notificationCountEl = document.querySelector('.notification-count');
 const headerEl = document.querySelector('header');
 const toggleNotificationsEl = document.getElementById('toggle-notifications');
+const bodyEl = document.querySelector('body');
 
 
 toggleNotificationsEl.addEventListener('click', toggleNotifications);
@@ -13,7 +14,7 @@ async function getNotifications() {
         const response = await fetch(notificationsURL);
         const data = await response.json();
 
-        if (!response.status===200) {
+        if (!response.status === 200) {
             throw new Error('Something went wrong with fetching your notifications');
         }
         console.log(data);
@@ -125,10 +126,30 @@ function toggleNotifications(event) {
 
         if (notificationDataEl.style.display === 'none') {
             notificationDataEl.style.maxHeight = '0.2rem';
-        } else {
+            bodyEl.removeEventListener('click', clickOutsideNotifications);
+
+        } else if (notificationDataEl.style.display === 'flex') {
             setTimeout(() => notificationDataEl.style.maxHeight = '92vh', 10);
+            setTimeout(() => bodyEl.addEventListener('click', clickOutsideNotifications), 20);
+
         }
     } catch (error) {
         console.error(error, 'An Error occurred!');
     }
+}
+
+function clickOutsideNotifications(event) {
+    const notificationDataEl = document.querySelector('.notification-data');
+    console.log('CLICK', event.target);
+    if (
+        notificationDataEl !== event.target
+        &&
+        event.target.parentNode !== notificationDataEl
+        &&
+        event.target.parentNode.parentNode !== notificationDataEl
+    ) {
+        toggleNotificationsEl.click();
+    }
+
+    console.log('IS SAME: ', notificationDataEl === event.target)
 }
