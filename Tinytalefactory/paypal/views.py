@@ -27,7 +27,9 @@ class SuccessView(views.TemplateView):
 
     @staticmethod
     def _validate_order(order_id):
-        return Order.objects.filter(order_id=order_id).exists()
+        return (Order.objects.filter(order_id=order_id).exists()
+                and
+                Order.objects.filter(order_id=order_id).first().status == 'completed')
 
 
 class CancelView(views.TemplateView):
