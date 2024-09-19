@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Tiny Tale Factory
+{% endblock %}
+
+{% block content %}
+
+    <div class="site">
+        <form action="#">
+            <h3>Contact us</h3>
+
+            <div class="form-field">
+                <p>Your Email Address</p>
+{#                <label for="email-address">Email</label>#}
+                <input type="text" id="email-address" placeholder="">
+            </div>
+
+            <div class="form-field">
+                <p>Your query</p>
+{#                <label for="contact-query">Information</label>#}
+                <textarea name="contact-query" id="contact-query" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="form-field">
+                <input type="button" value="Send">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
