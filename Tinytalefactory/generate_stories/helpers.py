@@ -50,9 +50,6 @@ def format_text_to_paragraphs_in_list(text: str):
     filtered_paragraphs = list(filter(lambda x: x != '', stripped_paragraphs))
     return filtered_paragraphs
 
-def gene():
-    ...
-
 
 # TODO: Maybe generate an asset folder based on the user?
 def upload_image(image):

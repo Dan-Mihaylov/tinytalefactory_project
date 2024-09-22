@@ -14,4 +14,5 @@ urlpatterns = [
     path('cancel-payment/', views.PaymentCancelApiView.as_view(), name='api-payment-cancel'),
     path('notification/', views.NotificationListApiView.as_view(), name='api-notifications'),
     path('notification/<int:pk>/', views.NotificationUpdateSeenApiView.as_view(), name='api-update-notification'),
+    path('contact/', views.ContactApiView.as_view(), name='api-contact'),
 ]

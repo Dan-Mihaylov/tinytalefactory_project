@@ -218,6 +218,8 @@ class UserInfoChangeApiView(APIGenericView.RetrieveUpdateAPIView):
 
 
 class StoriesListSampleApiView(APIGenericView.ListAPIView):
+    authentication_classes = []
+    permission_classes = []
     serializer_class = StoriesSamplesForListSerializer
 
     def get_queryset(self):
@@ -225,6 +227,8 @@ class StoriesListSampleApiView(APIGenericView.ListAPIView):
 
 
 class StoriesAndUsersCountApiView(APIView):
+    authentication_classes = []
+    permission_classes = []
 
     def get(self, request, *args, **kwargs):
 
@@ -463,3 +467,13 @@ class NotificationUpdateSeenApiView(APIGenericView.UpdateAPIView):
 
     def get_queryset(self):
         return self.request.user.notifications.all().order_by('-created_at')
+
+
+class ContactApiView(APIView):
+    permission_classes = []
+    authentication_classes = []
+    def post(self, request, *args, **kwargs):
+        print(kwargs)
+        print(args)
+        print(request.data)
+        return Response(data={'status': 'Created'}, status=status.HTTP_400_BAD_REQUEST)

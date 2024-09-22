@@ -1,0 +1,59 @@
+.contact-page-background {
+    background: rgb(255, 0, 0);
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.8104030634063522) 0%, rgba(111, 31, 209, 0.7809912987004698) 100%);
+}
+
+.contact-us-form {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 45rem;
+    width: 100%;
+    gap: 2.5rem;
+    padding: 2rem;
+    margin: 4rem auto 0 auto;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 1em 0 rgb(2, 42, 71, 0.2);
+    border-radius: 0.3rem;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.form-field:first-of-type p {
+    padding: 0;
+}
+
+.contact-us-form .form-field {
+    width: 100%;
+}
+
+.contact-us-form .form-field h3 {
+    text-align: center;
+}
+
+.contact-form-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 12;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-response-msg-wrapper {
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+.contact-response-msg-wrapper p {
+    font-size: 1.3rem;
+    opacity: 0.7;
+}
+

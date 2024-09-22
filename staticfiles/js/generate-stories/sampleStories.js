@@ -25,7 +25,9 @@ function siteElOpacityRegulator() {
 
 async function displayStoryCards() {
     try {
+        console.log('URL...', apiSampleStoriesUrl)
         const response = await fetch(apiSampleStoriesUrl);
+        console.log('RESPONSE...', response)
         const data = await response.json();
 
         if (!response.ok) {

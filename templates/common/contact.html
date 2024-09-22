@@ -8,26 +8,37 @@
 {% block content %}
 
     <div class="site">
-        <form action="#">
-            <h3>Contact us</h3>
-
+        <form class="contact-us-form">
+            {% csrf_token %}
             <div class="form-field">
-                <p>Your Email Address</p>
-{#                <label for="email-address">Email</label>#}
-                <input type="text" id="email-address" placeholder="">
+                <h3>Have questions?</h3>
+                <p>Fill out the form bellow, and we will be in touch with you shortly.</p>
             </div>
 
             <div class="form-field">
-                <p>Your query</p>
-{#                <label for="contact-query">Information</label>#}
-                <textarea name="contact-query" id="contact-query" cols="30" rows="10"></textarea>
+                <input type="email" id="email-address" placeholder="">
+                <label for="email-address">Email</label>
             </div>
 
             <div class="form-field">
-                <input type="button" value="Send">
+                <textarea name="contact-query" id="contact-query" cols="30" rows="10" placeholder=" "></textarea>
+                <label for="contact-query">Question</label>
+            </div>
+
+            <div class="form-field">
+                <input class="contact-button" type="button" value="Send" name="submit" id="button">
             </div>
         </form>
     </div>
 
+    <script>
+        const apiContactUrl = `{% url 'api-contact' %}`;
+        csrfTokenValue = `{{ csrf_token }}`;
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('body').classList.add('contact-page-background');
+        })
+    </script>
+    <script src="{% static 'js/common/contact.js' %}"></script>
 {% endblock %}
-

@@ -12,22 +12,24 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    
-    {% include 'partials/navbar.html' %}
-    
-    {% block content%}
-    {% endblock %}
-    
-    {% include 'partials/footer.html' %}
+
+{% include 'partials/navbar.html' %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'partials/footer.html' %}
 {#    {% csrf_token %}#}
-    
-    <script>
-        let notificationsURL = `{% url 'api-notifications' %}`;
-        let baseNotificationSeenURL = `{% url 'api-update-notification' 0 %}`.replace('0/', '');
-        let CSRFTokenValue = `{{ csrf_token }}`;
-    </script>
-    <script src="{% static 'js/messagesHide.js' %}"></script>
-    <script src="{% static 'js/opacityRegulator.js' %}"></script>
+
+<script>
+    let notificationsURL = `{% url 'api-notifications' %}`;
+    let baseNotificationSeenURL = `{% url 'api-update-notification' 0 %}`.replace('0/', '');
+    let CSRFTokenValue = `{{ csrf_token }}`;
+</script>
+<script src="{% static 'js/messagesHide.js' %}"></script>
+<script src="{% static 'js/opacityRegulator.js' %}"></script>
+{% if request.user.is_authenticated %}
     <script src="{% static 'js/notificationScript.js' %}"></script>
+{% endif %}
 </body>
 </html>
