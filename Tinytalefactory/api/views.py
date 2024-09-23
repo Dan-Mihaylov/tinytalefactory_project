@@ -1,12 +1,12 @@
-from django.db.models import QuerySet
 from django.http import JsonResponse
-from django.urls import reverse_lazy, reverse, resolve
+from django.urls import reverse_lazy
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework import generics as APIGenericView
 from rest_framework.response import Response
 
+from .helpers import send_email
 from .permissions import IsOwner
 
 from Tinytalefactory.api.serializers import (
@@ -15,8 +15,6 @@ from Tinytalefactory.api.serializers import (
     UserForUpdateSerializer,
     StoriesForRetrieveSerializer,
     StoriesSamplesForListSerializer,
-    OrderForCreateSerializer,
-    NotificationForCreateSerializer,
     NotificationForRetrieveSerializer,
     NotificationForUpdateSeenSerializer,
 )
@@ -27,7 +25,6 @@ from Tinytalefactory.generate_stories.helpers import (
 )
 from Tinytalefactory.generate_stories.models import Story, Usage
 from Tinytalefactory.paypal.models import Order
-from Tinytalefactory.common.models import Notification
 
 from django.contrib.auth import get_user_model
 
@@ -36,7 +33,7 @@ from .paypal_utils import get_access_token, create_reference_number
 import requests, json
 
 from ..ai_tools.image_prompt_generator import ImagePromptGenerator
-from ..common.helpers import create_story_generated_notification
+from ..common.helpers import create_story_generated_notification, create_tokens_purchased_notification
 
 UserModel = get_user_model()
 
@@ -147,7 +144,7 @@ class StoryGenerateApiView(APIView):
 
         self._upload_images_to_cloud(images_urls)
 
-    def _upload_images_to_cloud(self, images_urls:list):
+    def _upload_images_to_cloud(self, images_urls: list):
         secured_urls = []
         for image in images_urls:
             secured_urls.append(upload_image(image))
@@ -291,7 +288,7 @@ class PaymentCreateApiView(APIView):
                     "value": f"{total_price:.2f}",
                     "quantity": quantity
                 }
-            } ],
+            }],
             "payment_source": {
                 "paypal": {
                     "experience_context": {
@@ -301,7 +298,7 @@ class PaymentCreateApiView(APIView):
                         "landing_page": "LOGIN",
                         "user_action": "PAY_NOW",
                         "return_url": f'http://{self.request.get_host()}{self.RETURN_URL}',
-                        "cancel_url": f'http://{self.request.get_host()}{self.CANCEL_URL}' }
+                        "cancel_url": f'http://{self.request.get_host()}{self.CANCEL_URL}'}
                 }
             }
         }
@@ -350,21 +347,23 @@ class PaymentExecuteApiView(APIView):
             capture_payment_response = self._capture_payment(order_id)
 
             if not capture_payment_response['status'] == 'COMPLETED':
-                return Response(data=['There was an issue processing your payment.'])
+                return Response(data=['There was an issue processing your payment.'], status=status.HTTP_409_CONFLICT)
 
             order = self._get_order(order_id)
 
-            if not order:
+            if order is None:
                 return Response(data=['Something went wrong with fetching your order'], status=status.HTTP_409_CONFLICT)
 
             self._change_order_complete_status(order)
             self._transfer_tokens_to_user(request.user, order)
             self._change_tokens_transferred_status(order)
 
+            create_tokens_purchased_notification(request.user, order.quantity, order.order_id, order.price)
+
             return Response(data=['Success'], status=status.HTTP_200_OK)
 
         except KeyError or Exception:
-            return Response(data=['Oops, something went wrong!'])
+            return Response(data=['Oops, something went wrong!'], status=status.HTTP_400_BAD_REQUEST)
 
     @staticmethod
     def _capture_payment(order_id):
@@ -382,10 +381,10 @@ class PaymentExecuteApiView(APIView):
     @staticmethod
     def _get_order(order_id):
         order = Order.objects.filter(order_id=order_id)
-        return order.first() if order else False
+        return order.first() if order else None
 
     @staticmethod
-    def _change_order_complete_status(order:Order):
+    def _change_order_complete_status(order: Order):
         order.status = 'Completed'
         order.save()
         return
@@ -470,10 +469,13 @@ class NotificationUpdateSeenApiView(APIGenericView.UpdateAPIView):
 
 
 class ContactApiView(APIView):
+    # email-address, contact-query
+
     permission_classes = []
     authentication_classes = []
+
     def post(self, request, *args, **kwargs):
-        print(kwargs)
-        print(args)
-        print(request.data)
-        return Response(data={'status': 'Created'}, status=status.HTTP_400_BAD_REQUEST)
+        sent = send_email(request.data['email-address'], request.data['contact-query'])
+        if not sent:
+            return Response(data={'status': 'BAD REQUEST'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(data={'status': 'CREATED'}, status=status.HTTP_201_CREATED)

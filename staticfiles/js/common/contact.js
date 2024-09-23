@@ -78,7 +78,7 @@ function getElValues() {
 }
 
 function validEmail(email) {
-    const pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    const pattern = /^[a-zA-Z_.]+@[a-zA-Z._]+?\.[a-zA-Z]{2,4}$/;
     const found = email.match(pattern);
 
     return !!found;

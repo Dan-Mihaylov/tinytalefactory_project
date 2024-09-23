@@ -103,6 +103,7 @@ header > img {
     transition: max-height 0.2s linear;
     max-height: 0.5rem;
     max-width: 40rem;
+    min-width: 22rem;
 }
 
 /*.notification-data:hover {*/
