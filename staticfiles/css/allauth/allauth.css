@@ -31,7 +31,7 @@ body {
     width: 2.5rem;
     aspect-ratio: 1/1;
     border-radius: 0 0 0 0.3em;
-    background-color: darkorange;
+    background-color: salmon;
     color: #fff;
     border: none;
     position: absolute;
@@ -43,7 +43,7 @@ body {
 }
 
 #close-messages-button:hover {
-    background-color: orange;
+    background-color: salmon;
 }
 
 .menu {
@@ -81,7 +81,7 @@ body {
 }
 
 .menu ul li a:hover {
-    background-color: orange;
+    background-color: salmon;
     color: #fff;
 }
 
@@ -141,7 +141,7 @@ a:visited {
 
 .main-button:hover {
     cursor: pointer;
-    background-color: darkorange;
+    background-color: salmon;
     color: #fff;
     box-shadow: 0 0.1em 0.5em 0 rgb(0,0,0,0.3);
 }
@@ -220,7 +220,7 @@ a:visited {
 }
 
 .right-nested-container a img:hover {
-    background-color: lightblue;
+    background-color: rgb(2, 42, 71);
 }
 
 .add-email-header {
@@ -242,7 +242,7 @@ input[name="password"] {
 
 .form-control:focus-visible,
 input[name="password"]:focus-visible {
-    outline: 2px solid darkorange;
+    outline: 1px solid rgb(2, 42, 71);
 }
 
 .helptext {

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Tiny Tale Factory
+{% endblock %}
+
+{% block content %}
+    <div class="how-to-background">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape4"></div>
+        <div class="shape5"></div>
+        <div class="shape6"></div>
+    </div>
+
+    <div class="how-to-container">
+        <h1 class="how-to-h1">How It Works</h1>
+        <div class="step-list">
+            <div class="step" id="step1">
+                <h2>Step 1</h2>
+                <p>Register to our website - you can create a new account or use your Google account to
+                    <a href="{% url 'account_signup' %}">sign up</a> | <a href="{% url 'account_login' %}">log in</a>.
+                </p>
+            </div>
+            <div class="step" id="step2">
+                <h2>Step 2</h2>
+                <p>To get a free token, verify your email - go to your profile, settings, email, and then add an email
+                    address to verify it.</p>
+            </div>
+            <div class="step" id="step3">
+                <h2>Step 3</h2>
+                <p>Go to generate story to create your personalized story.</p>
+            </div>
+            <div class="step" id="step4">
+                <h2>Step 4</h2>
+                <p>Choose how you would like to create your story - fill out the form or pick from pre-defined
+                    categories.</p>
+            </div>
+            <div class="step" id="step5">
+                <h2>Step 5</h2>
+                <p>Once you click generate, your story will be created if you haven't violated any terms.</p>
+            </div>
+            <div class="step" id="step6">
+                <h2>Step 6</h2>
+                <p>Your story is ready! You can find it on your profile or view it directly from the link provided.</p>
+            </div>
+            <div class="step" id="step7">
+                <h2>Step 7</h2>
+                <p>Click "View Story" to read and see the graphics of your personalized story.</p>
+            </div>
+            <div class="step" id="step8">
+                <h2>Step 8</h2>
+                <p>You can save your story and see how it will be printed in a PDF format by clicking on the save
+                    icon.</p>
+            </div>
+            <div class="step" id="step9">
+                <h2>Step 9</h2>
+                <p>Customize your story by changing background colors, character colors, and font size on all pages.</p>
+            </div>
+            <div class="step" id="step10">
+                <h2>Step 10</h2>
+                <p>Click "Download" to save your story as a PDF file when you're done customizing.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/common/how-to.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('body').classList.add('how-to-page-background');
+        })
+    </script>
+
+
+{% endblock %}
+
+

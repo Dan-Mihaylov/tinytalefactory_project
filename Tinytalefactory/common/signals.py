@@ -1,6 +1,5 @@
 from allauth.account.signals import user_signed_up, email_confirmed
 from django.dispatch import receiver
-from django.utils.timezone import now
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 
 from Tinytalefactory.generate_stories.models import Token, VerifiedEmail

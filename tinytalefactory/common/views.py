@@ -12,3 +12,6 @@ class AboutView(views.TemplateView):
 class ContactView(views.TemplateView):
     template_name = 'common/contact.html'
 
+
+class HowToView(views.TemplateView):
+    template_name = 'common/how-to.html'
