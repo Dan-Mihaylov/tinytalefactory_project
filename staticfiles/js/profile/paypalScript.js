@@ -5,7 +5,9 @@ let tokensPriceEl;
 let termsAndConsShowEl;
 let termsAndConsOverlay;
 
-const price = 1.1;
+const price = 1.2;
+const discountMultiplier = 0.7;
+const discountQualifier = 6;
 
 
 function initButton (){
@@ -45,9 +47,10 @@ function plusToken (event){
 }
 
 function changePriceDisplay(event) {
-    const result = Number(tokensAmountEl.value) * price;
-    tokensPriceEl.value = `£${result.toFixed(2)}`;
-    console.log('PRICE CHANGEEE');
+    const tokens = Number(tokensAmountEl.value);
+    const currPrice = tokens * price;
+    const totalPrice = tokens >= discountQualifier ? currPrice * discountMultiplier : currPrice
+    tokensPriceEl.value = `£${totalPrice.toFixed(2)}`;
 }
 
 function getQuantity (){

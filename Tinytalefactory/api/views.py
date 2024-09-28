@@ -263,7 +263,9 @@ class PaymentCreateApiView(APIView):
     CREATE_ORDER_URL = 'https://api-m.sandbox.paypal.com/v2/checkout/orders'
     RETURN_URL = reverse_lazy('payment-success')
     CANCEL_URL = reverse_lazy('payment-cancel')
-    PRICE_PER_ITEM = 1.10
+    PRICE_PER_ITEM = 1.20
+    DISCOUNT_MULTIPLIER = 0.7
+    DISCOUNT_QUALIFIER = 6
     CURRENCY = 'GBP'
     permission_classes = [IsAuthenticated]
 
@@ -271,7 +273,9 @@ class PaymentCreateApiView(APIView):
         access_token = get_access_token()
         reference = create_reference_number()
         quantity = request.data.get('quantity', 0)
-        total_price = self.PRICE_PER_ITEM * int(quantity)
+
+        price = self.PRICE_PER_ITEM * int(quantity)
+        total_price = self._add_discount(quantity, price)
 
         headers = {
             'Content-Type': 'application/json',
@@ -335,6 +339,10 @@ class PaymentCreateApiView(APIView):
         new_order = Order.objects.create(**data)
 
         return True if new_order else False
+
+    def _add_discount(self, quantity: int, price: float):
+        return price * self.DISCOUNT_MULTIPLIER if quantity >= self.DISCOUNT_QUALIFIER else price
+
 
 
 class PaymentExecuteApiView(APIView):
