@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f369337c-924b-49b9-b59e-98b220604015" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tinytalefactory/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tinytalefactory/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/js/profile/paypalScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/js/profile/paypalScript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image_edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_edit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image_generation.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_generation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image_variation.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_variation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_json_correct.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_json_correct.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_paypal_payments.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_paypal_payments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,11 +85,11 @@
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\tests" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\Tinytalefactory" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\templates\common" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\templates\allauth" />
       <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\Tinytalefactory\generate_stories" />
-      <recent name="C:\Users\danie\OneDrive\Documents\tinytalefactory\prompt_results" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -154,7 +158,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_image_edit.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\danie\OneDrive\Documents\tinytalefactory\tests\test_image_edit.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,7 +181,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_image_generation.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\danie\OneDrive\Documents\tinytalefactory\tests\test_image_generation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -200,7 +204,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_image_variation.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\danie\OneDrive\Documents\tinytalefactory\tests\test_image_variation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -234,12 +238,12 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Django Server.tinytalefactory" />
       <item itemvalue="Python.manage" />
       <item itemvalue="Python.paypal_utils" />
       <item itemvalue="Python.test_image_edit" />
       <item itemvalue="Python.test_image_generation" />
       <item itemvalue="Python.test_image_variation" />
-      <item itemvalue="Django Server.tinytalefactory" />
     </list>
     <recent_temporary>
       <list>
@@ -366,7 +370,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_image_edit.py</url>
+          <url>file://$PROJECT_DIR$/tests/test_image_edit.py</url>
           <line>44</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>

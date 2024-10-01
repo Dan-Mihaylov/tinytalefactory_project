@@ -33,7 +33,7 @@ class ImageVariation:
 
     def create_image_variation(self):
 
-        with open('downloaded_img.png', 'rb') as img_file:
+        with open('../downloaded_img.png', 'rb') as img_file:
             response = self.client.images.create_variation(
                 image=img_file,
                 n=self.n,

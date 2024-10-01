@@ -5,12 +5,9 @@ import os
 AUTH_URL = 'https://api.sandbox.paypal.com/v1/oauth2/token'
 CREATE_ORDER_URL = 'https://api-m.sandbox.paypal.com/v2/checkout/orders'
 
-PAYPAL_CLIENT_ID = 'AdMEn6Xbbb2pdoI3N_aJe4LvXfFZKgfKqD8I61y9-SocLMLafqIhNnI9031OwyMIMszNOYGFkQZqwfu2'
-PAYPAL_CLIENT_SECRET = 'ENm5vWNaSqAxH699mbTr26GLvE8EJmZfil-aosTlyF-mIQ2Q0juusyDfD5Ka9kG5BsRhbHnCHDN9EwFq'
 
-
-CLIENT_ID = PAYPAL_CLIENT_ID
-CLIENT_SECRET = PAYPAL_CLIENT_SECRET
+CLIENT_ID = os.getenv('PAYPAL_CLIENT_ID', None)
+CLIENT_SECRET = os.getenv('PAYPAL_CLIENT_SECRET', None)
 
 
 def get_access_token():

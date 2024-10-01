@@ -42,7 +42,7 @@ class ImageEditor:
         return
 
     def get_response(self):
-        with open('downloaded_img.png', 'rb') as img, open('mask_img.png', 'rb') as mask:
+        with open('../downloaded_img.png', 'rb') as img, open('../mask_img.png', 'rb') as mask:
             response = self.client.images.edit(
                 image=img,
                 prompt=self.prompt,
