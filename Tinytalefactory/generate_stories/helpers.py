@@ -9,8 +9,6 @@ SPLIT_BY = '|'
 ASSET_FOLDER = 'ttf'
 
 
-# TODO: if everything correct, must split the paragraphs on new line and then iterate through all items and generate img
-# TODO: when images ready, pack everything in the JSON format for the database, with story title and all
 def generate_story_from_questionary(name: str, story_about: str, special_emphasis: str, **kwargs):
     story_generator = StoryGenerator()
     story_generator.generate_prompt_from_questionary(

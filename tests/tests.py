@@ -9,11 +9,18 @@ django.setup()
 import cloudinary
 from cloudinary import CloudinaryImage
 from cloudinary import uploader, api
+from django.contrib.auth import get_user_model
 
 # IMAGE_URL = 'https://images.pexels.com/photos/26707538/pexels-photo-26707538/free-photo-of-gray-fox-in-the-snow.jpeg?auto=compress&cs=tinysrgb&w=350&h=250&dpr=1'
 # response = uploader.upload(IMAGE_URL, asset_folder='ttf')
 # print(response.secure_url)
 # print(response)
+
+
+user_model = get_user_model()
+
+user = user_model.objects.first()
+print(user.email)
 
 
 # client = OpenAI()
