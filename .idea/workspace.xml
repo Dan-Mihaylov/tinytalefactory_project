@@ -6,12 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="f369337c-924b-49b9-b59e-98b220604015" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
       <change beforePath="$PROJECT_DIR$/test_image_edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_edit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_image_generation.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_generation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_image_variation.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_image_variation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_json_correct.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_json_correct.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_paypal_payments.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_paypal_payments.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tests.py" afterDir="false" />
+>>>>>>> origin/main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,6 +352,9 @@
       <workItem from="1727166537466" duration="592000" />
       <workItem from="1727377559866" duration="3726000" />
       <workItem from="1727383222375" duration="121000" />
+      <workItem from="1727561457567" duration="86000" />
+      <workItem from="1727644891419" duration="688000" />
+      <workItem from="1727821206667" duration="420000" />
     </task>
     <servers />
   </component>
@@ -387,7 +393,7 @@
     <SUITE FILE_PATH="coverage/tinytalefactory$tests.coverage" NAME="tests Coverage Results" MODIFIED="1724425454522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$paypal_utils.coverage" NAME="paypal_utils Coverage Results" MODIFIED="1725295686860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tinytalefactory/api" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_paypal_payments.coverage" NAME="test_paypal_payments Coverage Results" MODIFIED="1725291339675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1727379150128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tinytalefactory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1727644896572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$text_generator.coverage" NAME="text_generator Coverage Results" MODIFIED="1722003892084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tinytalefactory/ai_tools" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_image_edit.coverage" NAME="test_image_edit Coverage Results" MODIFIED="1726058535156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tinytalefactory$test_json_correct.coverage" NAME="test_json_correct Coverage Results" MODIFIED="1720223656901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

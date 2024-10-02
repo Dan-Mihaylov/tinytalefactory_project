@@ -1,18 +1,17 @@
 from django.shortcuts import render, redirect
 from django.views import generic as views
 
-from .helpers import generate_story_from_questionary
 from .models import Story
 from ..ai_tools.text_generator import Categories
 
-from ..auth_mixins.mixins import OwnerOfStoryRequiredMixin
+from ..auth_mixins.mixins import OwnerOfStoryRequiredMixin, CanGenerateStoryMixin
 
 
-class StoriesGettingStarted(views.TemplateView):
+class StoriesGettingStarted(CanGenerateStoryMixin, views.TemplateView):
     template_name = 'generate_stories/getting-started.html'
 
 
-class StoriesGenerateQuestionaryView(views.TemplateView):
+class StoriesGenerateQuestionaryView(CanGenerateStoryMixin, views.TemplateView):
     template_name = 'generate_stories/generate-story-questionary.html'
 
     # Fill out a form, with info about the kids interests, the form will not be held in any database
@@ -25,7 +24,7 @@ class StoriesGenerateQuestionaryView(views.TemplateView):
         return redirect('index')
 
 
-class StoriesGenerateCategoryView(views.TemplateView):
+class StoriesGenerateCategoryView(CanGenerateStoryMixin, views.TemplateView):
     template_name = 'generate_stories/generate-story-categories.html'
 
     def get_context_data(self, **kwargs):

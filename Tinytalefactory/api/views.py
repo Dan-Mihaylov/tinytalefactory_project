@@ -344,7 +344,6 @@ class PaymentCreateApiView(APIView):
         return price * self.DISCOUNT_MULTIPLIER if quantity >= self.DISCOUNT_QUALIFIER else price
 
 
-
 class PaymentExecuteApiView(APIView):
     permission_classes = [IsAuthenticated]
 

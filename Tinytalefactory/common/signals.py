@@ -19,7 +19,6 @@ def user_signed_up_(request, user, **kwargs):
         if Token.objects.filter(user=user).exists():
             return
 
-        # TODO: Give promotional tokens when the email has been verified only.
         Token.objects.create(user=user, promotional_tokens=1)
         create_sign_up_notification(user)
 
@@ -43,3 +42,6 @@ def email_confirmed_(request, email_address, **kwargs):
 
     except MultipleObjectsReturned or ObjectDoesNotExist or Exception as error:
         return error
+
+    # TODO: Take the email address when validated, create a new database entry where
+    # TODO: you have the email, and a bool if it has already created a story, if it hasn't let them create a story.

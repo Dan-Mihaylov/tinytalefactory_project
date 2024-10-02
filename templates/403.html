@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Tiny Tale Factory
+{% endblock %}
+
+{% block content %}
+    <div class="site">
+        <h3>Oh no, it looks like you don't have permission for this resource!</h3>
+
+        {% if exception %}
+            <p style="max-width: 40rem; margin: 0 auto;">{{ exception }}</p>
+        {% else %}
+            <p>If the problem persists please <a href="{% url 'contact' %}">contact</a> us with more information about it.</p>
+        {% endif %}
+
+    </div>
+{% endblock %}
