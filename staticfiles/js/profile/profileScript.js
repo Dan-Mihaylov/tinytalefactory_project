@@ -51,7 +51,6 @@ function fillStoriesCountElement (totalStories){
     recurse(Number(0));
 }
 
-// TODO: Create animation for all profile info numbers
 function fillTokensCountElements (){
     const spanElements = [...document.querySelectorAll('.user-info-list span')].slice(1);
 
@@ -107,7 +106,7 @@ function createIframeElement (event){
 
 }
 
-// Change email iFrame TODO: Maybe a different approach
+// Change email iFrame
 
 function addStylesheetToPasswordFrameDocument (){
     const frameElement = document.getElementById('set-password-frame');
@@ -717,9 +716,13 @@ function displayStoryElements (storiesArray){
     storiesWrapperEl.classList.add('stories-wrapper');
     storiesWrapperEl.style.opacity = '0';
 
-    const headerEl = document.createElement('h2');
-    headerEl.textContent = 'All your generated stories';
-    storiesWrapperEl.append(headerEl)
+        const headerEl = document.createElement('h2');
+    if (storiesArray.length > 0) {
+        headerEl.textContent = 'All your generated stories';
+    } else {
+        headerEl.textContent = `You don't have any stories generated yet`;
+    }
+        storiesWrapperEl.append(headerEl)
 
     storiesArray.forEach(storyDiv => storiesWrapperEl.append(storyDiv));
 
