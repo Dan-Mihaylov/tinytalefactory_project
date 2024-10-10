@@ -5,17 +5,18 @@ from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist, 
 from ..generate_stories.models import Story
 
 
+# TODO: When the view is written, add the permission.
 class OwnerOfStoryRequiredMixin(AccessMixin):
     permission_denied_message = 'This resource is not available to you.'
 
     def dispatch(self, request, *args, **kwargs):
         try:
-            slug = kwargs.get('slug', '')
-            has_story = request.user.stories.filter(slug=slug).exists() if request.user.is_authenticated else False
-            story_is_public = self._check_story_is_public(slug)
-
-            if not request.user.is_authenticated and not story_is_public:
+            if not request.user.is_authenticated:
                 raise PermissionDenied(self.permission_denied_message)
+
+            slug = kwargs.get('slug', '')
+            has_story = request.user.stories.filter(slug=slug).exists()
+            story_is_public = self._check_story_is_public(slug)
 
             if not has_story and not story_is_public:
                 raise PermissionDenied(self.permission_denied_message)
@@ -35,11 +36,6 @@ class OwnerOfStoryRequiredMixin(AccessMixin):
 
 
 class CanGenerateStoryMixin(AccessMixin):
-    """
-    Checks if user is allowed to generate more stories. To modify the amount of stories a user can generate change class
-    attribute, ALLOWED_STORIES_COUNT
-    """
-    ALLOWED_STORIES_COUNT = 1
     permission_denied_message = ('You do not have permission for this resource, your email might not be verified, '
                                  'you might not have enough tokens to generate a story, or you might have already '
                                  'used your demo story generation.')
@@ -54,11 +50,10 @@ class CanGenerateStoryMixin(AccessMixin):
             email = user.email
             verified_email = self._check_email_verified(email)
             available_tokens = user.tokens.total_tokens()
-            has_not_generated_before = self._has_not_generated_story_before(user)
 
             # TODO: When creating the db table to store if email has already used generation do validations here
 
-            if not all([verified_email, available_tokens > 0, has_not_generated_before]):
+            if not all([verified_email, available_tokens > 0]):
                 raise PermissionDenied(self.permission_denied_message)
 
             return super().dispatch(request, *args, **kwargs)
@@ -66,15 +61,8 @@ class CanGenerateStoryMixin(AccessMixin):
         except MultipleObjectsReturned or ObjectDoesNotExist or AttributeError or Exception:
             return self.handle_no_permission()
 
-    @staticmethod
-    def _check_email_verified(email):
-        email_obj = EmailAddress.objects.get(email=email)
-        return email_obj.verified
 
-    def _has_not_generated_story_before(self, user):
-        try:
-            total_stories = user.stories.count()
-            return total_stories < self.ALLOWED_STORIES_COUNT
-        except ObjectDoesNotExist or AttributeError or Exception:
-            return False
-
+@staticmethod
+def _check_email_verified(email):
+    email_obj = EmailAddress.objects.get(email=email)
+    return email_obj.verified

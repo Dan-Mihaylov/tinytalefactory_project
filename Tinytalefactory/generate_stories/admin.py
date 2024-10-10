@@ -4,6 +4,7 @@ from django.contrib import admin
 from . import models
 
 
+# TODO: Change the display items
 @admin.register(models.Story)
 class StoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'slug', 'user', 'title', 'is_public', 'created_at', 'updated_at']

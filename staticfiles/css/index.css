@@ -33,25 +33,12 @@
 }
 
 .content-header-container h1 {
-    position: relative;
     max-width: 70rem;
     font-size: 5rem;
     line-height: 1.2;
     margin: 5rem auto;
     padding-bottom: 2rem;
     transition: opacity 1.3s ease-in-out;
-}
-
-.content-header-container h1::after {
-    position: absolute;
-    bottom: -2rem;
-    left: calc(60% / 2);
-    display: block;
-    content: ' ';
-    min-width: 40%;
-    min-height: 1px;
-    background-color: rgb(41, 71, 81, 0.5);
-    border-radius: 50%;
 }
 
 .content-header-container p {

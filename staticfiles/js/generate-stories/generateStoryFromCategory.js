@@ -37,21 +37,17 @@ function generateFromCategory (element) {
     clearMainEl();
     const wrapperEl = createLoadingPage();
     mainEl.append(wrapperEl);
+
     fetch(url)
-        .then(response => {
-            if (response.status === 401) {
-                unauthorizedAccess(wrapperEl);
-                throw new Error('Unauthorized Access');
-            }
-            response.json();
-        })
+        .then(response => response.json())
 
         .then(data => {
             displayResult(data['title'], data['slug'], wrapperEl);
         })
 
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.log('Error:', error));
 
+    // TODO: When getting the response, check if valid, and if valid get link to show story.
 }
 
 

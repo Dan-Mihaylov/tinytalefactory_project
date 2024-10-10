@@ -19,7 +19,7 @@ def user_signed_up_(request, user, **kwargs):
         if Token.objects.filter(user=user).exists():
             return
 
-        Token.objects.create(user=user)
+        Token.objects.create(user=user, promotional_tokens=1)
         create_sign_up_notification(user)
 
     except Exception:

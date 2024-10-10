@@ -32,7 +32,7 @@ class Notification(AuditMixin, models.Model):
     user = models.ForeignKey(
         UserModel,
         related_name='notifications',
-        on_delete=models.CASCADE,
+        on_delete=models.DO_NOTHING,
         editable=False,
         null=False,
         blank=True

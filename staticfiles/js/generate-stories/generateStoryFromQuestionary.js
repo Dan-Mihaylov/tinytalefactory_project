@@ -35,19 +35,14 @@ document.getElementById('button').addEventListener('click', function (event){
     mainEl.append(wrapperEl);
 
     fetch(url)
-        .then(response => {
-            if (response.status === 401) {
-                unauthorizedAccess(wrapperEl);
-                throw new Error('Unauthorized access to API.');
-            }
-        })
+        .then(response => response.json())
 
         .then(data => {
             displayResult(data['title'], data['slug'], wrapperEl);
         })
 
         .catch(error => {
-            console.error('Something went wrong', error);
+            console.log('Something went wrong', error);
         });
 });
 

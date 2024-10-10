@@ -48,22 +48,3 @@ function displayResult(storyName, storySlug, wrapperEl) {
     iEl.className = bookOpenReaderClass;
     viewStoryLinkEl.append(iEl);
 }
-
-function unauthorizedAccess(wrapperEl) {
-    const titleEl = document.querySelector('.loader-wrapper > h2:first-of-type');
-    titleEl.textContent = 'There was an issue with the story generation.';
-
-    const loader = document.querySelector('.loader');
-    loader.remove();
-
-    const pEl = document.querySelector('.loader-wrapper > p:first-of-type');
-    pEl.textContent = 'An unexpected issue has risen, you can try generating a story later on. Thank you for the ' +
-        'understanding.';
-
-    const backEl = document.createElement('a');
-    backEl.textContent = 'Back';
-    backEl.setAttribute('href', '#');
-    backEl.addEventListener('click', ()=> history.back())
-    wrapperEl.append(backEl);
-
-}

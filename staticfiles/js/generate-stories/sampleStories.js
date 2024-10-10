@@ -25,7 +25,9 @@ function siteElOpacityRegulator() {
 
 async function displayStoryCards() {
     try {
+        console.log('URL...', apiSampleStoriesUrl)
         const response = await fetch(apiSampleStoriesUrl);
+        console.log('RESPONSE...', response)
         const data = await response.json();
 
         if (!response.ok) {
@@ -89,7 +91,7 @@ async function getBaseStats() {
     try {
         const response = await fetch(apiBaseStatsUrl);
         const data = await response.json();
-
+        
         animateCountObject(totalStoriesCountEl, data.total_stories);
         animateCountObject(totalPublicStoriesCountEl, data.public_stories);
         animateCountObject(totalUsersCountEl, data.total_users);
@@ -112,7 +114,7 @@ function animateCountObject(object, total) {
     }
 
     function recurse(n) {
-        if (n > number) {
+        if (n === number) {
             return;
         }
 
