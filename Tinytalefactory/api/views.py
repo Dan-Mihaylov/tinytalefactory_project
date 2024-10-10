@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.urls import reverse_lazy
+from openai import RateLimitError, PermissionDeniedError, AuthenticationError
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
@@ -7,7 +8,7 @@ from rest_framework import generics as APIGenericView
 from rest_framework.response import Response
 
 from .helpers import send_email
-from .permissions import IsOwner
+from .permissions import IsOwner, CanPayForStory, HasNotGeneratedStoryBefore
 
 from Tinytalefactory.api.serializers import (
     StoriesForListSerializer,
@@ -53,9 +54,12 @@ class StoriesListApiView(APIView):
 
 
 class StoryGenerateApiView(APIView):
-
     IMAGE_STYLE = 'Animated Disney Like'
-    permission_classes = [IsAuthenticated]
+    permission_classes = [
+        IsAuthenticated,
+        CanPayForStory,
+        HasNotGeneratedStoryBefore,
+    ]
     serializer_class = StoriesForCreateSerializer
     story_text = []
     story_title = ''
@@ -68,32 +72,35 @@ class StoryGenerateApiView(APIView):
         json = ["Something went wrong"]  # Default response
         bad_response = json
         appearance = ''
+        try:
+            if self._check_if_generate_from_questionary():
+                story_info = self._extract_story_details_from_get()
+                appearance = story_info['appearance']
+                self.story_text, self.tokens_used = generate_story_from_questionary(
+                    story_info['name'],
+                    story_info['story-about'],
+                    story_info['special-emphasis'],
+                )
 
-        if self._check_if_generate_from_questionary():
-            story_info = self._extract_story_details_from_get()
-            appearance = story_info['appearance']
-            self.story_text, self.tokens_used = generate_story_from_questionary(
-                story_info['name'],
-                story_info['story-about'],
-                story_info['special-emphasis'],
-            )
+                self.story_title = story_info['title'] if story_info['title'] != '' else f'The story of {story_info["name"]}'
+            else:
+                story_category = self._extract_story_category()
+                response_text_list, self.tokens_used = generate_story_from_category(story_category)
+                self._get_story_paragraphs_and_title_from_generate_from_questionary(response_text_list)
 
-            self.story_title = story_info['title'] if story_info['title'] != '' else f'The story of {story_info["name"]}'
-        else:
-            story_category = self._extract_story_category()
-            response_text_list, self.tokens_used = generate_story_from_category(story_category)
-            self._get_story_paragraphs_and_title_from_generate_from_questionary(response_text_list)
+            # self._generate_images_for_each_paragraph(appearance)
+            json = self._create_json_object()
+            response = Response(json, status=status.HTTP_200_OK)
 
-        self._generate_images_for_each_paragraph(appearance)
-        json = self._create_json_object()
-        response = Response(json, status=status.HTTP_200_OK)
-
-        if json == bad_response:
-            return response
-        else:
-            self._submit_tokens_used_info()
-            create_story_generated_notification(self.request.user, self.story_title)
-            return self._create_story(json)
+            if json == bad_response:
+                return response
+            else:
+                self._submit_tokens_used_info()
+                self._charge_token_for_story(self.request.user)
+                create_story_generated_notification(self.request.user, self.story_title)
+                return self._create_story(json)
+        except AuthenticationError or Exception:
+            return Response(json, status=status.HTTP_401_UNAUTHORIZED)
 
     def _extract_story_category(self):
         return self.request.GET.get('category', '')
@@ -110,8 +117,6 @@ class StoryGenerateApiView(APIView):
     #     return self.request.session['story_info']
 
     def _extract_story_details_from_get(self):
-
-        # TODO: Format to extract_story_details which will call this one and if no result call extract from session
 
         story_info = {
             'name': self.request.GET.get('name', ''),
@@ -162,7 +167,6 @@ class StoryGenerateApiView(APIView):
 
     def _create_story(self, data):
         serializer = self.serializer_class(data=data)
-        # TODO: If valid - Take one token for story creation from user.
         if serializer.is_valid():
             serializer.validated_data['user'] = self.request.user
             serializer.save()
@@ -179,6 +183,18 @@ class StoryGenerateApiView(APIView):
         Add story info to the session in case customer does not like the result and wants to regenerate
         """
         self.request.session['story_info'] = story_info
+
+    @staticmethod
+    def _charge_token_for_story(user: UserModel):
+
+        if user.tokens.promotional_tokens > 0:
+            user.tokens.promotional_tokens -= 1
+            user.tokens.save()
+            return
+
+        user.tokens.purchased_tokens -= 1
+        user.tokens.save()
+        return
 
 
 class StoryRetrieveApiView(APIGenericView.RetrieveAPIView):
