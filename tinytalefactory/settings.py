@@ -14,9 +14,16 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'DjangoSecretKey')
 
 DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    '0.0.0.0',
+    '9b2a-145-40-144-119.ngrok-free.app'
+]
+
+CSRF_TRUSTED_ORIGINS = [f'http://{el}' for el in ALLOWED_HOSTS]
 
 CORS_ALLOWED_ORIGINS = [
+    'https://9b2a-145-40-144-119.ngrok-free.app',
     "http://localhost:3000",
     'https://127.0.0.1:8000',
     'https://sandbox.paypal.com',
@@ -57,6 +64,7 @@ AUTHENTICATION_BACKENDS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,6 +131,8 @@ USE_TZ = True
 # Static | Media files configurations
 STATIC_URL = 'staticfiles/'
 STATICFILES_DIRS = [BASE_DIR / 'staticfiles/']
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 

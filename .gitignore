@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 
+Tinytalefactory/__pycache__/
 # C extensions
 *.so
 .env
@@ -23,3 +24,5 @@ coverage.xml
 *.log
 *.pot
 
+
+static
