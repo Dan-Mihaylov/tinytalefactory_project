@@ -1,4 +1,5 @@
 from allauth.account.signals import user_signed_up, email_confirmed
+from django.contrib.auth import get_user_model
 from django.dispatch import receiver
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 
@@ -7,6 +8,7 @@ from .helpers import create_sign_up_notification
 
 
 PROMOTIONAL_TOKENS_ON_EMAIL_CONFIRMATION = 1
+UserModel = get_user_model()
 
 
 @receiver(user_signed_up)
@@ -33,7 +35,7 @@ def email_confirmed_(request, email_address, **kwargs):
         if VerifiedEmail.objects.filter(email=email_address).exists():
             return
 
-        user = request.user
+        user = UserModel.objects.filter(email=email_address).first()
         user_token = Token.objects.get(user=user)
         user_token.promotional_tokens += 1
         user_token.save()
