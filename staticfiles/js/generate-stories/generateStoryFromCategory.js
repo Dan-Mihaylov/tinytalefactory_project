@@ -45,11 +45,9 @@ function generateFromCategory (element) {
             }
             response.json();
         })
-
         .then(data => {
             displayResult(data['title'], data['slug'], wrapperEl);
         })
-
         .catch(error => console.error('Error:', error));
 
 }

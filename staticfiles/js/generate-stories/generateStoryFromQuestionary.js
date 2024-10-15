@@ -40,12 +40,11 @@ document.getElementById('button').addEventListener('click', function (event){
                 unauthorizedAccess(wrapperEl);
                 throw new Error('Unauthorized access to API.');
             }
+            response.json();
         })
-
         .then(data => {
             displayResult(data['title'], data['slug'], wrapperEl);
         })
-
         .catch(error => {
             console.error('Something went wrong', error);
         });
