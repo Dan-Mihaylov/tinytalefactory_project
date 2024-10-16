@@ -27,7 +27,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     'https://127.0.0.1:8000',
     'https://sandbox.paypal.com',
-    f'https://{os.getenv("WEBSITE_HOSTNAME", "mm")}',
+    f'https://{os.getenv("WEBSITE_HOSTNAME", "nothing")}',
 ]
 
 INSTALLED_APPS = [
