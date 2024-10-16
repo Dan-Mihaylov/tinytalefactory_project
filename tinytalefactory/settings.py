@@ -17,7 +17,7 @@ DEBUG = os.getenv('DEBUG', False)
 ALLOWED_HOSTS = [
     '127.0.0.1',
     '0.0.0.0',
-    '22ca-145-40-144-119.ngrok-free.app'
+    f'{os.getenv("WEBSITE_HOSTNAME", "")}',
 ]
 
 CSRF_TRUSTED_ORIGINS = [f'https://{el}' for el in ALLOWED_HOSTS]
@@ -27,6 +27,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     'https://127.0.0.1:8000',
     'https://sandbox.paypal.com',
+    f'https://{os.getenv("WEBSITE_HOSTNAME", "")}',
 ]
 
 INSTALLED_APPS = [

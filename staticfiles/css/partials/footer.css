@@ -90,8 +90,12 @@
         order: 2;
     }
 
+    .left-side img {
+        margin: -7em 0 -4em -2em;
+    }
+
     .left-side h4 {
-        padding-top: 2em;
+        padding: 2em;
     }
 
     .right-side {
@@ -112,3 +116,4 @@
         text-align: center;
     }
 }
+
