@@ -90,7 +90,7 @@ async function startPayment (){
         displayOrderCreated();
 
     } catch (error) {
-        console.log(error);
+        console.error(error);
         somethingWentWrong();
     }
 }
@@ -150,7 +150,6 @@ function fixTokensPriceMargin() {
 }
 
 function toggleTermsAndConditions(event) {
-    console.log('CHANGING THE TERMS AND CODITIONS')
     event.preventDefault();
 
     termsAndConsOverlay.style.display === 'none'

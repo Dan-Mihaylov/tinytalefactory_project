@@ -43,7 +43,7 @@ function generateFromCategory (element) {
                 unauthorizedAccess(wrapperEl);
                 throw new Error('Unauthorized Access');
             }
-            response.json();
+            return response.json();
         })
         .then(data => {
             displayResult(data['title'], data['slug'], wrapperEl);

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Tiny Tale Factory
+{% endblock %}
+
+{% block content %}
+    <div class="site" style="display: flex; justify-content: center; align-content: center; flex-direction: column;">
+        <img style="max-width: 100%;" src="{% static 'images/where-did-you-go.gif' %}" alt="Where did you go">
+        <h3>There is nothing here, you will have to go <a href="#" onclick="history.back()">back</a>.</h3>
+    </div>
+{% endblock %}

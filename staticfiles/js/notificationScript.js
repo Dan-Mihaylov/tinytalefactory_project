@@ -17,7 +17,7 @@ async function getNotifications() {
         if (!response.status === 200) {
             throw new Error('Something went wrong with fetching your notifications');
         }
-        console.log(data);
+
         const dataArray = [...data];
 
         createNotificationElements(dataArray);
@@ -27,7 +27,7 @@ async function getNotifications() {
     }
 }
 
-getNotifications().then(data => console.log(data));
+getNotifications();
 
 function createNotificationElements(notificationsArray) {
     let count = 0;
@@ -54,7 +54,6 @@ function createNotificationElements(notificationsArray) {
 }
 
 function createNotification(data) {
-    console.log('DATAA:', data.__str__)
     let [date, time] = data.created_at.split('T');
     time = time.split('.')[0];
 
@@ -111,7 +110,6 @@ async function changeNotificationStatus(event) {
         target.parentNode.classList.remove('not-seen');
         await getNotifications();
 
-        console.log(data);
 
     } catch (error) {
         console.error(error)
@@ -140,7 +138,6 @@ function toggleNotifications(event) {
 
 function clickOutsideNotifications(event) {
     const notificationDataEl = document.querySelector('.notification-data');
-    console.log('CLICK', event.target);
     if (
         notificationDataEl !== event.target
         &&
@@ -151,5 +148,4 @@ function clickOutsideNotifications(event) {
         toggleNotificationsEl.click();
     }
 
-    console.log('IS SAME: ', notificationDataEl === event.target)
 }

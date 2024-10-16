@@ -14,22 +14,9 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'DjangoSecretKey')
 
 DEBUG = os.getenv('DEBUG', '0') == '1'
 
-ALLOWED_HOSTS = [
-    '127.0.0.1',
-    '0.0.0.0',
-    f'{os.getenv("WEBSITE_HOSTNAME", "nothing")}',
-    'tinytalefactory.com',
-    'www.tinytalefactory.com',
-]
-
+ALLOWED_HOSTS = [host for host in os.getenv('ALLOWED_HOSTS', '').split(', ')]
 CSRF_TRUSTED_ORIGINS = [f'https://{el}' for el in ALLOWED_HOSTS]
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    'https://127.0.0.1:8000',
-    'https://sandbox.paypal.com',
-    f'https://{os.getenv("WEBSITE_HOSTNAME", "nothing")}',
-]
+CORS_ALLOWED_ORIGINS = [cors for cors in os.getenv('CORS_ALLOWED_ORIGINS', '').split(', ')]
 
 INSTALLED_APPS = [
     'django.contrib.admin',

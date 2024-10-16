@@ -39,7 +39,6 @@ function toggleSettings(event) {
         }, 500);
     }
 
-    console.log(settingsWrapperUlElement.style['opacity']);
     function toggleChildrenElements () {
         childrenElementsToToggle.forEach(el => {
             el.style['display'] === 'none' ? el.style['display'] = 'flex' : el.style['display'] = 'none';
