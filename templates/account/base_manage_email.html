@@ -1,1 +1,5 @@
 {% extends "account/base_manage.html" %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/allauth/nested-allauth.css' %}">
+{% endblock %}

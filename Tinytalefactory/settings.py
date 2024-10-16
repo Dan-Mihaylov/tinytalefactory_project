@@ -17,13 +17,13 @@ DEBUG = os.getenv('DEBUG', '0') == '1'
 ALLOWED_HOSTS = [
     '127.0.0.1',
     '0.0.0.0',
-    f'{os.getenv("WEBSITE_HOSTNAME", "")}',
+    f'{os.getenv("WEBSITE_HOSTNAME", "nothing")}',
+    'tinytalefactory.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [f'https://{el}' for el in ALLOWED_HOSTS]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://22ca-145-40-144-119.ngrok-free.app',
     "http://localhost:3000",
     'https://127.0.0.1:8000',
     'https://sandbox.paypal.com',

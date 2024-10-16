@@ -68,3 +68,4 @@ jobs:
           app-name: 'tinytalefactory-demo'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_446DC1D3A7024472900E0549E8A7B3FE }}
+          startup-command: 'gunicorn --workers 3 Tinytalefactory.wsgi --timeout 120'

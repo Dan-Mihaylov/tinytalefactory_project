@@ -1,5 +1,6 @@
 body {
     padding: 0;
+    background-color: #fff;
 }
 
 .container {
@@ -32,3 +33,20 @@ body {
     left: 5em;
 }
 
+@media (max-width: 800px) {
+    .container {
+        border-radius: 0;
+    }
+
+    .nested-container-60-width h1 {
+        font-size: 1.8rem;
+    }
+
+    .left-nested-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .right-nested-container h2 {
+        font-size: 1.6rem;
+    }
+}
