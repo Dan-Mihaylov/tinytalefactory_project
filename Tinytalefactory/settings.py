@@ -19,6 +19,7 @@ ALLOWED_HOSTS = [
     '0.0.0.0',
     f'{os.getenv("WEBSITE_HOSTNAME", "nothing")}',
     'tinytalefactory.com',
+    'www.tinytalefactory.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [f'https://{el}' for el in ALLOWED_HOSTS]
