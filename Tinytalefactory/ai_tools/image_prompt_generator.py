@@ -12,7 +12,9 @@ class ImagePromptGenerator:
                 'content': 'Act as a Dall-E-3 prompt generator, Generate prompts for each paragraph, '
                            'if there are any characteristics for the main characters provided,'
                            'in the whole story, '
-                           'make sure to include all of them in each prompt, and make sure they are detailed.'
+                           'make sure to include all of them in each prompt, and make sure they are detailed. '
+                           'If there are no characteristics provided, use your imagination and provide them yourself, '
+                           'but again make sure they are included in each prompt '
                            'in order for the prompts to be more consistent, return the PROMPTS ONLY split by " | ".'
                            'Make sure there are only as many prompts as there are paragraphs.\n'
             }

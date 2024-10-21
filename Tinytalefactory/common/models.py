@@ -8,7 +8,7 @@ UserModel = get_user_model()
 
 class AuditMixin(models.Model):
 
-    created_at =  models.DateTimeField(
+    created_at = models.DateTimeField(
         auto_now_add=True,
         null=False,
         blank=True,

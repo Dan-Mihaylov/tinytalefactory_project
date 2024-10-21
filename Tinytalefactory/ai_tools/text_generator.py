@@ -2,6 +2,8 @@ from .client_initializer import client
 # TODO: change count of paragraphs from 2 to 10
 
 
+PARAGRAPHS_COUNT = 3
+
 class StoryGenerator:
 
     def __init__(self):
@@ -10,14 +12,14 @@ class StoryGenerator:
         self.prompt = [
             {
                 'role': 'system',
-                'content': 'Act as a custom children books writer, where you will receive prompts from people, telling '
-                           'you more about their kid and the kids hobbies or a story that they want to create a fond '
-                           'memory of, and you will be writing a 3 VERY SHORT paragraphs NO MORE THAN 60 WORDS EACH of'
-                           ' a story which includes the '
-                           'information you have been provided. MAKE SURE THERE ARE 3 PARAGRAPHS.'
-                           ' The paragraphs MUST BE SEPARATED BY A | symbol. '
-                           'Make sure the story is cheerful towards the kid and '
-                           'catchy to read.'
+                'content': f'Act as a custom story books writer, where you will receive prompts from people, telling '
+                           f'you more about the person and the persons hobbies or a story that they want to create a '
+                           f'fond memory of, and you will be writing a {PARAGRAPHS_COUNT} VERY SHORT paragraphs '
+                           f'NO MORE THAN 60 WORDS EACH of'
+                           f' a story which includes the '
+                           f'information you have been provided. MAKE SURE THERE ARE {PARAGRAPHS_COUNT} PARAGRAPHS.'
+                           f' The paragraphs MUST BE SEPARATED BY A | symbol. '
+                           f'Make sure the story is cheerful towards the person and catchy to read.'
             }
         ]
         self.tokens_used = 0
@@ -33,7 +35,8 @@ class StoryGenerator:
 
     def generate_prompt_from_questionary(self, name: str, story_about: str, special_emphasis: str, **kwargs):
         resulting_prompt = (
-            f'Generate a story about a kid {f"the kids name is {name}" if name else ""} the story should be detailed'
+            f'Generate a story about a person {f"the persons name is {name}" if name else ""} the story should be '
+            f'detailed '
             f'and cheerful about {story_about}, {f"emphasise on {special_emphasis}" if special_emphasis else ""}'
         )
 
@@ -46,8 +49,8 @@ class StoryGenerator:
     def generate_prompt_from_category(self, category: str):
 
         create_title_prompt = (
-            ' Start with the title of the story, just a plain text for the title, MAKE SURE title ends with'
-            ' the separator " | ". Also make sure there are 3 PARAGRAPHS in total.'
+            f' Start with the title of the story, just a plain text for the title, MAKE SURE title ends with'
+            f' the separator " | ". Also make sure there are {PARAGRAPHS_COUNT} PARAGRAPHS in total.'
         )
 
         categories = {
@@ -77,16 +80,16 @@ class Categories:
         'animals', 'friendship', 'mystery',
         'educational', 'family', 'humour', 'historical'
     ]
-    ADVENTURE = 'Create an adventure story, filled with exciting journeys and quests.'
-    FANTASY = 'Create a fantasy story, magical worlds with mythical creatures and imaginative settings.'
-    FAIRY_TALES = 'Create a fairy tales story, classic tales with moral lessons and happy endings'
-    ANIMALS = 'Create an animals story, featuring animals as main characters, often with human like traits.'
-    FRIENDSHIP = 'Create a friendship story, book that explores the themes of friendship and relationships.'
-    MYSTERY = 'Create a mystery story, engaging story with puzzles and mysteries to solve.'
-    EDUCATIONAL = 'Create an educational story, book to teach concepts like numbers, letters and basic science'
-    FAMILY = 'Create a family story, that focuses on family dynamics and relationships.'
-    HUMOUR = 'Create a funny and entertaining story that makes children laugh.'
-    HISTORICAL = 'Create a historical story, that introduces kids to historical events and figures in an engaging way.'
+    ADVENTURE = f'Create an adventure story, filled with exciting journeys and quests.'
+    FANTASY = f'Create a fantasy story, magical worlds with mythical creatures and imaginative settings.'
+    FAIRY_TALES = f'Create a fairy tales story, classic tales with moral lessons and happy endings.'
+    ANIMALS = f'Create an animals story, featuring animals as main characters, often with human like traits.'
+    FRIENDSHIP = f'Create a friendship story, book that explores the themes of friendship and relationships.'
+    MYSTERY = f'Create a mystery story, engaging story with puzzles and mysteries to solve.'
+    EDUCATIONAL = f'Create an educational story, book to teach concepts like numbers, letters and basic science.'
+    FAMILY = f'Create a family story, that focuses on family dynamics and relationships.'
+    HUMOUR = f'Create a funny and entertaining story that makes children laugh.'
+    HISTORICAL = f'Create a historical story, that introduces kids to historical events and figures in an engaging way.'
 
     @classmethod
     def info(cls):
