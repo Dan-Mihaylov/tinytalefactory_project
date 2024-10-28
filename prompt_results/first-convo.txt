@@ -1,5 +1,0 @@
-User: How big is earth?
-System: The Earth has a diameter of about 12,742 kilometers (7,917.5 miles) and a circumference of approximately 40,075 kilometers (24,901.5 miles) around the equator.
-User: How big is the moon?
-System: The Moon has a diameter of about 3,474.8 kilometers (2,159.2 miles) and a circumference of approximately 10,921 kilometers (6,783.5 miles) around its equator.
-Tokens Used: 207
