@@ -8,6 +8,9 @@ UserModel = get_user_model()
 
 class AuditMixin(models.Model):
 
+    class Meta:
+        abstract = True
+
     created_at = models.DateTimeField(
         auto_now_add=True,
         null=False,
