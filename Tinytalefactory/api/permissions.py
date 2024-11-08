@@ -22,7 +22,7 @@ class CanPayForStory(BasePermission):
 
 
 class HasNotGeneratedStoryBefore(BasePermission):
-    ALLOWED_STORIES_COUNT = 1
+    ALLOWED_STORIES_COUNT = 2
 
     def has_permission(self, request, view):
         try:
