@@ -1,5 +1,5 @@
 from allauth.account.models import EmailAddress
-from django.contrib.auth.mixins import AccessMixin
+from django.contrib.auth.mixins import AccessMixin, LoginRequiredMixin
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist, PermissionDenied
 
 from ..generate_stories.models import Story
@@ -34,12 +34,12 @@ class OwnerOfStoryRequiredMixin(AccessMixin):
             return False
 
 
-class CanGenerateStoryMixin(AccessMixin):
+class CanGenerateStoryMixin(LoginRequiredMixin):
     """
     Checks if user is allowed to generate more stories. To modify the amount of stories a user can generate change class
     attribute, ALLOWED_STORIES_COUNT
     """
-    ALLOWED_STORIES_COUNT = 1
+    ALLOWED_STORIES_COUNT = 2
     permission_denied_message = ('You do not have permission for this resource, your email might not be verified, '
                                  'you might not have enough tokens to generate a story, or you might have already '
                                  'used your demo story generation.')
@@ -48,11 +48,15 @@ class CanGenerateStoryMixin(AccessMixin):
         try:
             user = request.user
 
-            if not user.is_authenticated or not user.email:
+            if not user.is_authenticated:
+                return super().dispatch(request, *args, **kwargs)
+
+            email_object = EmailAddress.objects.filter(user=user).first()
+
+            if not email_object:
                 raise PermissionDenied(self.permission_denied_message)
 
-            email = user.email
-            verified_email = self._check_email_verified(email)
+            verified_email = email_object.verified
             available_tokens = user.tokens.total_tokens()
             has_not_generated_before = self._has_not_generated_story_before(user)
 
@@ -65,11 +69,6 @@ class CanGenerateStoryMixin(AccessMixin):
 
         except MultipleObjectsReturned or ObjectDoesNotExist or AttributeError or Exception:
             return self.handle_no_permission()
-
-    @staticmethod
-    def _check_email_verified(email):
-        email_obj = EmailAddress.objects.get(email=email)
-        return email_obj.verified
 
     def _has_not_generated_story_before(self, user):
         try:

@@ -83,6 +83,10 @@
     width: 100%;
 }
 
+.profile-image-container img:hover {
+    cursor: pointer;
+}
+
 .settings-options-wrapper {
     display: none;
     flex-wrap: wrap;
