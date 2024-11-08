@@ -24,8 +24,8 @@ def user_signed_up_(request, user, **kwargs):
         Token.objects.create(user=user)
         create_sign_up_notification(user)
 
-    except Exception:
-        return
+    except Exception as e:
+        return e
 
 
 @receiver(email_confirmed)
