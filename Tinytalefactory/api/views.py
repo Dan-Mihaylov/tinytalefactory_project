@@ -236,7 +236,7 @@ class StoriesListSampleApiView(APIGenericView.ListAPIView):
     serializer_class = StoriesSamplesForListSerializer
 
     def get_queryset(self):
-        return Story.objects.filter(is_public=True)
+        return Story.objects.filter(is_public=True).order_by('-id')
 
 
 class StoriesAndUsersCountApiView(APIView):
@@ -382,6 +382,7 @@ class PaymentExecuteApiView(APIView):
             self._change_tokens_transferred_status(order)
 
             create_tokens_purchased_notification(request.user, order.quantity, order.order_id, order.price)
+            # TODO send an email invoice of the order
 
             return Response(data=['Success'], status=status.HTTP_200_OK)
 

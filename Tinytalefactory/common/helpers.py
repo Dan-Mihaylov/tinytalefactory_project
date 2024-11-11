@@ -1,8 +1,13 @@
+from django.core.mail import send_mail
+from dotenv import load_dotenv
+import os
+
 from .models import Notification
 from django.contrib.auth import get_user_model
 
 
 UserModel = get_user_model()
+load_dotenv()
 
 
 def create_sign_up_notification(user: UserModel):
@@ -52,3 +57,17 @@ def create_tokens_purchased_notification(user: UserModel, quantity: int, transac
         return True
     except Exception as e:
         return str(e)
+
+
+def notify_me_of_signup(user: UserModel):
+    subject = 'Tinytalefactory Notification'
+    recipient_list = [os.getenv('MY_EMAIL')]
+    message = f'User {user} has registered.'
+
+    send_mail(
+        subject=subject,
+        from_email=os.getenv('DEFAULT_EMAIL'),
+        recipient_list=recipient_list,
+        fail_silently=True,
+        message=message,
+    )
