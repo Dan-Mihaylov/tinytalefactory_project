@@ -36,3 +36,10 @@
     background-color: darkorange;
     color: #333;
 }
+
+@media (max-width: 900px) {
+    .messages-container {
+        margin: 0 1rem;
+        width: auto;
+    }
+}
