@@ -40,4 +40,10 @@
     {% endif %}
     </div>
     </div>
+    <script>
+        const labelEl = document.querySelector('label[for="id_random_string"]');
+        const text = labelEl.textContent;
+        const code = text.slice(text.length - 7, text.length - 1);
+        labelEl.innerHTML = `Please enter the following string: <strong>${code}</strong>`
+    </script>
 {% endblock content %}
