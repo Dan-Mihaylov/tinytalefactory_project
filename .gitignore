@@ -9,8 +9,9 @@ Tinytalefactory/__pycache__/
 *.env
 
 # Idea
-.idea
+.idea/
 .idea/workspace.xml
+
 
 # Unit test / coverage reports
 .tox/
@@ -26,3 +27,4 @@ coverage.xml
 
 
 static
+venv

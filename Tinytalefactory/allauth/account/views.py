@@ -1,7 +1,8 @@
+from allauth.core import ratelimit
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.validators import validate_email
 from django.forms import ValidationError
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.views.decorators.debug import sensitive_post_parameters
@@ -10,7 +11,7 @@ from django.views.generic.edit import FormView
 from allauth import app_settings as allauth_app_settings
 from allauth.account import app_settings
 from allauth.account.forms import (
-    SignupForm,
+    SignupForm, ResetPasswordForm,
 )
 from allauth.account.mixins import (
     AjaxCapableProcessFormViewMixin,
@@ -111,3 +112,45 @@ class SignupView(
 
 
 signup = SignupView.as_view()
+
+
+class PasswordResetView(NextRedirectMixin, AjaxCapableProcessFormViewMixin, FormView):
+    template_name = "account/password_reset." + app_settings.TEMPLATE_EXTENSION
+    form_class = ResetPasswordForm
+    success_url = reverse_lazy("account_reset_password_done")
+
+    def get_form_class(self):
+        return get_form_class(app_settings.FORMS, "reset_password", self.form_class)
+
+    def get_form_initial(self, *args, **kwargs):
+        kwargs = super().get_form_initial(*args, **kwargs)
+        kwargs['request'] = self.request
+        return kwargs
+
+    def form_valid(self, form):
+        r429 = ratelimit.consume_or_429(
+            self.request,
+            action="reset_password",
+            key=form.cleaned_data["email"].lower(),
+        )
+        if r429:
+            return r429
+        form.save(self.request)
+        return super().form_valid(form)
+
+    def get_form_kwargs(self, *args, **kwargs):
+        kwargs = super().get_form_kwargs(*args, **kwargs)
+        kwargs["request"] = self.request
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        ret = super().get_context_data(**kwargs)
+        login_url = self.passthrough_next_url(reverse("account_login"))
+        # NOTE: For backwards compatibility
+        ret["password_reset_form"] = ret.get("form")
+        # (end NOTE)
+        ret.update({"login_url": login_url})
+        return ret
+
+
+reset = PasswordResetView.as_view()

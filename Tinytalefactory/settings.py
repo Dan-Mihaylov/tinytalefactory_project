@@ -153,6 +153,7 @@ ACCOUNT_FORMS = {
     'reset_password_from_key': 'Tinytalefactory.allauth.forms.CustomResetPasswordKeyForm',
     'signup': 'Tinytalefactory.allauth.forms.CustomSignUpForm',
 }
+ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
 
 
 # Django Rest Framework Configurations
