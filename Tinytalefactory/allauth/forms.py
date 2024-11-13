@@ -44,13 +44,40 @@ class CustomChangePasswordForm(ChangePasswordForm):
 class CustomResetPasswordForm(ResetPasswordForm):
 
     def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request', None)
         super().__init__(*args, **kwargs)
+
+        self.random_string = generate_random_string() if self.request.session.get('random_string', '') == '' else self.request.session.get('random_string', '')
+
+        if self.request.session.get('random_string', '') == '':
+            self._reset_random_string()
+
+        self.fields['random_string'] = forms.CharField(
+            required=True,
+            label=f'Please enter the following code into the field: \n{self.random_string}',
+            help_text=f'You need to enter the provided code above to prove you are not a robot.'
+        )
         for field in self.fields.values():
             field.widget.attrs = {'class': 'form-control'}
 
+    def clean_random_string(self):
+
+        user_answer = self.cleaned_data.get('random_string', '')
+        correct_answer = self.request.session.pop('random_string', 'Default')
+
+        print(user_answer, correct_answer)
+
+        if user_answer != correct_answer:
+            self._reset_random_string()
+            raise ValidationError('You have entered an incorrect code.')
+
+        return user_answer
+
+    def _reset_random_string(self):
+        self.request.session['random_string'] = self.random_string
+
 
 class CustomResetPasswordKeyForm(ResetPasswordKeyForm):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
@@ -70,7 +97,7 @@ class CustomSignUpForm(SignupForm):
 
         self.fields['random_string'] = forms.CharField(
             required=True,
-            label=f'Please enter the following string into the field: \n{self.random_string}',
+            label=f'Please enter the following code into the field: \n{self.random_string}',
             help_text=f'Type: {self.random_string}'
         )
 
@@ -97,7 +124,7 @@ class CustomSignUpForm(SignupForm):
 
         if user_answer != correct_answer:
             self._reset_random_string()
-            raise ValidationError('Incorrect answer. Please try again.')
+            raise ValidationError('You have entered an incorrect code. Please try again.')
         self._reset_random_string()
         return user_answer
 

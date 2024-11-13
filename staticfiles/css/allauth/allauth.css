@@ -388,4 +388,9 @@ input[name="password"]:focus-visible {
     .right-nested-container h2 {
         font-size: 2rem;
     }
+
+    .container h1 {
+        font-size: 2rem;
+    }
+
 }
