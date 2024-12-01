@@ -101,3 +101,5 @@ class UrlTests(TestCase):
         self.assertTrue(login_user)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profile/profile.html')
+
+    # TODO: Create URL tests for the rest of the URL's to ensure that URL's are created correctly and are reachable
